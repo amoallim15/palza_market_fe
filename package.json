@@ -1,0 +1,23 @@
+{
+  "name": "palzamarket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "dependencies": {
+    "live-server": "^1.2.1",
+    "package.json": "^2.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.1",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^5.0.0",
+    "node-sass": "^6.0.1",
+    "sass": "^1.38.0",
+    "tailwindcss": "^2.2.7"
+  },
+  "scripts": {
+    "css": "gulp"
+  }
+}

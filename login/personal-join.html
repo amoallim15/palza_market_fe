@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- script -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+  <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+  <!-- css here -->
+  <link rel="stylesheet" href="/static/css/reset.css">
+  <link rel="stylesheet" href="/static/css/hw-style.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <!-- fonts here -->
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+  <title>대한민국 No.1 상가점포 전문 부동산 팔자마켓</title>
+  <!-- script here -->
+</head>
+<script>
+  $(function () {
+    $("#header").load("header.html");
+    $("#footer").load("footer.html");
+  });
+</script>
+
+<body>
+  <div id="header"></div>
+
+  <section id="join">
+    <div class="mx-auto mx-10 py-12 max-w-screen-sm text-center">
+      <h2 class="text-4xl mb-4 font-bold">회원가입</h2>
+      
+    </div>
+    <div class="mx-auto mx-10 py-4 mb-16 max-w-screen-sm join-bg">
+      <div class="">
+        <h2 class="m-4 mt-6 text-2xl font-medium">개인정보 입력</h2>
+        <form action="">
+          <ul class="m-4">
+            <li class="mb-4">
+              <label for="id" class="w-4/12 inline-block">아이디</label>
+              <input id="id" required type="text" class="w-6/12 pl-2 text-sm py-1 outline-none rounded-sm join-border" placeholder="아이디">
+            </li>
+            <li class="mb-4">
+              <label for="name" class="w-4/12 inline-block">본인 실명확인</label>
+              <input id="name" required type="button" class="w-6/12 pl-2 text-xs py-2 join-btn-bg" value="본인 인증하기"
+              onclick="window.open('html주소','본인 인증하기','width=600px,height=700px,location=no,status=no,scrollbars=yes');">
+            </li>
+            <li class="mb-4">
+              <label for="id" class="w-4/12 inline-block">이름</label>
+              <input id="id" disabled type="text" class="w-6/12 pl-2 join-input-bg text-sm py-1 outline-none rounded-sm join-border" placeholder="본인 인증을 완료해주세요">
+            </li>
+            <li class="mb-4">
+              <label for="id" class="w-4/12 inline-block">휴대폰 번호</label>
+              <input id="id" disabled type="text" class="w-6/12 pl-2 join-input-bg text-sm py-1 outline-none rounded-sm join-border" placeholder="본인 인증을 완료해주세요">
+            </li>
+            <li class="mb-4">
+              <label for="passward" class="w-4/12 inline-block">비밀번호</label>
+              <input id="passward" required type="password" class="w-6/12 pl-2 text-sm py-1 outline-none rounded-sm join-border" placeholder="비밀번호">
+            </li>
+            <li class="mb-4">
+              <label for="pasward-check" class="w-4/12 inline-block">비밀번호 확인</label>
+              <input id="passward-check" required type="password" class="w-6/12 pl-2 text-sm py-1 outline-none rounded-sm join-border" placeholder="비밀번호확인">
+            </li>
+          </ul>
+        </form>
+        <hr class="mx-4">
+      </div>
+      <div class="">
+        <ul class="m-5">
+          <li class="flex justify-between mb-4">
+            <div>
+              <input id="yes1" type="radio">
+              <span class="point-color-font mx-2 text-sm">[필수]</span><label for="yes1">약관동의</label>
+            </div>
+            <a href="#" class="text-sm join-btn-font">약관보기</a>
+          </li>
+          <li class="flex justify-between">
+            <div>
+              <input id="yes2" type="radio">
+              <span class="point-color-font mx-2 text-sm">[필수]</span><label for="yes2">개인정보수집 및 이용에 대한 동의</label>
+            </div>
+            <a href="#" class="text-sm join-btn-font">약관보기</a>
+          </li>
+        </ul>
+        <div class="mx-4">
+          <button type="submit" onclick="location.href='done2.html'" class="point-color-bg w-full rounded-sm py-2 text-lg text-white my-4">가입 신청하기</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- contents ends-->
+  <!-- footer start -->
+  <div id="footer"></div>
+</body>
+
+</html>

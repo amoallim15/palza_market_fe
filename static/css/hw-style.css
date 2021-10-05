@@ -1,0 +1,322 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    letter-spacing: -1px;
+    background-color: #fff;
+}
+#se1, #se2, #se3, #se4, #se5, #se6, #se7, #se8,
+#finsh, #finsh2, #finsh3, #choice{
+    font-family: 'Spoqa Han Sans Neo';
+}
+/* 색상 */
+.sky{
+    background-color: #EDF4F8;
+    width: 100%;
+}
+.point-color-bg{
+    background-color: #429dda;
+}
+.point-color-font{
+    color: #429dda;
+}
+.point-color-bg2{
+    background-color: #915c0f;
+}
+#se3, #se4, #se8{
+    background-color: #FAFAFA;
+}
+.banner-bg{
+    background-color: #542b79;
+}
+.footer-bg{
+    background-color: #072331;
+}
+.footer-text{
+    color: #929292;
+}
+.util-text{
+    color:#514F4F
+}
+.util-text2{
+    color: #F58B07;
+}
+.join-bg{
+    background-color: #E5E5E5;
+}
+.join-input-bg{
+    background-color: #ECECEC;
+}
+.join-btn-bg{
+    background-color: #C4C4C4;
+}
+.join-btn-font{
+    color: #c4c4c4;
+}
+.join-border{
+    border: solid 1px #c4c4c4;
+}
+.choice-btn-color{
+    background-color: #072331;
+}
+#join input[type=button]:hover{
+    background-color: #429DDA;
+    color: #fff;
+}
+.mypage-point-bg{
+    background-color: #f56807;
+}
+.mypage-point-text{
+    color: #f56807;
+}
+.list-icon{
+    color: #ff6262;
+}
+.office-search{
+    color: #555;
+}
+/* 색상  끝 */
+
+/* 그림자 */
+.search-shadow{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 30px 3px rgba(66, 157, 218, 0.25);
+    border-radius: 10px;
+}
+.list-shadow{
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    border-radius: 5px;
+}
+/*  */
+
+.border-r-1{
+    border-right: solid 1px #D9E0E3;
+}
+.mypage-border{
+    border: solid 1px #F04B40;
+}
+#se1, #se2, #se3, #se4, #se5, #se6, #se7, #se8{
+    font-family: 'Spoqa Han Sans Neo';
+}
+/* 리스트 텍스트 */
+.list li p:nth-child(1){
+    font-size: 14px;
+    line-height: 17px;
+    color: #7910AA;
+}
+.list li p:nth-child(1) span{
+    background-color: #7910AA;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+.list li p:nth-child(2){
+    font-size: 24px;
+    line-height: 50px;
+    color: #000;
+    font-weight: 500;
+}
+.list li p:nth-child(3){
+    font-size: 18px;
+    line-height: 21px;
+    color: #1C93E2;
+}
+.list li p:nth-child(4){
+    font-size: 14px;
+    line-height: 17px;
+    color: #000;
+}
+.list li p:nth-child(5){
+    font-size: 10px;
+    line-height: 20px;
+    color: #737373;
+}
+.list li p:nth-child(6) span:nth-child(1){
+    font-size: 7px;
+    line-height: 10px;
+    border: solid 1px #000;
+    padding: 5px;
+    border-radius: 5px;
+} 
+.list li p:nth-child(6) span:nth-child(2){
+    font-size: 7px;
+    line-height: 10px;
+    border: solid 1px #FF6262;
+    color: #FF6262;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+} 
+/*리스트 텍스트 끝*/
+
+
+
+.etc{
+    text-align: start;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #000;
+}
+
+
+/* 리뷰 */
+.re-list li{
+    background-color: #fff;
+    padding:  15px;
+}
+.re-list li span{
+    background-color: #ABDA24;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #fff;
+    border-radius: 10px;
+    
+}
+.re-list li h4{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.re-list li p:nth-child(3){
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 10px 10px 10px 0;
+    color: #000;
+}
+.re-list li p:nth-child(3) i{
+    margin-right: 10px;
+    color: #1c93e2;
+   
+}
+.re-list li p:nth-child(4){
+    font-size: 11;
+    line-height: 13px;
+    margin-bottom: 10px;
+    
+}
+.re-list li p:nth-child(5){
+    font-size: 11;
+    line-height: 13px;
+}
+/* 리뷰 끝 */
+
+
+/* 판매완료 레이아웃 */
+@media (min-width: 1024px){
+    .grid2{
+        grid-template-columns: 40% 60%;
+    }
+}
+@media (min-width: 768px){
+    .line-lr{
+        border-left: 1px solid #CACACA;
+        border-right: 1px solid #CACACA;
+    }
+    .deltle:hover{
+        color: #429dda;
+    }
+}
+
+
+/* 햄버거 */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0; /*왼쪽 오른쪽*/
+    background-color: #429dda; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+/*패딩으로 햄버거 위치 조정 가능*/
+#main {
+    transition: margin-right .5s;
+    text-align: right;
+} 
+/* 햄버거 버튼 작대기  */
+.line {
+    background:#ccc;
+    margin-top:6px;
+    margin-bottom:6px;
+    width:35px;
+    height:5px; 
+    border-radius:2px;
+    position:relative;
+}
+/* 대메뉴 꾸미기 */
+.dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    display: block;
+    border: none;
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+/* Add an active class to the active dropdown button */
+.active {
+    background-color: #072331;
+    color: white;
+}
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    background-color: #367fb0;
+    padding-left: 8px;
+}
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+/*  */
+
+/* 풋터 */
+.ft-line{
+    border: solid 1px #ccc;
+}
+/*  */
+
+
+/*폴더 login*/
+#join hr{
+    border-top:solid 1px #c4c4c4;
+}
+.choice-shadow{
+    background: #f8f8f8;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.14);
+    border-radius: 10px;
+    text-align: center;
+    border: 3px solid rgba(255, 255, 255, 0);
+}
+#choice ul li:hover{
+    border:3px solid #429DDA;
+    box-sizing: border-box;
+}
+
+
+#choice ul li:hover a button{
+    background-color: #429DDA;
+}
+/* 폴더 마이페이지 */
+.max-w-screen-xs{
+    max-width: 500px;
+}
+.back-bg{
+    background-image: url(/static/img/mypage-list.jpg);
+    background-size: cover;
+}
