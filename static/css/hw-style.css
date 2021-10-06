@@ -60,7 +60,7 @@ body{
 .choice-btn-color{
     background-color: #072331;
 }
-#join input[type=button]:hover{
+#personal input[type=button]:hover, #join input[type=button]:hover{
     background-color: #429DDA;
     color: #fff;
 }
@@ -293,7 +293,7 @@ body{
 
 
 /*폴더 login*/
-#join hr{
+hr{
     border-top:solid 1px #c4c4c4;
 }
 .choice-shadow{
