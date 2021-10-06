@@ -24,7 +24,7 @@ body{
 .point-color-bg2{
     background-color: #915c0f;
 }
-#se3, #se4, #se8{
+#se3, #se4, #se8, #promote-se1, #promote-se2{
     background-color: #FAFAFA;
 }
 .banner-bg{
@@ -88,6 +88,10 @@ body{
     box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.08);
     background-color: #fff;
     border-radius: 5px;
+}
+.promote-shadow{
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
 }
 /*  */
 
@@ -296,6 +300,9 @@ body{
 hr{
     border-top:solid 1px #c4c4c4;
 }
+.promote-hr{
+    border-top: solid 2px #000;
+}
 .choice-shadow{
     background: #f8f8f8;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.14);
@@ -319,4 +326,52 @@ hr{
 .back-bg{
     background-image: url(/static/img/mypage-list.jpg);
     background-size: cover;
+}
+.promote-last{
+    padding-top: 15%;
+}
+
+/* promote slider */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+   }
+    100% {
+        transform: translateX(calc(-250px * 7));
+   }
+}
+.slider {
+    background: white;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+    height: 150px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.slider::before, .slider::after {
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 150px;
+    position: absolute;
+    width: 390px;
+    z-index: 2;
+}
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+.slider::before {
+    left: 0;
+    top: 0;
+}
+.slider .slide-track {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+}
+.slider .slide {
+    height: 100px;
+    width: 345px;
 }
