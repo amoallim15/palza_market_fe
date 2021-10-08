@@ -20,6 +20,180 @@
 </head>
 
 <body>
+
+  <!--header start -->
+  <div class="banner-bg">
+    <div class="mx-auto my-0 max-w-screen-xl">
+      <ul class="text-center banner">
+        <li class="relative">
+          <a href="http://qpm.or.kr" target="_blank" class="inline-block w-4/6">
+            <img class="inline-block w-full" src="/static/img/banntop_0.jpeg" alt="키오스크">
+          </a>
+          <div class="z-50 hidden lg:block text-center absolute top-18 w-full h-0 left-0 overflow-hidden change header-bg banner2">
+            <a href="http://qpm.or.kr" target="_blank" class="block h-full">
+              <img class="inline-block h-full" src="/static/img/banntop_0.jpeg" alt="키오스크">
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--  -->
+ 
+  <div class="mx-auto my-0 max-w-screen-xl lg:my-5">
+  <div class="flex justify-between">
+    <div class="flex">
+      <h1>
+        <a href="/index.html" class="block">
+          <img src="/static/img/logo.png" alt="팔자마켓 로고">
+        </a>
+      </h1>
+      <ul class="hidden lg:block lg:grid lg:grid-cols-5 text-center lg:gap-8 mt-3">
+        <li class="">
+          <a href="/about/index.html" class="block text-lg">About</a>
+        </li>
+        <li class="">
+          <a href="#" class="block text-lg">매물 검색</a>          
+        </li>
+        <li class="">
+          <a href="/closed-deal/index.html" class="block text-lg">거래 완료매물</a>          
+        </li>
+        <li class="">
+          <a href="/start-business/index.html" class="block text-lg">창업 허브</a>           
+        </li>
+        <li class="">
+          <a href="/community/notice.html" class="block text-lg">커뮤니티</a>
+        </li>
+      </ul>
+    </div>
+    <!-- login & register -->
+    
+    <div class="flex gap-20">
+      <div class="hidden lg:flex mt-3 mr-2 lg:mr-0 justify-end">
+        <!-- 권한의 따라 선택 -->
+        <div class="flex">
+          <a href="" class="block util-text">로그인 ㅣ</a>
+          <!-- <a href="#" class="block util-text">username ㅣ</a> -->
+          <a href="/login/index.html" class="block util-text">회원가입</a>
+          <!-- <a href="/mypage/index.html" class="block util-text">마이 페이지</a> -->
+          <!-- <a href="#" class="block util-text">관리자 페이지</a> -->
+        </div>
+      </div>
+      <div class="hidden lg:block text-right mr-2 lg:mr-0">
+        <div><a href="/about/signup-info.html" class="block font-normal util-text2">중개사무소 가입<br> 및 광고문의 &nbsp;&nbsp; &rarr;</a></div>
+      </div>
+    
+    
+      <!-- 버튼 모양 수정 코드 -->
+      <div id="main" class="block lg:hidden"> 
+        <div id="line-wrapper" class="mt-2 mr-2" onclick="openNav()">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>      
+      <div id="mySidenav" class="sidenav block lg:hidden">
+        <div class="flex justify-between px-4 text-4xl text-white mb-6">
+          <a href="index.html"><i class="p-0 xi-home-o block"></i></a>
+          <a href="javascript:void(0)" class="p-0 aobsolute top-0 rigth-5" onclick="closeNav()">&times;</a>
+        </div>
+        <div class="pl-4 text-white">
+          <a href="/login/index.html" class="block">로그인 ㅣ 회원가입</a>
+          <p class="">반갑습니다.<span class="px-2">username</span>님</p>
+        </div>
+        <ul>
+          <li>
+            <button class="dropdown-btn">관리자
+              <i class="xi-caret-down-min "></i>
+            </button>
+            <div class="dropdown-container">
+              <a href="#" class="block text-white pl-6 pt-2">소메뉴1</a>
+              <a href="#" class="block text-white pl-6 pt-2">소메뉴2</a>
+              <a href="#" class="block text-white pl-6 py-2">소메뉴3</a>
+              <a href="#" class="block text-white pl-6 py-2">소메뉴4</a>
+            </div>
+          </li>
+          <li>
+            <button class="dropdown-btn">마이 페이지
+              <i class="xi-caret-down-min "></i>
+            </button>
+            <div class="dropdown-container">
+              <a href="/mypage/index.html" class="block text-white pl-6 pt-2">내 정보수정</a>
+              <a href="#" class="block text-white pl-6 pt-2">찜한 목록</a>
+            </div>
+          </li>
+          <li>
+            <button class="dropdown-btn">About
+              <i class="xi-caret-down-min "></i>
+            </button>
+            <div class="dropdown-container">
+              <a href="/about/index.html" class="block text-white pl-6 pt-2">회사소개</a>
+              <a href="/about/signup-info.html" class="block text-white pl-6 pt-2">가입안내</a>
+              <a href="/about/advertising-guide.html" class="block text-white pl-6 py-2">광고문의</a>
+            </div>
+          </li>
+          <li>
+            <button class="dropdown-btn" onclick="location.href='#'">매물 검색</button>
+          </li>
+          <li>
+            <button class="dropdown-btn" onclick="location.href='/closed-deal/index.html'">거래 완료매물</button>
+          </li>
+          <li>
+            <button class="dropdown-btn">창업 허브
+              <i class="xi-caret-down-min "></i>
+            </button>
+            <div class="dropdown-container">
+              <a href="/start-business/index.html" class="block text-white pl-6 pt-2">프렌차이즈 창업</a>
+              <a href="/start-business/magazine.html" class="block text-white pl-6 py-2">팔자 매거진</a>
+            </div>
+          </li>
+          <li>
+            <button class="dropdown-btn">커뮤니티
+              <i class="xi-caret-down-min "></i>
+            </button>
+            <div class="dropdown-container">
+              <a href="#" class="block text-white pl-6 pt-2">공지사항</a>
+              <a href="#" class="block text-white pl-6 pt-2">허위매물 신고</a>
+              <a href="#" class="block text-white pl-6 pt-2">계약 후기</a>
+              <a href="#" class="block text-white pl-6 py-2">매수 / 매도 의뢰</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+ 
+  <!-- 스몰 메뉴 등장하는 스크립트  -->
+  <script>
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+  
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+        } else {
+          dropdownContent.style.display = "block";
+        }
+      });
+    }
+  </script>
+  <script>
+      /* 등장 메뉴 크기 조절 */
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  /* 고정값 닫앗을때 위드 없애기*/
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
+
+  <!--header finish-->
+
   <section class="hidden lg:block">
     <div class="mx-auto mx-10 py-12 max-w-screen-xl text-center">
       <h2 class="text-4xl mb-8 font-bold">About</h2>
@@ -33,6 +207,60 @@
     </div>
   </section>
 
+<!--footer-->
+<footer id="footer">
+  <div class="mx-auto my-0 max-w-screen-xl">
+    <div class="md:grid md:grid-cols-3 md:mx-4 md:my-12 md:gap-4">
+      <div class="hidden md:block">
+        <h3 class="text-4xl font-bold text-center lg:text-left">공지사항</h3>
+        <ul class="mt-4">
+          <li class="flex justify-between">
+           <p class="text-lg">팔자마켓 사이트 리뉴얼 안내</p> 
+           <p class="text-sm text-right align-middle footer-text mt-1">2021. 09. 14</p>
+           </li>
+        </ul>
+      </div>
+      <div class="m-4 md:m-0 text-center line-lr lg:text-left lg:pl-12">
+        <h3 class="text-4xl font-bold">고객상담</h3>
+        <p class="point-color-font text-5xl my-2">1588-0000</p>
+        <ul class="">
+          <li class="text-lg md:text-md">평일 오전 9시 ~오후6시(점심시간 12시~1시)</li>
+          <li class="text-lg md:text-md">주말 및 공휴일 휴무</li>
+          <li class="text-lg md:text-md">이메일: palazamarket@palza.kr</li>
+        </ul>
+      </div>
+      <div class="m-4 my-16 text-center md:m-0 lg:text-left lg:pl-12">
+        <h3 class="text-4xl font-bold">이용안내</h3>
+        <ul class="grid grid-cols-3 my-3 gap-2 md:grid-cols-2">
+          <li class="py-2 ft-line pl-2">
+            <a href="#">개인정보취급방침</a>
+          </li>
+          <li class="py-2 ft-line pl-2">
+            <a href="#">허위매물 신고</a>
+          </li>
+          <li class="py-2 ft-line pl-2">
+            <a href="#">위치기반 이용약관</a>
+          </li>
+          <li class="py-2 ft-line pl-2">
+            <a href="#">매수/매도 의뢰</a>
+          </li>
+          <li class="py-2 ft-line pl-2">
+            <a href="#">광고 문의</a>
+          </li>
+          <li class="py-2 ft-line pl-2">
+            <a href="#">중개사무소 가입안내</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bg p-4 md:p-4">
+    <div class="text-white text-center text-xl py-3">
+      <p>개업공인중개사표시: 부동산중개법인 팔자마켓(주) 주소:서울시 서초구 강남대로 617 대양빌딩 6층 (잠원동 12-17)</p>
+      <p>대표자:김보석 010-1234-7890 등록번호:11650-2019-00264 copyright(주)팔자마켓</p>
+    </div>
+  </div>
+</footer>
 
 </body>
 
