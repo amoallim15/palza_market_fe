@@ -251,6 +251,23 @@ body {
     padding: 15px;
 }
 
+.valueforReview span {
+    background-color: #ABDA24;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #fff;
+    border-radius: 10px;
+}
+.valueforReview-red span {
+    background-color: #ff6262;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #fff;
+    border-radius: 10px;
+}
+
 .re-list li span {
     background-color: #ABDA24;
     padding: 5px 10px;

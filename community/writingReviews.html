@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- script -->
+
+  <!-- css here -->
+  <link rel="stylesheet" href="/static/css/reset.css">
+  <link rel="stylesheet" href="/static/css/hw-style.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- fonts here -->
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+  <title>대한민국 No.1 상가점포 전문 부동산 팔자마켓</title>
+  <!-- script here -->
+</head>
+
+<body>
+  <!-- head text for this page -->
+  <section class="mx-auto max-w-screen-xl">
+    <div class="py-10">
+      <div class="">
+        <h2 class="text-5xl text-center mb-4 font-bold">계약후기 작성</h2>
+        <p class="text-center point-color-font font-medium">계약 후기를 작성하고 소정의 사은품을 받아보세요!</p>
+        <p class="text-center font-medium">단, 계약후기는 계약체결 사실 확인 후 게재 가능하며, 등록 후 수정 불가합니다.</p>
+      </div>
+    </div>
+    <!-- writing board starts -->
+    <div class="p-4 lg:p-0">
+    <p class="text-right" style="font-size: 0.8rem;"><a href="/community/reviews.html">이전 페이지로 돌아가기</a></p>
+    <div class="relative editor mx-auto flex flex-col text-gray-800 border border-black pt-2 ">
+      <input class="title border border-black p-2 mb-2 outline-none" spellcheck="false" placeholder="제목"
+        type="text"><span class="absolute right-3 top-4 point-color-font font-semibold"><a href="#">등록</a></span></input>
+      <p class="text-right mb-2" style=><span class="ratingnumber font-semibold">4.0&nbsp;</span><span class="xi-star"
+          style="color:#429dda;"></span><span class="xi-star" style="color:#429dda;"></span><span class="xi-star"
+          style="color:#429dda;"></span><span class="xi-star" style="color:#429dda;"></span><span class="xi-star-o"
+          style="color:#429dda;"></span></p>
+      <textarea class="description  sec p-3 h-60 border border-black outline-none" spellcheck="false"
+        placeholder="최소 100자 이상으로 입력해주세요!"></textarea>
+        <!-- div for info -->
+        <div class="mt-5"style="border: 1px solid #000;">
+        <div class="wrapInfo grid lg:grid-cols-4 grid-cols-2 m-10 lg:gap-48 gap-10">
+          <div class="">
+          <h3 class="font-bold text-xl mb-5">계약 종류</h3>
+          <input type="checkbox" name="" id="">
+          <span class="text-gray-400">매수후기</span>
+          <input type="checkbox" name="" id="">
+          <span class="text-gray-400">매도후기</span>
+          </div>
+          <div class="">
+            <h3 class="font-bold text-xl mb-5">계약일</h3>
+            <div class="flex">
+            <input class="mr-2 outline-none" style="border:1px solid #c4c4c4;" type="text" name="" placeholder="년" id="" maxlength="6" size="6">
+            <input class="mr-2 outline-none" style="border:1px solid #c4c4c4;" type="text" name="" placeholder="월" id="" maxlength="6" size="6">
+            <input class="outline-none" style="border:1px solid #c4c4c4;" type="text" name="" placeholder="일" id="" maxlength="6" size="6">
+          </div>
+          </div>
+          <div class="">
+            <h3 class="font-bold text-xl mb-5">담당 에이전트</h3>
+            <input class="outline-none relative" style="border:1px solid #c4c4c4;" type="text" name="" placeholder="김수환무" id="">
+          
+          </div>
+          <div class="">
+            <h3 class="font-bold text-xl mb-5">고객명</h3>
+            <input class="outline-none"  style="border:1px solid #c4c4c4;" type="text" name="" placeholder="김감자" id="">
+          </div>
+        </div>
+      </div>
+      <!-- div for info check ends -->
+      <div class="text-center mt-3">
+        <input type="checkbox" name="" id="">
+        <a href="#">
+        <small>개인정보 수집 및 이용에 동의합니다.</small>
+      </a></div>
+      </div>
+    </div>
+
+
+  </section>
+</body>
+
+</html>

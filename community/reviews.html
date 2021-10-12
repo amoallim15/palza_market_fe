@@ -18,6 +18,7 @@
   <title>대한민국 No.1 상가점포 전문 부동산 팔자마켓</title>
   <!-- script here -->
 </head>
+
 <body>
   <!-- category -->
   <section class="hidden lg:block">
@@ -25,39 +26,217 @@
       <h2 class="text-4xl mb-8 font-bold">커뮤니티</h2>
       <div class="">
         <ul class="grid grid-cols-4 leading-10">
-          <li class="border-b border-gray-300 border-solid box-border office-search" onclick="location.href='notice.html'">공지사항</li>
-          <li class="border-b border-gray-300 border-solid box-border office-search" onclick="location.href='report.html'">허위매물 신고</li>
-          <li class="border-b-2 border-black border-solid box-border font-semibold" onclick="location.href='reviews.html'">계약 후기</li>
-          <li class="border-b border-gray-300 border-solid box-border office-search" onclick="location.href='request.html'">매수/매도 의뢰</li>
+          <li class="border-b border-gray-300 border-solid box-border office-search"
+            onclick="location.href='notice.html'">공지사항</li>
+          <li class="border-b border-gray-300 border-solid box-border office-search"
+            onclick="location.href='report.html'">허위매물 신고</li>
+          <li class="border-b-2 border-black border-solid box-border font-semibold"
+            onclick="location.href='reviews.html'">계약 후기</li>
+          <li class="border-b border-gray-300 border-solid box-border office-search"
+            onclick="location.href='request.html'">매수/매도 의뢰</li>
         </ul>
       </div>
     </div>
   </section>
   <!-- category -->
-    <!-- counting pages num & writing tag-->
-    <div class="grid grid-cols-2 mx-auto  max-w-screen-xl justify-around pt-16">
-      <div>
-        <p>전체<span class="point-color-font font-semibold">&nbsp;0</span>&nbsp;건</p>
-      </div>
-      <div class="text-gray-300 relative text-right">
-      <a href="#"><span class="point-color-font font-semibold">후기 작성하기</span></a>
-      </div>
+  <!-- counting pages num & writing tag-->
+  <div class="grid grid-cols-2 mx-auto  max-w-screen-xl justify-around pt-16 pl-4 pr-4 lg:pl-0 lg:pr-0 lg:pb-14">
+    <div>
+      <p>전체<span class="point-color-font font-semibold">&nbsp;0</span>&nbsp;건</p>
     </div>
-    <!-- writing tag -->
-    <div class="pt-16 mx-auto  max-w-screen-xl">
-      <div class="tagforReview"></div>
-      <h3>계약후기 제목</h3>
-      <div class="rating">
-        <span></span>
-        <span>5.0(별점)</span>
-      </div>
-      <p>용인에 있는 스터디카페를 민보라차장님 통해서 양도하게
-        되었습니다. 아주 긴급한일이 생겨서 건너건너 알아보다
-        의뢰하게 되었습니다. 생각보다 전문적으로 깊게 알고
-        있다는점에 놀랐고 정말 놀라운건 양도자와 양수자와의
-        중간 역할을 너무나 완벽하게 잘하십니다..저라면 못했
-        을듯 ;;; 그리고 무엇보다 너무 솔직하셔서 좋았습니다.그...</p>
+    <div class="text-gray-300 relative text-right">
+      <a href="writingReviews.html"><span class="point-color-font font-semibold">후기 작성하기</span></a>
     </div>
+  </div>
+  <!-- writing tag -->
+  <div class="pt-16 mx-auto max-w-screen-xl grid lg:grid-cols-4 p-4 lg:p-0 gap-10">
+    <!-- single -->
+    <a href="#">
+    <div class="" style="border:1px solid #c4c4c4;">
+      <ul class="wrapReviews lg:p-5 p-4">
+        <li class="valueforReview font-medium text-xs tracking-wide"><span>매수후기</span></li>
+        <li class="nameforReview font-bold pt-8 pb-4 text-xl">스터디카페 계약후기</li>
+        <li class="ratings pb-4"><span class="xi-star" style="color:#429dda;"></span><span
+            class="font-semibold">&nbsp;&nbsp;5.0</span></li>
+        <li class="h-20" style="display: -webkit-box; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical; height:7.25rem;">용인에 있는 스터디카페를 민보라차장님 통해서 양도하게
+          되었습니다. 아주 긴급한일이 생겨서 건너건너 알아보다
+          의뢰하게 되었습니다. 생각보다 전문적으로 깊게 알고
+          있다는점에 놀랐고 정말 놀라운건 양도자와 양수자와의
+          중간 역할을 너무나 완벽하게 잘하십니다..저라면 못했
+          을듯 ;;; 그리고 무엇보다 너무 솔직하셔서 좋았습니다.그래서 어쩌거어쪼거</li>
+        <li class="author pt-6"><span>김*진</span>&nbsp;님&nbsp;<span>(담당 에이전트&nbsp;:&nbsp;</span><span>김보석</span>) </li>
+        <li class="published pt-4 office-search" style="font-size:0.8rem;">등록일 : <span>2021-10-21</span></li>
+      </ul>
+    </div>
+  </a>
+    <!-- single -->
+    <a href="#">
+    <div class="" style="border:1px solid #c4c4c4;">
+      <ul class="wrapReviews lg:p-5 p-4">
+        <li class="valueforReview-red font-medium text-xs tracking-wide"><span>매도후기</span></li>
+        <li class="nameforReview font-bold pt-8 pb-4 text-xl">스터디카페 계약후기</li>
+        <li class="ratings pb-4"><span class="xi-star" style="color:#429dda;"></span><span
+            class="font-semibold">&nbsp;&nbsp;5.0</span></li>
+        <li class="" style="display: -webkit-box; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical; height:7.25rem;">감사합니다.</li>
+        <li class="author pt-6"><span>김*진</span>&nbsp;님&nbsp;<span>(담당 에이전트&nbsp;:&nbsp;</span><span>김보석</span>) </li>
+        <li class="published pt-4 office-search" style="font-size:0.8rem;">등록일 : <span>2021-10-21</span></li>
+      </ul>
+    </div>
+  </a>
+      <!-- single -->
+      <a href="#">
+        <div class="" style="border:1px solid #c4c4c4;">
+          <ul class="wrapReviews lg:p-5 p-4">
+            <li class="valueforReview font-medium text-xs tracking-wide"><span>매수후기</span></li>
+            <li class="nameforReview font-bold pt-8 pb-4 text-xl">스터디카페 계약후기</li>
+            <li class="ratings pb-4"><span class="xi-star" style="color:#429dda;"></span><span
+                class="font-semibold">&nbsp;&nbsp;5.0</span></li>
+            <li class="h-20" style="display: -webkit-box; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical; height:7.25rem;">용인에 있는 스터디카페를 민보라차장님 통해서 양도하게
+              되었습니다. 아주 긴급한일이 생겨서 건너건너 알아보다
+              의뢰하게 되었습니다. 생각보다 전문적으로 깊게 알고
+              있다는점에 놀랐고 정말 놀라운건 양도자와 양수자와의
+              중간 역할을 너무나 완벽하게 잘하십니다..저라면 못했
+              을듯 ;;; 그리고 무엇보다 너무 솔직하셔서 좋았습니다.그래서 어쩌거어쪼거</li>
+            <li class="author pt-6"><span>김*진</span>&nbsp;님&nbsp;<span>(담당 에이전트&nbsp;:&nbsp;</span><span>김보석</span>) </li>
+            <li class="published pt-4 office-search" style="font-size:0.8rem;">등록일 : <span>2021-10-21</span></li>
+          </ul>
+        </div>
+      </a>
+          <!-- single -->
+    <a href="#">
+      <div class="" style="border:1px solid #c4c4c4;">
+        <ul class="wrapReviews lg:p-5 p-4">
+          <li class="valueforReview font-medium text-xs tracking-wide"><span>매수후기</span></li>
+          <li class="nameforReview font-bold pt-8 pb-4 text-xl">스터디카페 계약후기</li>
+          <li class="ratings pb-4"><span class="xi-star" style="color:#429dda;"></span><span
+              class="font-semibold">&nbsp;&nbsp;5.0</span></li>
+          <li class="h-20" style="display: -webkit-box; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical; height:7.25rem;">용인에 있는 스터디카페를 민보라차장님 통해서 양도하게
+            되었습니다. 아주 긴급한일이 생겨서 건너건너 알아보다
+            의뢰하게 되었습니다. 생각보다 전문적으로 깊게 알고
+            있다는점에 놀랐고 정말 놀라운건 양도자와 양수자와의
+            중간 역할을 너무나 완벽하게 잘하십니다..저라면 못했
+            을듯 ;;; 그리고 무엇보다 너무 솔직하셔서 좋았습니다.그래서 어쩌거어쪼거</li>
+          <li class="author pt-6"><span>김*진</span>&nbsp;님&nbsp;<span>(담당 에이전트&nbsp;:&nbsp;</span><span>김보석</span>) </li>
+          <li class="published pt-4 office-search" style="font-size:0.8rem;">등록일 : <span>2021-10-21</span></li>
+        </ul>
+      </div>
+    </a>
+        <!-- single -->
+        <a href="#">
+          <div class="" style="border:1px solid #c4c4c4;">
+            <ul class="wrapReviews lg:p-5 p-4">
+              <li class="valueforReview font-medium text-xs tracking-wide"><span>매수후기</span></li>
+              <li class="nameforReview font-bold pt-8 pb-4 text-xl">스터디카페 계약후기</li>
+              <li class="ratings pb-4"><span class="xi-star" style="color:#429dda;"></span><span
+                  class="font-semibold">&nbsp;&nbsp;5.0</span></li>
+              <li class="h-20" style="display: -webkit-box; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; -webkit-line-clamp: 5;
+              -webkit-box-orient: vertical; height:7.25rem;">용인에 있는 스터디카페를 민보라차장님 통해서 양도하게
+                되었습니다. 아주 긴급한일이 생겨서 건너건너 알아보다
+                의뢰하게 되었습니다. 생각보다 전문적으로 깊게 알고
+                있다는점에 놀랐고 정말 놀라운건 양도자와 양수자와의
+                중간 역할을 너무나 완벽하게 잘하십니다..저라면 못했
+                을듯 ;;; 그리고 무엇보다 너무 솔직하셔서 좋았습니다.그래서 어쩌거어쪼거</li>
+              <li class="author pt-6"><span>김*진</span>&nbsp;님&nbsp;<span>(담당 에이전트&nbsp;:&nbsp;</span><span>김보석</span>) </li>
+              <li class="published pt-4 office-search" style="font-size:0.8rem;">등록일 : <span>2021-10-21</span></li>
+            </ul>
+          </div>
+        </a>
+            <!-- single -->
+    <a href="#">
+      <div class="" style="border:1px solid #c4c4c4;">
+        <ul class="wrapReviews lg:p-5 p-4">
+          <li class="valueforReview font-medium text-xs tracking-wide"><span>매수후기</span></li>
+          <li class="nameforReview font-bold pt-8 pb-4 text-xl">스터디카페 계약후기</li>
+          <li class="ratings pb-4"><span class="xi-star" style="color:#429dda;"></span><span
+              class="font-semibold">&nbsp;&nbsp;5.0</span></li>
+          <li class="h-20" style="display: -webkit-box; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical; height:7.25rem;">용인에 있는 스터디카페를 민보라차장님 통해서 양도하게
+            되었습니다. 아주 긴급한일이 생겨서 건너건너 알아보다
+            의뢰하게 되었습니다. 생각보다 전문적으로 깊게 알고
+            있다는점에 놀랐고 정말 놀라운건 양도자와 양수자와의
+            중간 역할을 너무나 완벽하게 잘하십니다..저라면 못했
+            을듯 ;;; 그리고 무엇보다 너무 솔직하셔서 좋았습니다.그래서 어쩌거어쪼거</li>
+          <li class="author pt-6"><span>김*진</span>&nbsp;님&nbsp;<span>(담당 에이전트&nbsp;:&nbsp;</span><span>김보석</span>) </li>
+          <li class="published pt-4 office-search" style="font-size:0.8rem;">등록일 : <span>2021-10-21</span></li>
+        </ul>
+      </div>
+    </a>
+        <!-- single -->
+        <a href="#">
+          <div class="" style="border:1px solid #c4c4c4;">
+            <ul class="wrapReviews lg:p-5 p-4">
+              <li class="valueforReview font-medium text-xs tracking-wide"><span>매수후기</span></li>
+              <li class="nameforReview font-bold pt-8 pb-4 text-xl">스터디카페 계약후기</li>
+              <li class="ratings pb-4"><span class="xi-star" style="color:#429dda;"></span><span
+                  class="font-semibold">&nbsp;&nbsp;5.0</span></li>
+              <li class="h-20" style="display: -webkit-box; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; -webkit-line-clamp: 5;
+              -webkit-box-orient: vertical; height:7.25rem;">용인에 있는 스터디카페를 민보라차장님 통해서 양도하게
+                되었습니다. 아주 긴급한일이 생겨서 건너건너 알아보다
+                의뢰하게 되었습니다. 생각보다 전문적으로 깊게 알고
+                있다는점에 놀랐고 정말 놀라운건 양도자와 양수자와의
+                중간 역할을 너무나 완벽하게 잘하십니다..저라면 못했
+                을듯 ;;; 그리고 무엇보다 너무 솔직하셔서 좋았습니다.그래서 어쩌거어쪼거</li>
+              <li class="author pt-6"><span>김*진</span>&nbsp;님&nbsp;<span>(담당 에이전트&nbsp;:&nbsp;</span><span>김보석</span>) </li>
+              <li class="published pt-4 office-search" style="font-size:0.8rem;">등록일 : <span>2021-10-21</span></li>
+            </ul>
+          </div>
+        </a>
+            <!-- single -->
+    <a href="#">
+      <div class="" style="border:1px solid #c4c4c4;">
+        <ul class="wrapReviews lg:p-5 p-4">
+          <li class="valueforReview font-medium text-xs tracking-wide"><span>매수후기</span></li>
+          <li class="nameforReview font-bold pt-8 pb-4 text-xl">스터디카페 계약후기</li>
+          <li class="ratings pb-4"><span class="xi-star" style="color:#429dda;"></span><span
+              class="font-semibold">&nbsp;&nbsp;5.0</span></li>
+          <li class="h-20" style="display: -webkit-box; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical; height:7.25rem;">용인에 있는 스터디카페를 민보라차장님 통해서 양도하게
+            되었습니다. 아주 긴급한일이 생겨서 건너건너 알아보다
+            의뢰하게 되었습니다. 생각보다 전문적으로 깊게 알고
+            있다는점에 놀랐고 정말 놀라운건 양도자와 양수자와의
+            중간 역할을 너무나 완벽하게 잘하십니다..저라면 못했
+            을듯 ;;; 그리고 무엇보다 너무 솔직하셔서 좋았습니다.그래서 어쩌거어쪼거</li>
+          <li class="author pt-6"><span>김*진</span>&nbsp;님&nbsp;<span>(담당 에이전트&nbsp;:&nbsp;</span><span>김보석</span>) </li>
+          <li class="published pt-4 office-search" style="font-size:0.8rem;">등록일 : <span>2021-10-21</span></li>
+        </ul>
+      </div>
+    </a>
+<!-- single ends -->
+  </div>
+  <!-- grid ends -->
+  <!-- pagination -->
+  <ul class="flex justify-center pt-10">
+    <li class="mx-1 px-3 py-2 text-gray-500 mt-1">
+        <a class="flex items-center font-bold" href="#">
+            <span class="mx-1 xi-long-arrow-left"></span>
+        </a>
+    </li>
+    <li class="mx-1 px-3 py-2 point-color-font">
+        <a class="font-bold" href="#">1</a>
+    </li>
+    <li class="mx-1 px-3 py-2 text-gray-700">
+        <a class="font-bold" href="#">2</a>
+    </li>
+    <li class="mx-1 px-3 py-2 text-gray-700">
+        <a class="font-bold" href="#">3</a>
+    </li>
+    <li class="mx-1 px-3 py-2 text-gray-700">
+        <a class="font-bold" href="#">4</a>
+    </li>
+    <li class="mx-1 px-3 py-2 text-gray-700">
+        <a class="font-bold" href="#">5</a>
+    </li>
+    <li class="mx-1 px-3 py-2 text-gray-700 mt-1">
+        <a class="flex items-center font-bold" href="#">
+            <span class="mx-1 xi-long-arrow-right"></span>
+        </a>
+    </li>
+</ul>
+<!-- pagination ends -->
 
 </body>
 
