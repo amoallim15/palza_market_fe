@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- script -->
+
+  <!-- css here -->
+  <link rel="stylesheet" href="/static/css/reset.css">
+  <link rel="stylesheet" href="/static/css/hw-style.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  
+  <!-- fonts here -->
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+  <title>대한민국 No.1 상가점포 전문 부동산 팔자마켓</title>
+  <!-- script here -->
+</head>
+
+
+<body>
+  <div class="m-8">
+    <form action="">
+    <h2 class="font-bold text-3xl mb-4 text-center">로그인</h2>
+    <div>
+      <ul class="text-center mt-6">
+        <li  class="text-lg kakao rounded-sm">
+          <button  class="leading-loose">
+            <i class="xi-kakaotalk mr-2"></i>카카오톡 로그인
+          </button>
+        </li>
+        <li  class="text-lg naver rounded-sm mt-2">
+          <button  class="leading-loose text-white">
+            <i class="xi-naver mr-2"></i>네이버 로그인
+          </button>
+        </li>
+        <li class="text-lg border border-solid box-border border-gray-400 rounded-sm mt-2">
+          <button class="leading-loose">
+            <i class="xi-google-plus mr-2 google"></i>구글 로그인
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="flex">
+      <hr class="my-10 border-gray-300 w-5/12">
+      <p class="my-7 w-2/12 text-gray-400">&#160;&#160;&#160;&#160;&#160;&#160;&#160;또는</p>
+      <hr class="my-10 border-gray-300 w-5/12">
+    </div>
+      <div class="">
+        <ul>
+          <li class="border border-gray-300 border-solid box-border">
+            <div>
+              <input class="w-full outline-none index" type="text" placeholder="아이디">
+            </div>
+          </li>
+          <li class="border border-gray-300 border-solid box-border mt-4">
+            <div>
+              <input class="w-full outline-none index" type="password" placeholder="비밀번호">
+            </div>
+          </li>
+          <li class="mt-4">
+            <div class="flex justify-between">
+             <div>
+              <input id="save-id" class="border-color" type="checkbox" placeholder="비밀번호"> 
+              <label for="save-id" class="text-color">아이디 저장</label>
+            </div>
+             <div>
+               <ul class="flex">
+                 <li>
+                   <a href="#" class="block join-btn-font login-btn"
+                   onclick="location.href='forgot-id.html'">아이디 찾기</a>
+                 </li>
+                 <li class="join-btn-font">
+                  &#160; | &#160;
+                 </li>
+                 <li class="">
+                   <a href="#" class="block join-btn-font login-btn"
+                   onclick="location.href='forgot-password.html'"> 비밀번호 찾기</a>
+                 </li>
+               </ul>
+             </div>
+            </div>
+          </li>
+        </ul>
+        <div>
+          <ul class="text-center mt-4">
+            <li class="text-lg point-color-bg  rounded-sm">
+              <button class="text-white leading-loose">로그인</button>
+            </li>
+            <li class="text-lg mt-2 rounded-sm point-color-border">
+              <button class="leading-loose">회원가입</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
