@@ -573,18 +573,21 @@ hr {
     
     transform: rotateY(180deg);
 }
-
-#card:hover>.front {
-    z-index: 1;
+@media (min-width: 1200px){
+    #card:hover>.front {
+        z-index: 1;
+        
+        transform: rotateY(180deg);
+    }
     
-    transform: rotateY(180deg);
+    #card:hover>.back {
+        z-index: 2;
+        opacity: 1;
+        transform: rotateY(0)
+    }
+
 }
 
-#card:hover>.back {
-    z-index: 2;
-    opacity: 1;
-    transform: rotateY(0)
-}
 .index{
     text-indent:0.5rem
 }
