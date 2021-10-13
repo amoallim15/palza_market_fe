@@ -195,138 +195,57 @@
 
 
   <section id="join">
-    <div class="mx-auto mx-10 py-12 max-w-screen-sm text-center">
-      <h2 class="text-4xl mb-4 font-bold">회원가입</h2>
-      <p class="point-color-font">국가공간정보포털의 부동산중개업 정보에 등록된 사무소만 회원가입이 가능합니다.</p>
-      <p>소속공인중개사 및 중개보조원은 회원가입 후 추가 가능합니다.</p>
-    </div>
-    <div class="mx-auto mx-10 py-8 mb-16 max-w-screen-sm join-bg">
-      <div class="mx-4">
-        <h2 class="text-2xl font-medium">중개사무소 찾기</h2>
-        <button type="submit" class="point-color-bg w-full rounded-sm py-2 text-lg text-white my-4"
-          onclick="window.open('office-pop.html','중개사무소 조회하기','width=500px,height=600px,location=no,status=no,scrollbars=yes');">조회하기
-        </button>
-        <hr>
-      </div>
+    <div class="mx-auto mx-10 py-12 max-w-screen-xl text-center">
+      <h2 class="text-4xl mb-4 font-bold">마이페이지</h2>
       <div class="">
-        <ul class="m-4">
-          <li class="mb-4">
-            <span class="w-4/12 inline-block">사업자 상호</span>
-            <span>팔달로공인중개사사무소</span>
-          </li>
-          <li class="mb-4">
-            <span class="w-4/12 inline-block">사업자 대표명</span>
-            <span>이동자</span>
-          </li>
-          <li class="mb-4">
-            <span class="w-4/12 inline-block">중개들록번호</span>
-            <span>12345-2021-01234</span>
-          </li>
-          <li class="mb-4">
-            <span class="w-4/12 inline-block">지번 주소지</span>
-            <span>경기 수원시 팔달구 인계동 986-19</span>
-          </li>
-          <li>
-            <span class="w-4/12 inline-block">도로명 주소지</span>
-            <span>경기 수원시 팔달구 세지로174번길 5</span>
-          </li>
+        <ul class="grid grid-cols-3  leading-10">
+          <li class="border-b border-gray-300 border-solid box-border office-search cursor-pointer"
+            onclick="location.href='wish-page.html'">찜한 목록</li>
+          <li class="border-b-2 border-black border-solid box-border font-semibold cursor-pointer"
+            onclick="location.href='my-reiews.html'">내가 작성한 후기</li>
+          <li class="border-b border-gray-300 border-solid box-border office-search cursor-pointer"
+            onclick="location.href='index.html'">마이 페이지</li>
         </ul>
-        <hr class="mx-4">
       </div>
-      <div class="">
-        <h2 class="m-4 mt-6 text-2xl font-medium">개인정보 입력</h2>
-        <form action="">
-          <ul class="m-4">
-            <li class="mb-4">
-              <label for="phon" class="w-4/12 inline-block">대표전화번호</label>
-              <input id="phon" required type="text" class="w-6/12 pl-2 text-sm py-1 outline-none rounded-sm join-border"
-                placeholder="전화번호">
+    </div>
+    <div class="pt-4 pb-8 mx-auto max-w-screen-xl">
+      <p>전체<span class="point-color-font font-semibold">&nbsp;0</span>&nbsp;건</p>
+    </div>
+    <div class="pt-16 mx-auto max-w-screen-xl grid lg:grid-cols-4 p-4 lg:p-0 gap-10">
+      <!-- single -->
+      <a href="#">
+        <div class="" style="border:1px solid #c4c4c4;">
+          <ul class="wrapReviews lg:p-5 p-4">
+            <li class="valueforReview font-medium text-xs tracking-wide flex justify-between">
+              <span>매수후기</span>
+              <div class="flex">
+                <button onclick="location.href='.html'" href="#" class="mt-0.5 text-xs ml-3 footer-text block">수정&#160;|&#160;</button>
+                
+                <button href="#" class="mt-0.5 text-xs footer-text block">삭제</button>
+              </div>
             </li>
-            <li class="mb-4">
-              <label for="id" class="w-4/12 inline-block">아이디</label>
-              <input id="id" required type="text" class="w-6/12 pl-2 text-sm py-1 outline-none rounded-sm join-border"
-                placeholder="아이디">
+            <li class="nameforReview font-bold pt-8 pb-4 text-xl">스터디카페 계약후기</li>
+            <li class="ratings pb-4"><span class="xi-star" style="color:#429dda;"></span><span
+                class="font-semibold">&nbsp;&nbsp;5.0</span></li>
+            <li class="h-20" style="display: -webkit-box; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word; -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical; height:7.25rem;">용인에 있는 스터디카페를 민보라차장님 통해서 양도하게
+              되었습니다. 아주 긴급한일이 생겨서 건너건너 알아보다
+              의뢰하게 되었습니다. 생각보다 전문적으로 깊게 알고
+              있다는점에 놀랐고 정말 놀라운건 양도자와 양수자와의
+              중간 역할을 너무나 완벽하게 잘하십니다..저라면 못했
+              을듯 ;;; 그리고 무엇보다 너무 솔직하셔서 좋았습니다.그래서 어쩌거어쪼거</li>
+            <li class="author pt-6"><span>김*진</span>&nbsp;님&nbsp;<span>(담당 에이전트&nbsp;:&nbsp;</span><span>김보석</span>)
             </li>
-            <li class="mb-4">
-              <label for="name" class="w-4/12 inline-block">본인 실명확인</label>
-              <input id="name" required type="button" class="w-6/12 pl-2 text-xs py-2 join-btn-bg" value="본인 인증하기"
-                onclick="window.open('html주소','본인 인증하기','width=600px,height=700px,location=no,status=no,scrollbars=yes');">
-            </li>
-            <li class="mb-4">
-              <label for="id" class="w-4/12 inline-block">이름</label>
-              <input id="id" disabled type="text"
-                class="w-6/12 pl-2 join-input-bg text-sm py-1 outline-none rounded-sm join-border"
-                placeholder="본인 인증을 완료해주세요">
-            </li>
-            <li class="mb-4">
-              <label for="id" class="w-4/12 inline-block">휴대폰 번호</label>
-              <input id="id" disabled type="text"
-                class="w-6/12 pl-2 join-input-bg text-sm py-1 outline-none rounded-sm join-border"
-                placeholder="본인 인증을 완료해주세요">
-            </li>
-            <li class="mb-4">
-              <label for="passward" class="w-4/12 inline-block">비밀번호</label>
-              <input id="passward" required type="password"
-                class="w-6/12 pl-2 text-sm py-1 outline-none rounded-sm join-border" placeholder="비밀번호">
-            </li>
-            <li class="mb-4">
-              <label for="pasward-check" class="w-4/12 inline-block">비밀번호 확인</label>
-              <input id="passward-check" required type="password"
-                class="w-6/12 pl-2 text-sm py-1 outline-none rounded-sm join-border" placeholder="비밀번호확인">
-            </li>
-            <li class="mb-4">
-              <label for="business-code" class="w-4/12 inline-block">사업자등록번호</label>
-              <input id="business-code" type="text" class="w-6/12 pl-2 text-sm py-1 outline-none rounded-sm join-border"
-                placeholder="사업자등록번호">
-            </li>
-            <li class="flex">
-              <label for="business-file" class="w-4/12 inline-block">사업자등록증</label>
-              <input id="business-file" type="file" class="w-6/12 text-sm py-1">
-            </li>
-            <li class="my-2 flex">
-              <span class="w-4/12 inline-block"></span>
-              <p class="text-xs text-red-500">첨부 또는 팩스전송 필수 입니다.[Fax 02-000-0000]</p>
-            </li>
-            <li class="flex">
-              <label for="addres-file" class="w-4/12 inline-block">중개사무소등록증</label>
-              <input id="addres-file" type="file" class="w-6/12 text-sm py-1">
-            </li>
-            <li class="my-2 flex">
-              <span class="w-4/12 inline-block"></span>
-              <p class="text-xs text-red-500">gif,jpg,jpeg,jfjf,pdf 이미지 형식만 가능합니다.</p>
-            </li>
+            <li class="published pt-4 office-search" style="font-size:0.8rem;">등록일 : <span>2021-10-21</span></li>
           </ul>
-        </form>
-        <hr class="mx-4">
-      </div>
-      <div class="">
-        <ul class="m-5">
-          <li class="flex justify-between mb-4">
-            <div>
-              <input id="yes1" type="radio">
-              <span class="point-color-font mx-2 text-sm">[필수]</span><label for="yes1">약관동의</label>
-            </div>
-            <a href="" class="text-sm join-btn-font"
-              onclick="window.open('consent-form.html','개인정보 동의서','width=700px,height=700px,location=no,status=no,scrollbars=yes');">약관보기</a>
-          </li>
-          <li class="flex justify-between">
-            <div>
-              <input id="yes2" type="radio">
-              <span class="point-color-font mx-2 text-sm">[필수]</span><label for="yes2">개인정보수집 및 이용에 대한 동의</label>
-            </div>
-            <a href="" class="text-sm join-btn-font"
-            onclick="window.open('personal-info.html','개인정보 동의서','width=700px,height=700px,location=no,status=no,scrollbars=yes');">약관보기</a>
-          </li>
-        </ul>
-        <div class="mx-4">
-          <button type="submit" onclick="location.href='manager-done.html'"
-            class="point-color-bg w-full rounded-sm py-2 text-lg text-white my-4">가입 신청하기</button>
         </div>
-      </div>
+      </a>
     </div>
+
+
   </section>
-  <!-- contents ends-->
-  <!-- footer start -->
+
+
   <footer id="footer">
     <div class="mx-auto my-0 max-w-screen-xl">
       <div class="md:grid md:grid-cols-3 md:mx-4 md:my-12 md:gap-4">
