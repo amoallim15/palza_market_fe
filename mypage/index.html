@@ -205,42 +205,43 @@
     </div>
     
     <form action="">
-      <div class="mx-auto mx-10 py-8 mt-6 max-w-screen-xs join-bg">
-        <ul class="text-center my-10">
-          <li class="mb-4"> 
-            <label for="id" class="text-lg w-3/12 inline-block text-left">아이디</label>
+      <div class="mx-auto py-8 mt-6 max-w-screen-xs join-bg">
+        <ul class="my-10 text-center">
+          <li class="mb-4 "> 
+            <label for="id" class="text-sm lg:text-lg w-3/12 inline-block text-left">아이디</label>
             <input id="id"required type="text" class="w-6/12 text-sm py-1 outline-none rounded-sm join-border" placeholder="">
           </li>
           <li class="mb-4 flex justify-center"> 
-            <label for="name" class="text-lg w-3/12 inline-block text-left mr-1">이름</label>
+            <label for="name" class="text-sm lg:text-lg w-3/12 inline-block text-left mr-1">이름</label>
             <input id="name" required type="text" class="box-border w-4/12 text-sm py-1 outline-none rounded-sm join-border" placeholder="">
             <input id="name" required type="button" class="w-2/12 ml-1 join-btn-bg" value="수정">
           </li>
-          <li class="mb-4"> 
-            <label for="passward" class="text-lg w-3/12 inline-block text-left">현재 비밀번호</label>
+          <li class="mb-4 "> 
+            <label for="passward" class="text-sm lg:text-lg w-3/12 inline-block text-left">현재 비밀번호</label>
             <input id="passward" required type="password" class="w-6/12 text-sm py-1 outline-none rounded-sm join-border" placeholder="">
           </li>
-          <li class="mb-4"> 
-            <label for="new-passward" class="text-lg w-3/12 inline-block text-left">새비밀번호</label>
+          <li class="mb-4 "> 
+            <label for="new-passward" class="text-sm lg:text-lg w-3/12 inline-block text-left">새비밀번호</label>
             <input id="new-passward" required type="password" class="w-6/12 text-sm py-1 outline-none rounded-sm join-border" placeholder="">
           </li>
-          <li class="mb-4"> 
-            <label for="new-passward-check" class="w-3/12 inline-block text-left">새 비밀번호 확인</label>
+          <li class="mb-4 "> 
+            <label for="new-passward-check" class="w-3/12 text-sm lg:text-lg inline-block text-left">새 비밀번호 확인</label>
             <input id="new-passward-check" required type="password" class="w-6/12 text-sm py-1 outline-none rounded-sm join-border" placeholder="">
           </li>
           <li class="mb-4 flex justify-center"> 
-            <label for="id" class="text-lg w-3/12 inline-block text-left mr-1">휴대폰 번호</label>
+            <label for="id" class="text-sm lg:text-lg w-3/12 inline-block text-left mr-1">휴대폰 번호</label>
             <input id="id" required type="text" class="w-4/12 text-sm py-1 outline-none rounded-sm join-border" placeholder="">
             <input id="name" required type="button" class="w-2/12 ml-1 join-btn-bg" value="수정">
           </li>
         </ul>
-      </div>
-      <div class="mx-auto max-w-screen-xs text-2xl md:text-lg">
-        <div class="text-right">
-          <input type="submit" class="text-sm office-search bg-white" onclick="window.open('/login/done3.html')" value="회원 탈퇴">
+        <div class="text-center text-2xl md:text-lg ">
+          <input type="submit" class="mx-auto w-10/12 deltle point-color-bg block mt-2 py-2 text-white" value="정보 수정">
         </div>
-        <input type="submit" class="w-full deltle point-color-bg block mt-2 py-2 text-white" value="정보 수정">
       </div>
+      <div class="text-right mx-auto max-w-screen-xs">
+        <input type="submit" class="text-sm office-search bg-white" onclick="window.open('/login/done3.html')" value="회원 탈퇴">
+      </div>
+      
     </form>
       
   </section>
