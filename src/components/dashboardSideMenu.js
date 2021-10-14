@@ -4,48 +4,35 @@ import { dashboardSideMenu } from "../services/menus"
 import {
   ListItem,
   ListItemText,
-  Collapse,
+  ListItemIcon,
   List,
   Drawer,
   Toolbar,
   Divider,
   IconButton
 } from "@mui/material"
-import ExpandLess from "@mui/icons-material/ExpandLess"
-import ExpandMore from "@mui/icons-material/ExpandMore"
+import DashboardIcon from "@mui/icons-material/Dashboard"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
+import { useHistory } from "react-router-dom"
 
-function MenuItem({ item, onClick }) {
-  const [open, setOpen] = React.useState(true)
+function MenuItem({ item }) {
+  const history = useHistory()
   //
-  switch (item.type) {
-    case "group":
-      return (
-        <>
-          <ListItem button onClick={() => setOpen(!open)}>
-            <ListItemText primary={item.name} />
-            {open ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              {item.children.map((item, index) => (
-                <ListItem button key={index} sx={{ pl: 4 }} onClick={onClick}>
-                  <ListItemText primary={item.name} />
-                </ListItem>
-              ))}
-            </List>
-          </Collapse>
-        </>
-      )
-
-    case "link":
-    default:
-      return (
-        <ListItem button sx={{ pl: 4 }}>
-          <ListItemText primary={item.name} />
-        </ListItem>
-      )
+  const onClick = (e) => {
+    history.push(item.link)
   }
+  //
+  return (
+    <>
+      {item.divider && <Divider />}
+      <ListItem button sx={{ pl: 4 }} onClick={onClick}>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <ListItemText primary={item.name} />
+      </ListItem>
+    </>
+  )
 }
 //
 const drawerWidth = 240
@@ -76,11 +63,7 @@ const CustomDrawer = styled(Drawer, {
   }
 }))
 //
-export default function DashboardSideMenu({
-  handleItemClick,
-  handleDrawer,
-  open
-}) {
+export default function DashboardSideMenu({ handleDrawer, open }) {
   //
   return (
     <CustomDrawer variant="permanent" open={open}>
@@ -99,15 +82,9 @@ export default function DashboardSideMenu({
       <Divider />
       <List>
         {dashboardSideMenu.map((item, index) => (
-          <MenuItem
-            key={index}
-            item={item}
-            onClick={(e) => handleItemClick(e, item)}
-          />
+          <MenuItem key={index} item={item} />
         ))}
       </List>
-      <Divider />
-      {/*<List>{secondaryListItems}</List>*/}
     </CustomDrawer>
   )
 }

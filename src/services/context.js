@@ -1,12 +1,18 @@
 import React from "react"
 //
-const initialState = {}
+const initialState = {
+  appBarMenus: [[], []]
+}
 //
 const AppContext = React.createContext(initialState)
 //
 export const AppContextProvider = ({ children }) => {
   const [appState, appDispatch] = React.useReducer((state, action) => {
     switch (action.type) {
+      //
+      case "UpdateAppBarMenus":
+        return { ...state, appBarMenus: action.payload }
+      //
       default:
         return state
     }

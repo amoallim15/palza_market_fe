@@ -1,5 +1,6 @@
 import React from "react"
+import HomeAppBar from "../../components/homeAppBar"
 
 export default function Home() {
-  return <div>test</div>
+  return <HomeAppBar sticky={true} />
 }

@@ -1,6 +1,6 @@
 import EN from "./lang"
 //
-export const mainAppBar = [
+export const mainAppBarMenu = [
   {
     name: EN.about,
     link: "/about"
@@ -23,78 +23,105 @@ export const mainAppBar = [
   }
 ]
 
+export const anonySecondaryAppBarMenu = [
+  { name: EN.signIn, type: "link", link: "/sign-in" },
+  { name: EN.signUp, type: "link", link: "/sign-up" }
+]
+
+export const authSecondaryAppBarMenu = [
+  {
+    id: "profile",
+    name: EN.profile,
+    type: "group",
+    children: [
+      { name: EN.profile, type: "link", link: "/profile" },
+      { name: EN.wishlist, type: "link", link: "/wishlist" },
+      { type: "divider" },
+      { name: EN.signOut, type: "link", link: "/sign-out" }
+    ]
+  }
+]
+
 export const dashboardSideMenu = [
   {
     name: EN.profile,
-    link: "/profile",
+    link: "/dashboard/profile",
     type: "link"
   },
   {
     name: EN.wishlist,
-    link: "/wishlist",
-    type: "link",
-    role: "all"
+    link: "/dashboard/wishlist",
+    type: "link"
   },
   {
     name: EN.realstates,
-    type: "group",
-    children: [
+    link: "/dashboard/realstates",
+    type: "link",
+    divider: true,
+    tabs: [
       {
         name: EN.realstates,
-        link: "/realstates",
-        type: "link"
+        link: "/dashboard/realstates"
       },
       {
         name: EN.categories,
-        link: "/realstate-categories",
-        type: "link"
+        link: "/dashboard/realstate-categories"
       },
       {
         name: EN.reviews,
-        link: "/reviews",
-        type: "link"
+        link: "/dashboard/reviews"
       }
     ]
   },
   {
     name: EN.community,
-    type: "group",
-    children: [
+    link: "/dashboard/community",
+    type: "link",
+    divider: true,
+    tabs: [
       {
         name: EN.notices,
-        link: "/notices",
-        type: "link"
+        link: "/dashboard/notices"
       },
       {
         name: EN.categories,
-        link: "/notice-categories",
-        type: "link"
+        link: "/dashboard/notice-categories"
       },
       {
         name: EN.reports,
-        link: "/reports",
-        type: "link"
+        link: "/reports"
       }
     ]
   },
   {
     name: EN.homePage,
-    link: "/home-page",
+    link: "/dashboard/home-page",
+    type: "link"
+  },
+  {
+    name: EN.banners,
+    link: "/dashboard/banners",
     type: "link"
   },
   {
     name: EN.users,
-    link: "/users",
+    link: "/dashboard/users",
     type: "link"
   },
   {
     name: EN.smsMessages,
-    link: "/sms",
+    link: "/dashboard/sms",
     type: "link"
   },
   {
     name: EN.crontab,
-    link: "/crontab",
+    link: "/dashboard/crontab",
     type: "link"
+  },
+  {
+    name: EN.signOut,
+    link: "/sign-out",
+    type: "link",
+    divider: true
   }
 ]

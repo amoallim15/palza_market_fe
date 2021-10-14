@@ -1,8 +1,9 @@
 import React from "react"
 import { styled } from "@mui/material/styles"
-import { AppBar, Toolbar, IconButton, Typography } from "@mui/material"
+import { AppBar, Toolbar, IconButton, Typography, Badge } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import EN from "../services/lang"
+import MessageIcon from "@mui/icons-material/Message"
 
 const drawerWidth = 240
 
@@ -24,7 +25,17 @@ const CustomAppBar = styled(AppBar, {
   })
 }))
 
-export default function DashboardAppBar({ open, handleDrawer }) {
+const SMSMessageCount = ({ count }) => {
+  return (
+    <IconButton color="inherit">
+      <Badge badgeContent={count || 0} color="secondary">
+        <MessageIcon />
+      </Badge>
+    </IconButton>
+  )
+}
+
+export default function DashboardAppBar({ title, open, handleDrawer }) {
   //
   return (
     <CustomAppBar position="absolute" open={open}>
@@ -45,6 +56,7 @@ export default function DashboardAppBar({ open, handleDrawer }) {
         >
           <MenuIcon />
         </IconButton>
+        {/**/}
         <Typography
           component="h1"
           variant="h6"
@@ -52,8 +64,10 @@ export default function DashboardAppBar({ open, handleDrawer }) {
           noWrap
           sx={{ flexGrow: 1 }}
         >
-          {EN.dashboard}
+          {title || EN.dashboard}
         </Typography>
+        {/**/}
+        <SMSMessageCount />
       </Toolbar>
     </CustomAppBar>
   )

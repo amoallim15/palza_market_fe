@@ -16,7 +16,18 @@ const EN = {
   homePage: "Home Page",
   users: "Users",
   smsMessages: "SMS",
-  crontab: "Crontab"
+  crontab: "Crontab",
+  banners: "Banners",
+  signIn: "Sign In",
+  signUp: "Sign Up",
+  signOut: "Sign Out",
+  email: "E-mail",
+  password: "Password",
+  kakao: "Kakaotalk",
+  google: "Google",
+  naver: "Naver",
+  footerInfo:
+    "개업공인중개사표시: 부동산중개법인 팔자마켓(주) 주소:서울시 서초구 강남대로 617 대양빌딩 6층 (잠원동 12-17) \n대표자:김보석 010-1234-7890 등록번호:11650-2019-00264 copyright(주)팔자마켓"
 }
 //
 export default EN
