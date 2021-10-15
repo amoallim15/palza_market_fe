@@ -39,7 +39,8 @@ const EN = {
   managerPhoneNo: "대표전화번호",
   businessRegistrationNo: "사업자등록번호",
   businessLicense: "사업자등록증",
-  brokerageRegistrationCard: "중개사무소등록증"
+  brokerageRegistrationCard: "중개사무소등록증",
+  viewTermsAndConditions: "약관보기"
 }
 //
 export default EN

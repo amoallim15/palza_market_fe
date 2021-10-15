@@ -151,7 +151,7 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
       )}
       <div className="p-5">
         <div>
-          <label className="font-semibold text-sm text-gray-600 pb-1 inline-flex items-center mt-1 mb-5">
+          <label className="font-semibold text-sm text-gray-600 pb-1 inline-flex items-center mt-1 mb-5 w-full">
             <input
               name="terms_and_conditions"
               type="checkbox"
@@ -159,11 +159,13 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
             />
             <span className="ml-2 text-red-700">[{EN.must}]</span>
             <span className="ml-2 text-gray-700">{EN.termsAndConditions}</span>
+            <div className="flex-grow" />
+            <button>{EN.viewTermsAndConditions}</button>
           </label>
         </div>
         {/**/}
         <div>
-          <label className="font-semibold text-sm text-gray-600 pb-1 inline-flex items-center mt-1 mb-5">
+          <label className="font-semibold text-sm text-gray-600 pb-1 inline-flex items-center mt-1 mb-5 w-full">
             <input
               name="personal_info_consent"
               type="checkbox"
@@ -171,6 +173,8 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
             />
             <span className="ml-2 text-red-700">[{EN.must}]</span>
             <span className="ml-2 text-gray-700">{EN.consent}</span>
+            <div className="flex-grow" />
+            <button>{EN.viewTermsAndConditions}</button>
           </label>
         </div>
       </div>
