@@ -6,25 +6,30 @@ import Home from "../pages/home/home"
 import Page404 from "../pages/home/page404"
 import SignIn from "../pages/auth/signIn"
 import SignUp from "../pages/auth/signUp"
-import Dashboard from "../pages/dashboard/dashboard"
+import Profile from "../pages/dashboard/profile"
 //
 export const Routes = [
   {
-    path: ["/dashboard"],
-    component: Dashboard
+    path: ["/dashboard/profile"],
+    component: Profile,
+    exact: true,
+    wrappers: [Wrappers.OnlyAuth]
   },
   {
     path: ["/sign-in"],
     component: SignIn,
+    exact: true,
     wrappers: [Wrappers.UpdateAppBarMenus, Wrappers.OnlyAnony]
   },
   {
     path: ["/sign-up"],
     component: SignUp,
+    exact: true,
     wrappers: [Wrappers.UpdateAppBarMenus, Wrappers.OnlyAnony]
   },
   {
-    path: ["/sign-up"],
+    path: ["/sign-out"],
+    exact: true,
     wrappers: [Wrappers.SignOut]
   },
   {
