@@ -65,7 +65,11 @@ const AppBarLinkGroup = ({ item, className }) => {
               case "link":
               default:
                 return (
-                  <Link key={index} to={sub_item.link} className={sub_item.className}>
+                  <Link
+                    key={index}
+                    to={sub_item.link}
+                    className={sub_item.className}
+                  >
                     {sub_item.name}
                   </Link>
                 )
