@@ -34,8 +34,8 @@ export const authSecondaryAppBarMenu = [
     name: EN.profile,
     type: "group",
     children: [
-      { name: EN.profile, type: "link", link: "/profile" },
-      { name: EN.wishlist, type: "link", link: "/wishlist" },
+      { name: EN.profile, type: "link", link: "/dashboard/profile" },
+      { name: EN.wishlist, type: "link", link: "/dashboard/wishlist" },
       { type: "divider" },
       { name: EN.signOut, type: "link", link: "/sign-out" }
     ]

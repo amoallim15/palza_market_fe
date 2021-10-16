@@ -58,14 +58,14 @@ const AppBarLinkGroup = ({ item, className }) => {
             switch (sub_item.type) {
               case "divider":
                 return (
-                  <div className="pt-1 pb-1">
+                  <div key={index} className="pt-1 pb-1">
                     <div className="border-t" />
                   </div>
                 )
               case "link":
               default:
                 return (
-                  <Link to={sub_item.link} className={sub_item.className}>
+                  <Link key={index} to={sub_item.link} className={sub_item.className}>
                     {sub_item.name}
                   </Link>
                 )

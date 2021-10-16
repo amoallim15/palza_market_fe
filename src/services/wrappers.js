@@ -50,7 +50,7 @@ export const OnlyAuth = (props, Next) => {
   const [state, setState] = React.useState(null)
   React.useEffect(() => {
     ;(async () => {
-      if ("token" in cookies && (await checkAuth())) {
+      if ("token" in cookies && (await checkAuth(cookies["token"]))) {
         setState(true)
         return
       }
@@ -68,7 +68,6 @@ export const SignOut = (props, Next) => {
   const history = useHistory()
   React.useEffect(() => {
     removeCookie("token")
-    history.redirect("/")
   }, [history, removeCookie])
   return <Redirect to="/" />
 }

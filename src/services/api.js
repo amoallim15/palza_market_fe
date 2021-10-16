@@ -58,6 +58,6 @@ export const signIn = async (data) => {
   )
 }
 //
-export const checkAuth = async () => {
-  return await call("/auth", "GET")
+export const checkAuth = async (token) => {
+  return await call("/auth", "GET", { Authorization: `Bearer ${token.access_token}` })
 }
