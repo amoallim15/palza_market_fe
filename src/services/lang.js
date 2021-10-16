@@ -1,5 +1,8 @@
 const EN = {
   title: "Palza Market",
+  home: "home",
+  settings: "Settings",
+  config: "Configuration",
   dashboard: "Dashboard",
   about: "About",
   realstateSearch: "매물 검색",
@@ -48,7 +51,9 @@ const EN = {
   businessName: "사업자 상호",
   businessRepresentative: "사업자 대표명",
   brokerageRecordNo: "중개들록번호",
-  legalAddress: "지번 주소지"
+  legalAddress: "지번 주소지",
+  magazine: "Magazine",
+  franchise: "Franchise"
 }
 //
 export default EN

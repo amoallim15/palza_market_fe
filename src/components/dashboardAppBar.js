@@ -1,9 +1,17 @@
 import React from "react"
 import { styled } from "@mui/material/styles"
-import { AppBar, Toolbar, IconButton, Typography, Badge } from "@mui/material"
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Badge,
+  Button
+} from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import EN from "../services/lang"
 import MessageIcon from "@mui/icons-material/Message"
+import { useHistory } from "react-router-dom"
 
 const drawerWidth = 240
 
@@ -36,6 +44,7 @@ const SMSMessageCount = ({ count }) => {
 }
 
 export default function DashboardAppBar({ title, open, handleDrawer }) {
+  const history = useHistory()
   //
   return (
     <CustomAppBar position="absolute" open={open}>
@@ -66,6 +75,14 @@ export default function DashboardAppBar({ title, open, handleDrawer }) {
         >
           {title || EN.dashboard}
         </Typography>
+        {/**/}
+        <Button
+          onClick={() => history.push("/")}
+          variant="button"
+          sx={{ my: 1, mx: 1.5 }}
+        >
+          {EN.home}
+        </Button>
         {/**/}
         <SMSMessageCount />
       </Toolbar>

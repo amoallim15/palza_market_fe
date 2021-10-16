@@ -2,7 +2,8 @@ import React from "react"
 //
 const initialState = {
   appBarMenus: [[], []],
-  appSettings: {}
+  appSettings: {},
+  currentUser: {}
 }
 //
 const AppContext = React.createContext(initialState)
@@ -16,6 +17,9 @@ export const AppContextProvider = ({ children }) => {
       //
       case "UpdateSettings":
         return { ...state, appSettings: action.payload }
+      //
+      case "UpdateCurrentUser":
+        return { ...state, currentUser: action.payload }
       default:
         return state
     }

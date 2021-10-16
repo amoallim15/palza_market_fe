@@ -34,7 +34,7 @@ export const authSecondaryAppBarMenu = [
     name: EN.profile,
     type: "group",
     children: [
-      { name: EN.profile, type: "link", link: "/dashboard/profile" },
+      { name: EN.settings, type: "link", link: "/dashboard/profile" },
       { name: EN.wishlist, type: "link", link: "/dashboard/wishlist" },
       { type: "divider" },
       { name: EN.signOut, type: "link", link: "/sign-out" }
@@ -51,6 +51,11 @@ export const dashboardSideMenu = [
   {
     name: EN.wishlist,
     link: "/dashboard/wishlist",
+    type: "link"
+  },
+  {
+    name: EN.reviews,
+    link: "/dashboard/reviews",
     type: "link"
   },
   {
@@ -94,6 +99,11 @@ export const dashboardSideMenu = [
     ]
   },
   {
+    name: EN.config,
+    link: "/dashboard/config",
+    type: "link"
+  },
+  {
     name: EN.homePage,
     link: "/dashboard/home-page",
     type: "link"
@@ -101,6 +111,16 @@ export const dashboardSideMenu = [
   {
     name: EN.banners,
     link: "/dashboard/banners",
+    type: "link"
+  },
+  {
+    name: EN.magazine,
+    link: "/dashboard/magazine",
+    type: "link"
+  },
+  {
+    name: EN.franchise,
+    link: "/dashboard/franchise",
     type: "link"
   },
   {

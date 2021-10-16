@@ -11,7 +11,6 @@ import {
 export default function AuthSocial() {
   const { appState } = React.useContext(AppContext)
   //
-  console.log(appState.appSettings)
   const onSocialPopupEvent = async (e, res, err) => {
     if (e === "OPENED") {
       switch (res.name) {

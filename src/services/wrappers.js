@@ -83,3 +83,15 @@ export const UpdateSettings = (props, Next) => {
   }, [appDispatch])
   return <Next {...props} />
 }
+//
+export const UpdateCurrentUser = (props, Next) => {
+  const { appDispatch } = React.useContext(AppContext)
+  React.useEffect(() => {
+    ;(async () => {
+      const result = await checkAuth()
+      if (!result) return
+      appDispatch({ type: "UpdateCurrentUser", payload: result })
+    })()
+  }, [appDispatch])
+  return <Next {...props} />
+}
