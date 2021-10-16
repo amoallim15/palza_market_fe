@@ -19,13 +19,21 @@ export const Routes = [
     path: ["/sign-in"],
     component: SignIn,
     exact: true,
-    wrappers: [Wrappers.UpdateAppBarMenus, Wrappers.OnlyAnony]
+    wrappers: [
+      Wrappers.UpdateSettings,
+      Wrappers.UpdateAppBarMenus,
+      Wrappers.OnlyAnony
+    ]
   },
   {
     path: ["/sign-up"],
     component: SignUp,
     exact: true,
-    wrappers: [Wrappers.UpdateAppBarMenus, Wrappers.OnlyAnony]
+    wrappers: [
+      Wrappers.UpdateSettings,
+      Wrappers.UpdateAppBarMenus,
+      Wrappers.OnlyAnony
+    ]
   },
   {
     path: ["/sign-out"],

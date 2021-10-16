@@ -1,7 +1,8 @@
 import React from "react"
 //
 const initialState = {
-  appBarMenus: [[], []]
+  appBarMenus: [[], []],
+  appSettings: {}
 }
 //
 const AppContext = React.createContext(initialState)
@@ -13,6 +14,8 @@ export const AppContextProvider = ({ children }) => {
       case "UpdateAppBarMenus":
         return { ...state, appBarMenus: action.payload }
       //
+      case "UpdateSettings":
+        return { ...state, appSettings: action.payload }
       default:
         return state
     }

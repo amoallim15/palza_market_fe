@@ -7,6 +7,7 @@ import {
   anonySecondaryAppBarMenu,
   authSecondaryAppBarMenu
 } from "./menus"
+import { getSettings, checkAuth } from "./api"
 //
 export const UpdateAppBarMenus = (props, Next) => {
   const { appDispatch } = React.useContext(AppContext)
@@ -45,12 +46,18 @@ export const OnlyAnony = (props, Next) => {
 }
 //
 export const OnlyAuth = (props, Next) => {
-  const [cookies] = useCookies(["token"])
+  const [cookies, , removeCookie] = useCookies(["token"])
   const [state, setState] = React.useState(null)
   React.useEffect(() => {
-    if ("token" in cookies) setState(true)
-    else setState(false)
-  }, [cookies, setState])
+    ;(async () => {
+      if ("token" in cookies && (await checkAuth())) {
+        setState(true)
+        return
+      }
+      removeCookie("token")
+      setState(false)
+    })()
+  }, [cookies, setState, removeCookie])
   if (state === true) return <Next {...props} />
   else if (state === false) return <Redirect to="/sign-in" />
   return <div />
@@ -64,4 +71,16 @@ export const SignOut = (props, Next) => {
     history.redirect("/")
   }, [history, removeCookie])
   return <Redirect to="/" />
+}
+//
+export const UpdateSettings = (props, Next) => {
+  const { appDispatch } = React.useContext(AppContext)
+  React.useEffect(() => {
+    ;(async () => {
+      const result = await getSettings()
+      if (!result) return
+      appDispatch({ type: "UpdateSettings", payload: result })
+    })()
+  }, [appDispatch])
+  return <Next {...props} />
 }

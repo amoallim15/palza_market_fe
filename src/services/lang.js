@@ -40,7 +40,15 @@ const EN = {
   businessRegistrationNo: "사업자등록번호",
   businessLicense: "사업자등록증",
   brokerageRegistrationCard: "중개사무소등록증",
-  viewTermsAndConditions: "약관보기"
+  viewTermsAndConditions: "약관보기",
+  findAgency: "중개사무소 찾기",
+  startFindingAgency: "조회하기",
+  searchBusinessName: "사업자 상호명으로 검색가능",
+  confirm: "확인",
+  businessName: "사업자 상호",
+  businessRepresentative: "사업자 대표명",
+  brokerageRecordNo: "중개들록번호",
+  legalAddress: "지번 주소지"
 }
 //
 export default EN
