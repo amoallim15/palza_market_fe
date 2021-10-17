@@ -12,6 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu"
 import EN from "../services/lang"
 import MessageIcon from "@mui/icons-material/Message"
 import { useHistory } from "react-router-dom"
+import AppContext from "../services/context"
 
 const drawerWidth = 240
 
@@ -45,6 +46,7 @@ const SMSMessageCount = ({ count }) => {
 
 export default function DashboardAppBar({ title, open, handleDrawer }) {
   const history = useHistory()
+  const { appState } = React.useContext(AppContext)
   //
   return (
     <CustomAppBar position="absolute" open={open}>
@@ -84,7 +86,8 @@ export default function DashboardAppBar({ title, open, handleDrawer }) {
           {EN.home}
         </Button>
         {/**/}
-        <SMSMessageCount />
+        {appState.currentUser &&
+          appState.currentUser.user_role !== "CLIENT" && <SMSMessageCount />}
       </Toolbar>
     </CustomAppBar>
   )

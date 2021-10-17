@@ -13,16 +13,16 @@ export const Routes = [
     path: ["/dashboard/profile"],
     component: Profile,
     exact: true,
-    wrappers: [Wrappers.OnlyAuth]
+    wrappers: [Wrappers.OnlyAuth, Wrappers.UpdateCurrentUser]
   },
   {
     path: ["/sign-in"],
     component: SignIn,
     exact: true,
     wrappers: [
+      Wrappers.OnlyAnony,
       Wrappers.UpdateSettings,
-      Wrappers.UpdateAppBarMenus,
-      Wrappers.OnlyAnony
+      Wrappers.UpdateAppBarMenus
     ]
   },
   {
@@ -30,9 +30,9 @@ export const Routes = [
     component: SignUp,
     exact: true,
     wrappers: [
+      Wrappers.OnlyAnony,
       Wrappers.UpdateSettings,
-      Wrappers.UpdateAppBarMenus,
-      Wrappers.OnlyAnony
+      Wrappers.UpdateAppBarMenus
     ]
   },
   {
@@ -44,7 +44,7 @@ export const Routes = [
     path: ["/", "/home"],
     component: Home,
     exact: true,
-    wrappers: [Wrappers.UpdateAppBarMenus]
+    wrappers: [Wrappers.UpdateCurrentUser, Wrappers.UpdateAppBarMenus]
   },
   {
     path: ["/"],

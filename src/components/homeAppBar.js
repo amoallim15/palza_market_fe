@@ -4,16 +4,18 @@ import logo from "../assets/imgs/logo.png"
 import MenuClosedIcon from "../assets/icons/menu-closed.svg"
 import MenuOpenIcon from "../assets/icons/menu-open.svg"
 import { Link, useLocation } from "react-router-dom"
-
+//
 const AppBarLink = ({ item, className }) => {
   const location = useLocation()
-  let classes = className + " px-3 py-2 rounded-md text-sm font-medium "
+  let classes = "px-3 py-2 rounded-md text-sm font-medium "
+  if (className) classes += `${className} `
   //
   if (location.pathname === item.link) {
     classes += "bg-gray-900 text-white"
   } else {
     classes += "text-gray-300 hover:bg-gray-700 hover:text-white"
   }
+  if (item.className) classes += ` ${item.className}`
   //
   return (
     <Link to={item.link} className={classes}>
@@ -136,7 +138,6 @@ export default function HomeAppBar() {
             </Link>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                {/*<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->*/}
                 {appState.appBarMenus[0].map((item, index) => (
                   <AppBarItem key={index} item={item} />
                 ))}

@@ -2,8 +2,8 @@ import React from "react"
 //
 const initialState = {
   appBarMenus: [[], []],
-  appSettings: {},
-  currentUser: {}
+  appSettings: null,
+  currentUser: null
 }
 //
 const AppContext = React.createContext(initialState)

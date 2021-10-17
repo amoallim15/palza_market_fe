@@ -20,6 +20,11 @@ export const mainAppBarMenu = [
   {
     name: EN.community,
     link: "/community"
+  },
+  {
+    name: EN.agencyLanding,
+    link: "/agency",
+    className: "text-yellow-300"
   }
 ]
 
@@ -34,10 +39,51 @@ export const authSecondaryAppBarMenu = [
     name: EN.profile,
     type: "group",
     children: [
-      { name: EN.settings, type: "link", link: "/dashboard/profile" },
-      { name: EN.wishlist, type: "link", link: "/dashboard/wishlist" },
+      {
+        name: EN.settings,
+        type: "link",
+        link: "/dashboard/profile"
+      },
+      //
+      {
+        name: EN.wishlist,
+        type: "link",
+        link: "/dashboard/wishlist",
+        user_type: "INDIVIDUAL"
+      },
+      //
+      {
+        name: EN.realstates,
+        type: "link",
+        link: "/dashboard/realstates",
+        user_type: "AGENCY"
+      },
+      {
+        name: EN.reviews,
+        type: "link",
+        link: "/dashboard/realstates/reviews",
+        user_type: "AGENCY"
+      },
+      //
+      {
+        name: EN.config,
+        type: "link",
+        link: "/dashboard/settings",
+        user_role: ["ADMIN"]
+      },
+      {
+        name: EN.smsMessages,
+        type: "link",
+        link: "/dashboard/sms",
+        user_role: ["ADMIN", "EMPLOYEE"]
+      },
+      //
       { type: "divider" },
-      { name: EN.signOut, type: "link", link: "/sign-out" }
+      {
+        name: EN.signOut,
+        type: "link",
+        link: "/sign-out"
+      }
     ]
   }
 ]

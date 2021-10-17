@@ -18,7 +18,6 @@ const EN = {
   reports: "Reports",
   homePage: "Home Page",
   users: "Users",
-  smsMessages: "SMS",
   crontab: "Crontab",
   banners: "Banners",
   signIn: "Sign In",
@@ -53,7 +52,9 @@ const EN = {
   brokerageRecordNo: "중개들록번호",
   legalAddress: "지번 주소지",
   magazine: "Magazine",
-  franchise: "Franchise"
+  franchise: "Franchise",
+  agencyLanding: "중개사무소 가입 \n및 광고문의",
+  smsMessages: "SMS Messages"
 }
 //
 export default EN
