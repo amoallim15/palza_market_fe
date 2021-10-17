@@ -103,18 +103,18 @@ export const UpdateSettings = (props, Next) => {
 }
 //
 export const UpdateCurrentUser = (props, Next) => {
-  const { appDispatch } = React.useContext(AppContext)
+  const { appState, appDispatch } = React.useContext(AppContext)
   const [state, setState] = React.useState(null)
   const [cookies] = useCookies(["token"])
   React.useEffect(() => {
     ;(async () => {
-      if (!cookies["token"]) return
-      const result = await checkAuth(cookies["token"])
-      if (!result) return
-      appDispatch({ type: "UpdateCurrentUser", payload: result })
+      if (!appState.currentUser && cookies["token"]) {
+        const result = await checkAuth(cookies["token"])
+        if (result) appDispatch({ type: "UpdateCurrentUser", payload: result })
+      }
       setState(true)
     })()
-  }, [appDispatch, cookies])
+  })
   if (state === true) return <Next {...props} />
   return <div />
 }
