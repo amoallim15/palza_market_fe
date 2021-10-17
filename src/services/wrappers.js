@@ -96,7 +96,7 @@ export const UpdateSettings = (props, Next) => {
   const [state, setState] = React.useState(null)
   React.useEffect(() => {
     ;(async () => {
-      if (!appState.appSettings){
+      if (!appState.appSettings) {
         const result = await getSettings()
         if (result) appDispatch({ type: "UpdateSettings", payload: result })
       }
