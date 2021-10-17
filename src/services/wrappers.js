@@ -92,16 +92,17 @@ export const SignOut = (props, Next) => {
 }
 //
 export const UpdateSettings = (props, Next) => {
-  const { appDispatch } = React.useContext(AppContext)
+  const { appState, appDispatch } = React.useContext(AppContext)
   const [state, setState] = React.useState(null)
   React.useEffect(() => {
     ;(async () => {
-      const result = await getSettings()
-      if (!result) return
-      appDispatch({ type: "UpdateSettings", payload: result })
+      if (!appState.appSettings){
+        const result = await getSettings()
+        if (result) appDispatch({ type: "UpdateSettings", payload: result })
+      }
       setState(true)
     })()
-  }, [appDispatch])
+  }, [appDispatch, appState.appSettings])
   if (state === true) return <Next {...props} />
   return <div />
 }
