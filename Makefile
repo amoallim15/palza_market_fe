@@ -1,6 +1,7 @@
 .DEFAULT_GOAL := help
 
 PROJECT_NAME := palza_market_fe
+AWS_API_ENDPOINT := 13.125.147.119:8080
 AWS_ACCOUNT_ID := master-hdh
 AWS_IAM_USERNAME := ali
 AWS_IAM_PASSWORD := Jbany159!
@@ -43,6 +44,9 @@ js.setup:
 
 js.run:
 	@npm run start
+
+js.prod:
+	@sed -i 's/localhost:8000/$(AWS_API_ENDPOINT)/g' src/services/config.js
 
 find:
 	@lsof -i tcp:3000

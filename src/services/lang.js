@@ -54,7 +54,8 @@ const EN = {
   magazine: "Magazine",
   franchise: "Franchise",
   agencyLanding: "중개사무소 가입 \n및 광고문의",
-  smsMessages: "SMS Messages"
+  smsMessages: "SMS Messages",
+  agencySettings: "Agency Settings"
 }
 //
 export default EN

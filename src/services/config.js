@@ -1,6 +1,6 @@
 export const CONFIG = {
-  CLIENT_ENDPOINT: `http://${window.location.host}`,
   API_ENDPOINT: "http://localhost:8000",
+  CLIENT_ENDPOINT: `http://${window.location.host}`,
   PASS_ENDPOINT: "https://nice.checkplus.co.kr",
   KAKAO_ENDPOINT: "https://kauth.kakao.com",
   NAVER_ENDPOINT: "https://nid.naver.com",

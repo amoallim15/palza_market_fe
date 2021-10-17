@@ -11,12 +11,13 @@ import { getSettings, checkAuth } from "./api"
 //
 export const UpdateAppBarMenus = (props, Next) => {
   const { appState, appDispatch } = React.useContext(AppContext)
+  const [cookies] = useCookies(["token"])
   const [state, setState] = React.useState(null)
   //
   React.useEffect(() => {
     //
     let action = {}
-    if (!appState.currentUser) {
+    if (!("token" in cookies) || !appState.currentUser) {
       action = {
         type: "UpdateAppBarMenus",
         payload: [mainAppBarMenu, anonySecondaryAppBarMenu]
@@ -41,7 +42,7 @@ export const UpdateAppBarMenus = (props, Next) => {
     //
     appDispatch(action)
     setState(true)
-  }, [appDispatch, appState.currentUser])
+  }, [appDispatch, appState.currentUser, cookies])
   //
   if (state === true) return <Next {...props} />
   return <div />
@@ -80,11 +81,14 @@ export const OnlyAuth = (props, Next) => {
 //
 export const SignOut = (props, Next) => {
   const [, , removeCookie] = useCookies(["token"])
+  const [state, setState] = React.useState(null)
   const history = useHistory()
   React.useEffect(() => {
     removeCookie("token")
+    setState(true)
   }, [history, removeCookie])
-  return <Redirect to="/" />
+  if (state === true) return <Redirect to="/" />
+  return <div />
 }
 //
 export const UpdateSettings = (props, Next) => {
