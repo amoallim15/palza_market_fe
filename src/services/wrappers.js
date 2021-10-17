@@ -84,8 +84,10 @@ export const SignOut = (props, Next) => {
   const [state, setState] = React.useState(null)
   const history = useHistory()
   React.useEffect(() => {
-    removeCookie("token")
-    setState(true)
+    ;(async () => {
+      await removeCookie("token")
+      await setState(true)
+    })()
   }, [history, removeCookie])
   if (state === true) return <Redirect to="/" />
   return <div />
