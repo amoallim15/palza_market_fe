@@ -68,7 +68,7 @@ export const authSecondaryAppBarMenu = [
       {
         name: EN.config,
         type: "link",
-        link: "/dashboard/settings",
+        link: "/dashboard/config",
         user_role: ["ADMIN"]
       },
       {

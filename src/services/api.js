@@ -63,3 +63,40 @@ export const checkAuth = async (token) => {
     Authorization: `Bearer ${token.access_token}`
   })
 }
+//
+export const updateSettings = async (data, token) => {
+  delete data._id
+  //
+  return await call(
+    "/settings",
+    "PUT",
+    { "content-type": "application/json" },
+    JSON.stringify(data)
+  )
+}
+//
+export const updateUser = async (data, token) => {
+  const _id = data._id
+  delete data._id
+  delete data.user_role
+  delete data.user_type
+  delete data.user_method
+  delete data.name
+  delete data.legal_address
+  delete data.business_representative
+  delete data.business_registeration_no
+  delete data.business_name
+  delete data.business_license_url
+  delete data.brokerage_record_no
+  delete data.brokerage_card_url
+  //
+  return await call(
+    `/user/${_id}`,
+    "PUT",
+    {
+      "content-type": "application/json",
+      Authorization: `Breaer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}

@@ -4,66 +4,49 @@ import { Grid, Paper, Typography, TextField, Box, Button } from "@mui/material"
 import EN from "../../services/lang"
 import { useFormContext, useForm, FormProvider } from "react-hook-form"
 import AppContext from "../../services/context"
-import { updateUser } from "../../services/api"
+import { updateSettings } from "../../services/api"
 import { useCookies } from "react-cookie"
 //
-function ProfileContent({ disabled }) {
+function GeneralContent({ disabled }) {
   const methods = useFormContext()
   //
   return (
     <Grid item xs={12}>
       <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
         <Typography component="h2" variant="h6" color="primary" gutterBottom>
-          {EN.profile}
+          {EN.general}
         </Typography>
         {/**/}
         <Box sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             size="small"
+            required
             fullWidth
-            label={EN.name}
-            disabled
-            variant="filled"
-            value={methods.getValues("name")}
+            label={EN.title}
+            disabled={disabled}
+            {...methods.register("title", { required: true })}
           />
+          {/**/}
+          <TextField
+            margin="normal"
+            size="small"
+            multiline
+            maxRows={4}
+            fullWidth
+            label={EN.description}
+            disabled={disabled}
+            {...methods.register("description")}
+          />
+          {/**/}
           <TextField
             margin="normal"
             size="small"
             required
             fullWidth
-            label={EN.username}
-            autoFocus
+            label={EN.faxNo}
             disabled={disabled}
-            {...methods.register("username", { required: true })}
-          />
-          <TextField
-            margin="normal"
-            size="small"
-            required
-            fullWidth
-            label={EN.email}
-            autoComplete="email"
-            disabled={disabled}
-            {...methods.register("email", { required: true })}
-          />
-          <TextField
-            margin="normal"
-            size="small"
-            required
-            fullWidth
-            label={EN.displayName}
-            disabled={disabled}
-            {...methods.register("display_name", { required: true })}
-          />
-          <TextField
-            margin="normal"
-            size="small"
-            required
-            fullWidth
-            label={EN.phoneNo}
-            disabled={disabled}
-            {...methods.register("phone_no", { required: true })}
+            {...methods.register("fax_no", { required: true })}
           />
         </Box>
       </Paper>
@@ -71,63 +54,81 @@ function ProfileContent({ disabled }) {
   )
 }
 //
-function AgencyContent({ disabled }) {
+function APIContent({ disabled }) {
   const methods = useFormContext()
   //
   return (
     <Grid item xs={12}>
       <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
         <Typography component="h2" variant="h6" color="primary" gutterBottom>
-          {EN.agencySettings}
+          {EN.APIKeys}
         </Typography>
+        {/**/}
         <Box sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             size="small"
+            required
             fullWidth
-            label={EN.managerPhoneNo}
+            label={EN.kakaoKey}
+            autoFocus
             disabled={disabled}
-            {...(methods.register("manager_phone_no") || "")}
+            {...methods.register("kakao_key", { required: true })}
           />
+          {/**/}
           <TextField
             margin="normal"
             size="small"
             required
             fullWidth
-            label={EN.businessName}
-            disabled
-            variant="filled"
-            value={methods.getValues("business_name") || ""}
+            label={EN.naverKey}
+            autoFocus
+            disabled={disabled}
+            {...methods.register("naver_key", { required: true })}
           />
+          {/**/}
           <TextField
             margin="normal"
             size="small"
             required
             fullWidth
-            label={EN.businessRepresentative}
-            disabled
-            variant="filled"
-            value={methods.getValues("business_representative") || ""}
+            label={EN.googleKey}
+            autoFocus
+            disabled={disabled}
+            {...methods.register("google_key", { required: true })}
           />
+          {/**/}
           <TextField
             margin="normal"
             size="small"
             required
             fullWidth
-            label={EN.brokerageRecordNo}
-            disabled
-            variant="filled"
-            value={methods.getValues("brokerage_record_no") || ""}
+            label={EN.gambiaKey}
+            autoFocus
+            disabled={disabled}
+            {...methods.register("gabia_key", { required: true })}
           />
+          {/**/}
           <TextField
             margin="normal"
             size="small"
             required
             fullWidth
-            label={EN.legalAddress}
-            disabled
-            variant="filled"
-            value={methods.getValues("legal_address") || ""}
+            label={EN.nsdiKey}
+            autoFocus
+            disabled={disabled}
+            {...methods.register("nsdi_key", { required: true })}
+          />
+          {/**/}
+          <TextField
+            margin="normal"
+            size="small"
+            required
+            fullWidth
+            label={EN.odcloudKey}
+            autoFocus
+            disabled={disabled}
+            {...methods.register("odcloud_key", { required: true })}
           />
         </Box>
       </Paper>
@@ -135,19 +136,18 @@ function AgencyContent({ disabled }) {
   )
 }
 //
-export default function Profile() {
+export default function Configuration() {
   const { appState } = React.useContext(AppContext)
   const [cookies] = useCookies(["token"])
   const methods = useForm({
     criteriaMode: "all",
     mode: "onSubmit",
-    defaultValues: appState.currentUser
+    defaultValues: appState.appSettings
   })
-  //
   const [mode, setMode] = React.useState({
-    disabled: true,
     buttonLabel: EN.edit,
     buttonDisabled: false,
+    disabled: true,
     editing: false
   })
   //
@@ -181,7 +181,7 @@ export default function Profile() {
   }
   //
   const onSubmit = async (data) => {
-    const result = await updateUser(data, cookies["token"])
+    const result = await updateSettings(data, cookies["token"])
     if (!result) return
   }
   //
@@ -198,16 +198,15 @@ export default function Profile() {
               onClick={onActionClick}
               variant="contained"
               sx={{ my: 1, mx: 1.5 }}
+              disabled={mode.buttonDisabled}
             >
               {mode.buttonLabel}
             </Button>
           </Grid>
           {/**/}
-          <ProfileContent disabled={mode.disabled} />
+          <GeneralContent disabled={mode.disabled} />
           {/**/}
-          {appState.currentUser.user_type === "AGENCY" && (
-            <AgencyContent disabled={mode.disabled} />
-          )}
+          <APIContent disabled={mode.disabled} />
         </Grid>
       </FormProvider>
     </DashboardLayout>

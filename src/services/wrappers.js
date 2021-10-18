@@ -49,12 +49,18 @@ export const UpdateAppBarMenus = (props, Next) => {
 }
 //
 export const OnlyAnony = (props, Next) => {
-  const [cookies] = useCookies(["token"])
+  const [cookies, , removeCookie] = useCookies(["token"])
   const [state, setState] = React.useState(null)
   React.useEffect(() => {
-    if (!("token" in cookies)) setState(true)
-    else setState(false)
-  }, [cookies, setState])
+    ;(async () => {
+      if ("token" in cookies && !(await checkAuth(cookies["token"]))) {
+        removeCookie("token")
+        setState(true)
+      }
+      if (!("token" in cookies)) setState(true)
+      else setState(false)
+    })()
+  }, [cookies, setState, removeCookie])
   //
   if (state === true) return <Next {...props} />
   else if (state === false) return <Redirect to="/" />
@@ -127,80 +133,17 @@ export const UpdateCurrentUser = (props, Next) => {
 }
 //
 export const OnlyAdmin = (props, Next) => {
-  const { appDispatch } = React.useContext(AppContext)
-  const [cookies] = useCookies(["token"])
+  const { appState, appDispatch } = React.useContext(AppContext)
   const [state, setState] = React.useState(null)
   React.useEffect(() => {
     ;(async () => {
-      const result = await checkAuth(cookies["token"])
-      if (
-        !result ||
-        result.user_role === "CLIENT" ||
-        result.user_role === "EMPLOYEE"
-      ) {
+      if (appState.currentUser && appState.currentUser.user_role === "ADMIN") {
+        setState(true)
+      } else {
         setState(false)
-        return
       }
-      setState(true)
     })()
-  }, [appDispatch, cookies])
-  if (state === true) return <Next {...props} />
-  else if (state === false) return <Redirect to="/dashboard/profile" />
-  return <div />
-}
-//
-export const OnlyBackOffice = (props, Next) => {
-  const { appDispatch } = React.useContext(AppContext)
-  const [cookies] = useCookies(["token"])
-  const [state, setState] = React.useState(null)
-  React.useEffect(() => {
-    ;(async () => {
-      const result = await checkAuth(cookies["token"])
-      if (!result || result.user_role === "CLIENT") {
-        setState(false)
-        return
-      }
-      setState(true)
-    })()
-  }, [appDispatch, cookies])
-  if (state === true) return <Next {...props} />
-  else if (state === false) return <Redirect to="/dashboard/profile" />
-  return <div />
-}
-//
-export const OnlyAgency = (props, Next) => {
-  const { appDispatch } = React.useContext(AppContext)
-  const [cookies] = useCookies(["token"])
-  const [state, setState] = React.useState(null)
-  React.useEffect(() => {
-    ;(async () => {
-      const result = await checkAuth(cookies["token"])
-      if (!result || result.user_type === "INDIVIDUAL") {
-        setState(false)
-        return
-      }
-      setState(true)
-    })()
-  }, [appDispatch, cookies])
-  if (state === true) return <Next {...props} />
-  else if (state === false) return <Redirect to="/dashboard/profile" />
-  return <div />
-}
-//
-export const OnlyIndividual = (props, Next) => {
-  const { appDispatch } = React.useContext(AppContext)
-  const [cookies] = useCookies(["token"])
-  const [state, setState] = React.useState(null)
-  React.useEffect(() => {
-    ;(async () => {
-      const result = await checkAuth(cookies["token"])
-      if (!result || result.user_type === "AGENCY") {
-        setState(false)
-        return
-      }
-      setState(true)
-    })()
-  }, [appDispatch, cookies])
+  }, [appDispatch, appState.currentUser])
   if (state === true) return <Next {...props} />
   else if (state === false) return <Redirect to="/dashboard/profile" />
   return <div />

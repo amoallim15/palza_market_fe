@@ -9,7 +9,7 @@ import { useCookies } from "react-cookie"
 //
 export default function SignIn() {
   const history = useHistory()
-  const [, setCookie] = useCookies(["jwt_token"])
+  const [, setCookie] = useCookies(["token"])
   const methods = useForm({
     criteriaMode: "all",
     mode: "onSubmit",

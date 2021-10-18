@@ -7,13 +7,25 @@ import Page404 from "../pages/home/page404"
 import SignIn from "../pages/auth/signIn"
 import SignUp from "../pages/auth/signUp"
 import Profile from "../pages/dashboard/profile"
+import Configuration from "../pages/dashboard/configuration"
 //
 export const Routes = [
   {
     path: ["/dashboard/profile"],
     component: Profile,
     exact: true,
-    wrappers: [Wrappers.OnlyAuth, Wrappers.UpdateCurrentUser]
+    wrappers: [Wrappers.UpdateCurrentUser, Wrappers.OnlyAuth]
+  },
+  {
+    path: ["/dashboard/config"],
+    component: Configuration,
+    exact: true,
+    wrappers: [
+      Wrappers.UpdateCurrentUser,
+      Wrappers.OnlyAuth,
+      Wrappers.OnlyAdmin,
+      Wrappers.UpdateSettings
+    ]
   },
   {
     path: ["/sign-in"],
