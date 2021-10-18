@@ -95,7 +95,7 @@ export const updateUser = async (data, token) => {
     "PUT",
     {
       "content-type": "application/json",
-      Authorization: `Breaer ${token.access_token}`
+      Authorization: `Bearer ${token.access_token}`
     },
     JSON.stringify(data)
   )

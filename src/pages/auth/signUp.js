@@ -4,7 +4,6 @@ import EN from "../../services/lang"
 import AgencyIMG from "../../assets/imgs/agency.png"
 import IndividualIMG from "../../assets/imgs/individual.png"
 import { useForm, FormProvider } from "react-hook-form"
-import VerifyUser from "../../components/verifyUser"
 import { signUp, uploadImage } from "../../services/api"
 import AuthAgencyInfo from "../../components/authAgencyInfo"
 import { useHistory } from "react-router-dom"
@@ -55,11 +54,7 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
   })
   const { setValue } = methods
   //
-  React.useEffect(() => {
-    setValue("name", "test")
-    setValue("phone_no", "01091601590")
-    setValue("verify_user", "test")
-  }, [setValue])
+  React.useEffect(() => {}, [setValue])
   //
   const onSubmit = async (data) => {
     const result = await signUp(data)
@@ -135,13 +130,10 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
               {...methods.register("email", { required: true })}
             />
             {/**/}
-            <VerifyUser disabled={true} />
-            {/**/}
             <label className="font-semibold text-sm text-gray-600 pb-1 block">
               {EN.name}
             </label>
             <input
-              disabled
               type="text"
               className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               {...methods.register("name", { required: true })}
@@ -151,7 +143,6 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
               {EN.phoneNo}
             </label>
             <input
-              disabled
               type="text"
               className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               {...methods.register("phone_no", { required: true })}
