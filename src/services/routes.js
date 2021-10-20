@@ -1,6 +1,5 @@
 import Home from "../controllers/home"
 import Page404 from "../controllers/page404"
-import Dashboard from "../controllers/dashboard"
 import SignIn from "../controllers/signIn"
 import SignUp from "../controllers/signUp"
 import SignOut from "../controllers/signOut"
@@ -10,7 +9,12 @@ import Sales from "../controllers/sales"
 import Hub from "../controllers/hub"
 import Agency from "../controllers/agency"
 import Community from "../controllers/community"
-import Profile from "../controllers/profile"
+//
+import Dashboard from "../controllers/dashboard/dashboard"
+import Profile from "../controllers/dashboard/profile"
+import Settings from "../controllers/dashboard/settings"
+import Notice from "../controllers/dashboard/notice"
+import NoticeCreate from "../controllers/dashboard/noticeCreate"
 //
 export const HomeRoutes = [
   {
@@ -77,6 +81,21 @@ export const DashboardRoutes = [
   {
     path: ["/dashboard/profile"],
     component: Profile,
+    exact: true
+  },
+  {
+    path: ["/dashboard/settings"],
+    component: Settings,
+    exact: true
+  },
+  {
+    path: ["/dashboard/notice"],
+    component: Notice,
+    exact: true
+  },
+  {
+    path: ["/dashboard/notice/create"],
+    component: NoticeCreate,
     exact: true
   }
 ]

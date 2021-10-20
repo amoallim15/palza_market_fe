@@ -1,5 +1,5 @@
 const EN = {
-  title: "팔자마켓",
+  title: "title",
   home: "메인화면",
   settings: "설정",
   config: "Configuration",
@@ -74,7 +74,16 @@ const EN = {
   changePassword: "Change Password",
   currentPassword: "Current Password",
   newPassword: "New Password",
-  confirmNewPassword: "Confirm New Password"
+  confirmNewPassword: "Confirm New Password",
+  cancel: "Cancel",
+  create: "Create",
+  category: "Category",
+  createdAt: "Created At",
+  updatedAt: "Updated At",
+  noDataAvailable: "No Data Available.",
+  createNotice: "Create Notice",
+  content: "Content",
+  thumbnail: "Thumbnail"
 }
 //
 const Lang = ((lang) => {

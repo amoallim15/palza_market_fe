@@ -1,52 +1,27 @@
 import React from "react"
-import {
-  Grid,
-  Paper,
-  Typography,
-  TextField,
-  Box,
-  Button,
-  CircularProgress
-} from "@mui/material"
+import { Grid, Paper, Typography, TextField, Box } from "@mui/material"
 import Lang from "../../services/lang"
 import { FormProvider } from "react-hook-form"
+import DashboardEditAction from "../../components/dashboardEditAction"
 //
-export default function PwdView({
+export default function ProfilePwdView({
   methods,
-  isAgency,
-  mode,
-  onSubmit,
-  onActionClick
+  onActionCallback,
+  onValidateCallback,
+  onResetCallback,
+  setDisabled,
+  disabled
 }) {
   return (
     <FormProvider {...methods}>
       <Grid container spacing={3}>
-        <Grid
-          item
-          xs={12}
-          sx={{ flexDirection: "row-reverse", display: "flex" }}
-        >
-          <Button
-            onClick={onActionClick}
-            variant="contained"
-            sx={{ my: 1, ml: 1.5 }}
-            disabled={mode.buttonDisabled}
-          >
-            {mode.buttonLabel}
-            {mode.editing === null && (
-              <CircularProgress
-                size={24}
-                sx={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  marginTop: "-12px",
-                  marginLeft: "-12px"
-                }}
-              />
-            )}
-          </Button>
-        </Grid>
+        {/**/}
+        <DashboardEditAction
+          setDisabled={setDisabled}
+          actionCallback={onActionCallback}
+          validateCallback={onValidateCallback}
+          resetCallback={onResetCallback}
+        />
         {/**/}
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
@@ -66,7 +41,7 @@ export default function PwdView({
                 size="small"
                 fullWidth
                 label={Lang.currentPassword}
-                disabled={mode.disabled}
+                disabled={disabled}
                 {...methods.register("password", { required: true })}
               />
               <TextField
@@ -76,7 +51,7 @@ export default function PwdView({
                 required
                 fullWidth
                 label={Lang.newPassword}
-                disabled={mode.disabled}
+                disabled={disabled}
                 {...methods.register("new_password", {
                   required: true,
                   pattern: /^((?=.*\d)(?=.*[a-z])(?=.*[\W]).{8,16})$/
@@ -89,7 +64,7 @@ export default function PwdView({
                 required
                 fullWidth
                 label={Lang.confirmNewPassword}
-                disabled={mode.disabled}
+                disabled={disabled}
                 {...methods.register("confirm_new_password", {
                   required: true,
                   validate: {

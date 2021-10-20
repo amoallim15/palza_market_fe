@@ -58,7 +58,10 @@ export const updateSettings = async (data, token) => {
   return await call(
     "/settings",
     "PUT",
-    { "content-type": "application/json" },
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
     JSON.stringify(data)
   )
 }
@@ -80,6 +83,26 @@ export const changeUserPwd = async (data, token) => {
   return await call(
     `/auth/${data._id}`,
     "PATCH",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}
+//
+export const getNoticeCategories = async () => {
+  return await call("/notice-category", "GET")
+}
+//
+export const getNotices = async (page) => {
+  return await call(`/notice?page=${page}`, "GET")
+}
+//
+export const createNotice = async (data, token) => {
+  return await call(
+    "/notice",
+    "POST",
     {
       "content-type": "application/json",
       Authorization: `Bearer ${token.access_token}`

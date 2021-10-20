@@ -1,15 +1,8 @@
 import React from "react"
-import {
-  Grid,
-  Paper,
-  Typography,
-  TextField,
-  Box,
-  Button,
-  CircularProgress
-} from "@mui/material"
+import { Grid, Paper, Typography, TextField, Box } from "@mui/material"
 import Lang from "../../services/lang"
 import { useFormContext, FormProvider } from "react-hook-form"
+import DashboardEditAction from "../../components/dashboardEditAction"
 //
 function ClientContent({ disabled }) {
   const methods = useFormContext()
@@ -139,46 +132,28 @@ function AgencyContent({ disabled }) {
   )
 }
 //
-export default function InfoView({
+export default function ProfileInfoView({
   methods,
   isAgency,
-  mode,
-  onSubmit,
-  onActionClick
+  onActionCallback,
+  onValidateCallback,
+  onResetCallback,
+  setDisabled,
+  disabled
 }) {
   return (
     <FormProvider {...methods}>
       <Grid container spacing={3}>
-        <Grid
-          item
-          xs={12}
-          sx={{ flexDirection: "row-reverse", display: "flex" }}
-        >
-          <Button
-            onClick={onActionClick}
-            variant="contained"
-            sx={{ my: 1, ml: 1.5 }}
-            disabled={mode.buttonDisabled}
-          >
-            {mode.buttonLabel}
-            {mode.editing === null && (
-              <CircularProgress
-                size={24}
-                sx={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  marginTop: "-12px",
-                  marginLeft: "-12px"
-                }}
-              />
-            )}
-          </Button>
-        </Grid>
+        <DashboardEditAction
+          setDisabled={setDisabled}
+          actionCallback={onActionCallback}
+          validateCallback={onValidateCallback}
+          resetCallback={onResetCallback}
+        />
         {/**/}
-        <ClientContent disabled={mode.disabled} />
+        <ClientContent disabled={disabled} />
         {/**/}
-        {isAgency && <AgencyContent disabled={mode.disabled} />}
+        {isAgency && <AgencyContent disabled={disabled} />}
       </Grid>
     </FormProvider>
   )

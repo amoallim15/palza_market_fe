@@ -1,8 +1,8 @@
 import React from "react"
-import AppContext from "../services/context"
+import AppContext from "../../services/context"
 import { useCookies } from "react-cookie"
-import DashboardView from "../views/dashboardView"
-import { checkAuth, getSettings } from "../services/api"
+import DashboardView from "../../views/dashboard/dashboardView"
+import { checkAuth, getSettings } from "../../services/api"
 import { useHistory } from "react-router-dom"
 //
 export default function Dashboard() {
@@ -51,6 +51,8 @@ export default function Dashboard() {
       handleDrawer={() => setDrawerOpen(!drawerOpen)}
       handleItemClick={onItemClick}
       title={appState.appSettings.title}
+      userRole={appState.currentUser.user_role}
+      userType={appState.currentUser.user_type}
     />
   )
 }
