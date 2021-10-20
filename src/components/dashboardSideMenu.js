@@ -1,6 +1,5 @@
 import React from "react"
 import { styled } from "@mui/material/styles"
-import { dashboardSideMenu } from "../services/menus"
 import {
   ListItem,
   ListItemText,
@@ -14,22 +13,19 @@ import {
 import DashboardIcon from "@mui/icons-material/Dashboard"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
 import { useHistory } from "react-router-dom"
+import Lang from "../services/lang"
 
-function MenuItem({ item }) {
+function MenuItem({ name, link, divider }) {
   const history = useHistory()
-  //
-  const onClick = (e) => {
-    history.push(item.link)
-  }
   //
   return (
     <>
-      {item.divider && <Divider />}
-      <ListItem button sx={{ pl: 4 }} onClick={onClick}>
+      {divider && <Divider />}
+      <ListItem button sx={{ pl: 4 }} onClick={() => history.push(link)}>
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
-        <ListItemText primary={item.name} />
+        <ListItemText primary={name} />
       </ListItem>
     </>
   )
@@ -63,10 +59,10 @@ const CustomDrawer = styled(Drawer, {
   }
 }))
 //
-export default function DashboardSideMenu({ handleDrawer, open }) {
+export default function DashboardSideMenu({ handleDrawer, drawerOpen }) {
   //
   return (
-    <CustomDrawer variant="permanent" open={open}>
+    <CustomDrawer variant="permanent" open={drawerOpen}>
       <Toolbar
         sx={{
           display: "flex",
@@ -81,9 +77,9 @@ export default function DashboardSideMenu({ handleDrawer, open }) {
       </Toolbar>
       <Divider />
       <List>
-        {dashboardSideMenu.map((item, index) => (
-          <MenuItem key={index} item={item} />
-        ))}
+        {/**/}
+        <MenuItem name={Lang.profile} link="/dashboard/profile" />
+        {/**/}
       </List>
     </CustomDrawer>
   )

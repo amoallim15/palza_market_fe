@@ -3,7 +3,8 @@ import React from "react"
 const initialState = {
   appBarMenus: [[], []],
   appSettings: null,
-  currentUser: null
+  currentUser: null,
+  isAuth: false
 }
 //
 const AppContext = React.createContext(initialState)
@@ -11,6 +12,9 @@ const AppContext = React.createContext(initialState)
 export const AppContextProvider = ({ children }) => {
   const [appState, appDispatch] = React.useReducer((state, action) => {
     switch (action.type) {
+      //
+      case "UpdateIsAuth":
+        return { ...state, isAuth: action.payload }
       //
       case "UpdateAppBarMenus":
         return { ...state, appBarMenus: action.payload }

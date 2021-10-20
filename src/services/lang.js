@@ -69,7 +69,13 @@ const EN = {
   gambiaKey: "Gabia Key",
   nsdiKey: "NSDI Key",
   odcloudKey: "Odcloud Key",
-  pending: "Pending..."
+  pending: "Pending...",
+  info: "Info",
+  changePassword: "Change Password"
 }
 //
-export default EN
+const Lang = ((lang) => {
+  return lang
+})(EN)
+//
+export default Lang

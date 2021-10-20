@@ -1,103 +1,205 @@
 import React from "react"
-import AppContext from "../services/context"
-import logo from "../assets/imgs/logo.png"
+import { Link, useLocation } from "react-router-dom"
 import MenuClosedIcon from "../assets/icons/menu-closed.svg"
 import MenuOpenIcon from "../assets/icons/menu-open.svg"
-import { Link, useLocation } from "react-router-dom"
+import logo from "../assets/imgs/logo.png"
+import Lang from "../services/lang"
 //
-const AppBarLink = ({ item, className }) => {
-  const location = useLocation()
-  let classes = "px-3 py-2 rounded-md text-sm font-medium "
-  if (className) classes += `${className} `
-  //
-  if (location.pathname === item.link) {
-    classes += "bg-gray-900 text-white"
-  } else {
-    classes += "text-gray-300 hover:bg-gray-700 hover:text-white"
-  }
-  if (item.className) classes += ` ${item.className}`
+export const AppBarHome = ({ isLocationMatch, isMobile }) => {
   //
   return (
-    <Link to={item.link} className={classes}>
-      {item.name}
-    </Link>
+    <>
+      <Link
+        to={"/about"}
+        className={
+          "px-3 py-2 rounded-md text-sm font-medium" +
+          (isMobile ? " block" : "") +
+          (isLocationMatch("/about")
+            ? " bg-gray-900 text-white"
+            : " text-gray-300 hover:bg-gray-700 hover:text-white")
+        }
+      >
+        {Lang.about}
+      </Link>
+      {/**/}
+      <Link
+        to={"/search"}
+        className={
+          "px-3 py-2 rounded-md text-sm font-medium" +
+          (isMobile ? " block" : "") +
+          (isLocationMatch("/search")
+            ? " bg-gray-900 text-white"
+            : " text-gray-300 hover:bg-gray-700 hover:text-white")
+        }
+      >
+        {Lang.realstateSearch}
+      </Link>
+      {/**/}
+      <Link
+        to={"/sales"}
+        className={
+          "px-3 py-2 rounded-md text-sm font-medium" +
+          (isMobile ? " block" : "") +
+          (isLocationMatch("/sales")
+            ? " bg-gray-900 text-white"
+            : " text-gray-300 hover:bg-gray-700 hover:text-white")
+        }
+      >
+        {Lang.realstateSales}
+      </Link>
+      {/**/}
+      <Link
+        to={"/hub"}
+        className={
+          "px-3 py-2 rounded-md text-sm font-medium" +
+          (isMobile ? " block" : "") +
+          (isLocationMatch("/hub")
+            ? " bg-gray-900 text-white"
+            : " text-gray-300 hover:bg-gray-700 hover:text-white")
+        }
+      >
+        {Lang.realstateHub}
+      </Link>
+      {/**/}
+      <Link
+        to={"/community"}
+        className={
+          "px-3 py-2 rounded-md text-sm font-medium" +
+          (isMobile ? " block" : "") +
+          (isLocationMatch("/community")
+            ? " bg-gray-900 text-white"
+            : " text-gray-300 hover:bg-gray-700 hover:text-white")
+        }
+      >
+        {Lang.community}
+      </Link>
+      {/**/}
+      <Link
+        to={"/agency"}
+        className={
+          "px-3 py-2 rounded-md text-sm font-medium text-yellow-300" +
+          (isMobile ? " block" : "") +
+          (isLocationMatch("/agency")
+            ? " bg-gray-900 text-white"
+            : " text-gray-300 hover:bg-gray-700 hover:text-white")
+        }
+      >
+        {Lang.agencyLanding}
+      </Link>
+    </>
   )
 }
 //
-const AppBarLinkGroup = ({ item, className }) => {
-  const location = useLocation()
+export const AppBarProfile = ({ isLocationMatch }) => {
   const ref = React.useRef()
-  const [shown, setShown] = React.useState(false)
-  let classes =
-    className + " hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700 "
-  for (let child of item.children) {
-    child.className = classes
-    if (location.pathname === child.link) {
-      child.className += "bg-gray-100"
-    }
-  }
+  const [itemShown, setItemShown] = React.useState(false)
   //
   React.useEffect(() => {
     const closeMenu = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) setShown(false)
+      if (ref.current && !ref.current.contains(e.target)) setItemShown(false)
     }
+    //
     document.addEventListener("mousedown", closeMenu)
     return () => document.removeEventListener("mousedown", closeMenu)
-  }, [shown])
+  }, [itemShown])
   //
   return (
     <div ref={ref} className="ml-3 relative">
       <button
-        type="button"
         className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white focus:outline-none"
-        onClick={() => setShown(!shown)}
+        onClick={() => setItemShown(true)}
       >
-        {item.name}
+        {Lang.profile}
       </button>
-      {shown && (
+      {/**/}
+      {itemShown && (
         <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-          {item.children.map((sub_item, index) => {
-            switch (sub_item.type) {
-              case "divider":
-                return (
-                  <div key={index} className="pt-1 pb-1">
-                    <div className="border-t" />
-                  </div>
-                )
-              case "link":
-              default:
-                return (
-                  <Link
-                    key={index}
-                    to={sub_item.link}
-                    className={sub_item.className}
-                  >
-                    {sub_item.name}
-                  </Link>
-                )
+          {/**/}
+          <Link
+            to={"/dashboard/profile"}
+            className={
+              "hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700" +
+              (isLocationMatch("/dashboard/profile") ? " bg-gray-100" : "")
             }
-          })}
+          >
+            {Lang.profile}
+          </Link>
+          {/**/}
+          <Link
+            to={"/dashboard/wishlist"}
+            className={
+              "hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700" +
+              (isLocationMatch("/dashboard/wishlist") ? " bg-gray-100" : "")
+            }
+          >
+            {Lang.wishlist}
+          </Link>
+          {/**/}
+          <Link
+            to={"/dashboard/realstates"}
+            className={
+              "hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700" +
+              (isLocationMatch("/dashboard/realstates") ? " bg-gray-100" : "")
+            }
+          >
+            {Lang.realstates}
+          </Link>
+          {/**/}
+          <Link
+            to={"/dashboard/reviews"}
+            className={
+              "hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700" +
+              (isLocationMatch("/dashboard/reviews") ? " bg-gray-100" : "")
+            }
+          >
+            {Lang.reviews}
+          </Link>
+          {/**/}
+          <Link
+            to={"/dashboard/config"}
+            className={
+              "hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700" +
+              (isLocationMatch("/dashboard/config") ? " bg-gray-100" : "")
+            }
+          >
+            {Lang.config}
+          </Link>
+          {/**/}
+          <Link
+            to={"/dashboard/sms"}
+            className={
+              "hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700" +
+              (isLocationMatch("/dashboard/sms") ? " bg-gray-100" : "")
+            }
+          >
+            {Lang.smsMessages}
+          </Link>
+          {/**/}
+          <div className="pt-1 pb-1">
+            <div className="border-t" />
+          </div>
+          {/**/}
+          <Link
+            to={"/sign-out"}
+            className={
+              "hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700"
+            }
+          >
+            {Lang.signOut}
+          </Link>
         </div>
       )}
     </div>
   )
 }
 //
-const AppBarItem = ({ item, className }) => {
-  switch (item.type) {
-    case "group":
-      return <AppBarLinkGroup item={item} className={className} />
-    case "divider":
-      return <div className="divide-gray-200" />
-    case "link":
-    default:
-      return <AppBarLink item={item} className={className} />
-  }
-}
-//
-export default function HomeAppBar() {
-  const { appState } = React.useContext(AppContext)
+export default function HomeAppBar({ isAuth, userRole, userType }) {
   const [mobileMenuShown, setMobileMenuShown] = React.useState(false)
+  const location = useLocation()
+  //
+  const isLocationMatch = (link) => {
+    return location.pathname === link
+  }
   //
   return (
     <nav className="bg-gray-800">
@@ -138,17 +240,47 @@ export default function HomeAppBar() {
             </Link>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                {appState.appBarMenus[0].map((item, index) => (
-                  <AppBarItem key={index} item={item} />
-                ))}
+                <AppBarHome isLocationMatch={isLocationMatch} />
               </div>
             </div>
           </div>
           {/**/}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            {appState.appBarMenus[1].map((item, index) => (
-              <AppBarItem key={index} item={item} />
-            ))}
+            {!isAuth && (
+              <>
+                <Link
+                  to={"/sign-in"}
+                  className={
+                    "px-3 py-2 rounded-md text-sm font-medium" +
+                    (isLocationMatch("/sign-in")
+                      ? " bg-gray-900 text-white"
+                      : " text-gray-300 hover:bg-gray-700 hover:text-white")
+                  }
+                >
+                  {Lang.signIn}
+                </Link>
+                {/**/}
+                <Link
+                  to={"/sign-up"}
+                  className={
+                    "px-3 py-2 rounded-md text-sm font-medium" +
+                    (isLocationMatch("/sign-up")
+                      ? " bg-gray-900 text-white"
+                      : " text-gray-300 hover:bg-gray-700 hover:text-white")
+                  }
+                >
+                  {Lang.signUp}
+                </Link>
+              </>
+            )}
+            {/**/}
+            {isAuth && (
+              <AppBarProfile
+                userRole={userRole}
+                userType={userType}
+                isLocationMatch={isLocationMatch}
+              />
+            )}
           </div>
           {/**/}
         </div>
@@ -156,9 +288,7 @@ export default function HomeAppBar() {
       {/**/}
       <div className="sm:hidden" id="mobile-menu" hidden={!mobileMenuShown}>
         <div className="px-2 pt-2 pb-3 space-y-1">
-          {appState.appBarMenus[0].map((item, index) => (
-            <AppBarItem key={index} item={item} className="block" />
-          ))}
+          <AppBarHome isLocationMatch={isLocationMatch} isMobile={true} />
         </div>
       </div>
     </nav>

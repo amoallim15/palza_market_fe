@@ -1,10 +1,5 @@
 import { CONFIG } from "./config"
 //
-export const getVerifyUserHash = async () => {
-  // TODO:
-  return await "TODO"
-}
-//
 const call = async (url, method, headers, body) => {
   const REQUEST_URL = new URL(url, CONFIG.API_ENDPOINT)
   //
@@ -32,15 +27,10 @@ export const uploadImage = async (file) => {
   const formData = new FormData()
   formData.append("image", file, file.name)
   //
-  return await call("/image/temporary", "POST", null, formData)
+  return await call("/image/tmp", "POST", null, formData)
 }
 //
 export const signUp = async (data) => {
-  delete data.personal_info_consent
-  delete data.terms_and_conditions
-  delete data.confirm_password
-  delete data.verify_user
-  //
   return await call(
     "/user",
     "POST",
@@ -65,8 +55,6 @@ export const checkAuth = async (token) => {
 }
 //
 export const updateSettings = async (data, token) => {
-  delete data._id
-  //
   return await call(
     "/settings",
     "PUT",
@@ -76,22 +64,9 @@ export const updateSettings = async (data, token) => {
 }
 //
 export const updateUser = async (data, token) => {
-  const _id = data._id
-  delete data._id
-  delete data.user_role
-  delete data.user_type
-  delete data.user_method
-  delete data.name
-  delete data.legal_address
-  delete data.business_representative
-  delete data.business_registeration_no
-  delete data.business_name
-  delete data.business_license_url
-  delete data.brokerage_record_no
-  delete data.brokerage_card_url
   //
   return await call(
-    `/user/${_id}`,
+    `/user/${data._id}`,
     "PUT",
     {
       "content-type": "application/json",

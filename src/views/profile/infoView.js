@@ -1,20 +1,16 @@
 import React from "react"
-import DashboardLayout from "./dashboardLayout"
 import { Grid, Paper, Typography, TextField, Box, Button } from "@mui/material"
-import EN from "../../services/lang"
-import { useFormContext, useForm, FormProvider } from "react-hook-form"
-import AppContext from "../../services/context"
-import { updateUser } from "../../services/api"
-import { useCookies } from "react-cookie"
+import Lang from "../../services/lang"
+import { useFormContext, FormProvider } from "react-hook-form"
 //
-function ProfileContent({ disabled }) {
+function ClientContent({ disabled }) {
   const methods = useFormContext()
   //
   return (
     <Grid item xs={12}>
       <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
         <Typography component="h2" variant="h6" color="primary" gutterBottom>
-          {EN.profile}
+          {Lang.profile}
         </Typography>
         {/**/}
         <Box sx={{ mt: 1 }}>
@@ -22,7 +18,7 @@ function ProfileContent({ disabled }) {
             margin="normal"
             size="small"
             fullWidth
-            label={EN.name}
+            label={Lang.name}
             disabled
             variant="filled"
             value={methods.getValues("name")}
@@ -32,7 +28,7 @@ function ProfileContent({ disabled }) {
             size="small"
             required
             fullWidth
-            label={EN.username}
+            label={Lang.username}
             autoFocus
             disabled={disabled}
             {...methods.register("username", { required: true })}
@@ -42,7 +38,7 @@ function ProfileContent({ disabled }) {
             size="small"
             required
             fullWidth
-            label={EN.email}
+            label={Lang.email}
             autoComplete="email"
             disabled={disabled}
             {...methods.register("email", { required: true })}
@@ -52,7 +48,7 @@ function ProfileContent({ disabled }) {
             size="small"
             required
             fullWidth
-            label={EN.displayName}
+            label={Lang.displayName}
             disabled={disabled}
             {...methods.register("display_name", { required: true })}
           />
@@ -61,7 +57,7 @@ function ProfileContent({ disabled }) {
             size="small"
             required
             fullWidth
-            label={EN.phoneNo}
+            label={Lang.phoneNo}
             disabled={disabled}
             {...methods.register("phone_no", { required: true })}
           />
@@ -78,14 +74,14 @@ function AgencyContent({ disabled }) {
     <Grid item xs={12}>
       <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
         <Typography component="h2" variant="h6" color="primary" gutterBottom>
-          {EN.agencySettings}
+          {Lang.agencySettings}
         </Typography>
         <Box sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             size="small"
             fullWidth
-            label={EN.managerPhoneNo}
+            label={Lang.managerPhoneNo}
             disabled={disabled}
             {...(methods.register("manager_phone_no") || "")}
           />
@@ -94,7 +90,7 @@ function AgencyContent({ disabled }) {
             size="small"
             required
             fullWidth
-            label={EN.businessName}
+            label={Lang.businessName}
             disabled
             variant="filled"
             value={methods.getValues("business_name") || ""}
@@ -104,7 +100,7 @@ function AgencyContent({ disabled }) {
             size="small"
             required
             fullWidth
-            label={EN.businessRepresentative}
+            label={Lang.businessRepresentative}
             disabled
             variant="filled"
             value={methods.getValues("business_representative") || ""}
@@ -114,7 +110,7 @@ function AgencyContent({ disabled }) {
             size="small"
             required
             fullWidth
-            label={EN.brokerageRecordNo}
+            label={Lang.brokerageRecordNo}
             disabled
             variant="filled"
             value={methods.getValues("brokerage_record_no") || ""}
@@ -124,7 +120,7 @@ function AgencyContent({ disabled }) {
             size="small"
             required
             fullWidth
-            label={EN.legalAddress}
+            label={Lang.legalAddress}
             disabled
             variant="filled"
             value={methods.getValues("legal_address") || ""}
@@ -135,81 +131,34 @@ function AgencyContent({ disabled }) {
   )
 }
 //
-export default function Profile() {
-  const { appState } = React.useContext(AppContext)
-  const [cookies] = useCookies(["token"])
-  const methods = useForm({
-    criteriaMode: "all",
-    mode: "onSubmit",
-    defaultValues: appState.currentUser
-  })
-  //
-  const [mode, setMode] = React.useState({
-    disabled: true,
-    buttonLabel: EN.edit,
-    buttonDisabled: false,
-    editing: false
-  })
-  //
-  const onActionClick = async (e) => {
-    if (mode.editing === false) {
-      await setMode({
-        disabled: false,
-        buttonLabel: EN.save,
-        editing: true,
-        buttonDisabled: false
-      })
-    } else if (mode.editing === true) {
-      if (!(await methods.trigger())) return
-      //
-      await setMode({
-        disabled: true,
-        buttonLabel: EN.pending,
-        editing: null,
-        buttonDisabled: true
-      })
-      await methods.handleSubmit(onSubmit)()
-      await setMode({
-        disabled: true,
-        buttonLabel: EN.edit,
-        editing: false,
-        buttonDisabled: false
-      })
-    } else {
-      return
-    }
-  }
-  //
-  const onSubmit = async (data) => {
-    const result = await updateUser(data, cookies["token"])
-    if (!result) return
-  }
-  //
+export default function InfoView({
+  methods,
+  isAgency,
+  mode,
+  onSubmit,
+  onActionClick
+}) {
   return (
-    <DashboardLayout>
-      <FormProvider {...methods}>
-        <Grid container spacing={3}>
-          <Grid
-            item
-            xs={12}
-            sx={{ flexDirection: "row-reverse", display: "flex" }}
+    <FormProvider {...methods}>
+      <Grid container spacing={3}>
+        <Grid
+          item
+          xs={12}
+          sx={{ flexDirection: "row-reverse", display: "flex" }}
+        >
+          <Button
+            onClick={onActionClick}
+            variant="contained"
+            sx={{ my: 1, mx: 1.5 }}
           >
-            <Button
-              onClick={onActionClick}
-              variant="contained"
-              sx={{ my: 1, mx: 1.5 }}
-            >
-              {mode.buttonLabel}
-            </Button>
-          </Grid>
-          {/**/}
-          <ProfileContent disabled={mode.disabled} />
-          {/**/}
-          {appState.currentUser.user_type === "AGENCY" && (
-            <AgencyContent disabled={mode.disabled} />
-          )}
+            {mode.buttonLabel}
+          </Button>
         </Grid>
-      </FormProvider>
-    </DashboardLayout>
+        {/**/}
+        <ClientContent disabled={mode.disabled} />
+        {/**/}
+        {isAgency && <AgencyContent disabled={mode.disabled} />}
+      </Grid>
+    </FormProvider>
   )
 }

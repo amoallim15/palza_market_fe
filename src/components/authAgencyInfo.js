@@ -1,5 +1,5 @@
 import React from "react"
-import EN from "../services/lang"
+import Lang from "../services/lang"
 import { Modal } from "@mui/material"
 import { useFormContext } from "react-hook-form"
 import { NSDI_URL } from "../services/config"
@@ -43,17 +43,17 @@ export default function AuthAgencyInfo() {
   return (
     <div className="px-5 py-7 border-b">
       <label className="font-semibold text-sm text-gray-600 pb-1 block">
-        {EN.findAgency}
+        {Lang.findAgency}
       </label>
       <button
         className="mb-5 transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
         onClick={() => setOpen(true)}
       >
-        {EN.startFindingAgency}
+        {Lang.startFindingAgency}
       </button>
       {/**/}
       <label className="font-semibold text-sm text-gray-600 pb-1 block">
-        {EN.businessName}
+        {Lang.businessName}
       </label>
       <input
         disabled
@@ -63,7 +63,7 @@ export default function AuthAgencyInfo() {
       />
       {/**/}
       <label className="font-semibold text-sm text-gray-600 pb-1 block">
-        {EN.businessRepresentative}
+        {Lang.businessRepresentative}
       </label>
       <input
         disabled
@@ -73,7 +73,7 @@ export default function AuthAgencyInfo() {
       />
       {/**/}
       <label className="font-semibold text-sm text-gray-600 pb-1 block">
-        {EN.brokerageRecordNo}
+        {Lang.brokerageRecordNo}
       </label>
       <input
         disabled
@@ -83,7 +83,7 @@ export default function AuthAgencyInfo() {
       />
       {/**/}
       <label className="font-semibold text-sm text-gray-600 pb-1 block">
-        {EN.legalAddress}
+        {Lang.legalAddress}
       </label>
       <input
         disabled
@@ -98,7 +98,7 @@ export default function AuthAgencyInfo() {
             <div className="px-5 py-7 boroder-b">
               {/**/}
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                {EN.searchBusinessName}
+                {Lang.searchBusinessName}
               </label>
               <input
                 type="text"
@@ -129,7 +129,7 @@ export default function AuthAgencyInfo() {
                 className="mb-5 transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
                 onClick={onSelect}
               >
-                {EN.confirm}
+                {Lang.confirm}
               </button>
             </div>
           </div>

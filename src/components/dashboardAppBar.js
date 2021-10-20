@@ -9,13 +9,13 @@ import {
   Button
 } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
-import EN from "../services/lang"
+import Lang from "../services/lang"
 import MessageIcon from "@mui/icons-material/Message"
 import { useHistory } from "react-router-dom"
 import AppContext from "../services/context"
-
+//
 const drawerWidth = 240
-
+//
 const CustomAppBar = styled(AppBar, {
   shouldForwardProp: (prop) => prop !== "open"
 })(({ theme, open }) => ({
@@ -33,7 +33,7 @@ const CustomAppBar = styled(AppBar, {
     })
   })
 }))
-
+//
 const SMSMessageCount = ({ count }) => {
   return (
     <IconButton color="inherit">
@@ -43,13 +43,13 @@ const SMSMessageCount = ({ count }) => {
     </IconButton>
   )
 }
-
-export default function DashboardAppBar({ title, open, handleDrawer }) {
+//
+export default function DashboardAppBar({ title, drawerOpen, handleDrawer }) {
   const history = useHistory()
   const { appState } = React.useContext(AppContext)
   //
   return (
-    <CustomAppBar position="absolute" open={open}>
+    <CustomAppBar position="absolute" open={drawerOpen}>
       <Toolbar
         sx={{
           pr: "24px" // keep right padding when drawer closed
@@ -58,11 +58,10 @@ export default function DashboardAppBar({ title, open, handleDrawer }) {
         <IconButton
           edge="start"
           color="inherit"
-          aria-label="open drawer"
           onClick={handleDrawer}
           sx={{
             marginRight: "36px",
-            ...(open && { display: "none" })
+            ...(drawerOpen && { display: "none" })
           }}
         >
           <MenuIcon />
@@ -75,7 +74,7 @@ export default function DashboardAppBar({ title, open, handleDrawer }) {
           noWrap
           sx={{ flexGrow: 1 }}
         >
-          {title || EN.dashboard}
+          {title || Lang.dashboard}
         </Typography>
         {/**/}
         <Button
@@ -83,7 +82,7 @@ export default function DashboardAppBar({ title, open, handleDrawer }) {
           variant="button"
           sx={{ my: 1, mx: 1.5 }}
         >
-          {EN.home}
+          {Lang.home}
         </Button>
         {/**/}
         {appState.currentUser &&

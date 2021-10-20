@@ -1,17 +1,15 @@
 import React from "react"
-import AuthLayout from "./authLayout"
-import EN from "../../services/lang"
-import AgencyIMG from "../../assets/imgs/agency.png"
-import IndividualIMG from "../../assets/imgs/individual.png"
-import { useForm, FormProvider } from "react-hook-form"
-import { signUp, uploadImage } from "../../services/api"
-import AuthAgencyInfo from "../../components/authAgencyInfo"
-import { useHistory } from "react-router-dom"
-
-export function SignUpStep1({ onUserTypeSelected }) {
+import HomeAppBar from "../components/homeAppBar"
+import Lang from "../services/lang"
+import IndividualIMG from "../assets/imgs/individual.png"
+import AgencyIMG from "../assets/imgs/agency.png"
+import { FormProvider } from "react-hook-form"
+import AuthAgencyInfo from "../components/authAgencyInfo"
+//
+function Step1({ onUpdateUserType }) {
   return (
     <div className="grid grid-cols-2 gap-14">
-      <button onClick={(e) => onUserTypeSelected(e, "INDIVIDUAL", 1)}>
+      <button onClick={(e) => onUpdateUserType(e, "INDIVIDUAL", 2)}>
         <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200 h-full p-10 text-center">
           <div>
             <img
@@ -19,12 +17,12 @@ export function SignUpStep1({ onUserTypeSelected }) {
               alt="individual"
               className="mb-6 block ml-auto mr-auto"
             />
-            <h4>{EN.signUpIndividual}</h4>
+            <h4>{Lang.signUpIndividual}</h4>
           </div>
         </div>
       </button>
       {/**/}
-      <button onClick={(e) => onUserTypeSelected(e, "AGENCY", 1)}>
+      <button onClick={(e) => onUpdateUserType(e, "AGENCY", 2)}>
         <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200 h-full p-10 text-center">
           <div>
             <img
@@ -32,7 +30,7 @@ export function SignUpStep1({ onUserTypeSelected }) {
               alt="agency"
               className="mb-6 block ml-auto mr-auto"
             />
-            <h4>{EN.signUpAgency}</h4>
+            <h4>{Lang.signUpAgency}</h4>
           </div>
         </div>
       </button>
@@ -40,69 +38,24 @@ export function SignUpStep1({ onUserTypeSelected }) {
   )
 }
 //
-export function SignUpStep2({ onUserTypeSelected, userType }) {
-  //
-  const history = useHistory()
-  const methods = useForm({
-    criteriaMode: "all",
-    mode: "onSubmit",
-    defaultValues: {
-      user_type: userType,
-      // TODO: update based on sign-up method (Social)
-      user_method: "EMAIL"
-    }
-  })
-  const { setValue } = methods
-  //
-  React.useEffect(() => {}, [setValue])
-  //
-  const onSubmit = async (data) => {
-    const result = await signUp(data)
-    if (!result) return
-    history.push("/sign-in")
-  }
-  //
-  const onBusinessLicenseChange = async (e) => {
-    if (!e.target.files[0]) {
-      await methods.setValue("business_license_url", null, {
-        shouldValidate: true
-      })
-      return
-    }
-    const result = await uploadImage(e.target.files[0])
-    if (!result) return
-    await methods.setValue("business_license_url", result.url, {
-      shouldValidate: true
-    })
-  }
-  //
-  const onbrokerageRegistrationChange = async (e) => {
-    if (!e.target.files[0]) {
-      await methods.setValue("brokerage_card_url", null, {
-        shouldValidate: true
-      })
-      return
-    }
-    const result = await uploadImage(e.target.files[0])
-    if (!result) return
-    await methods.setValue("brokerage_card_url", result.url, {
-      shouldValidate: true
-    })
-  }
-  //
-  // console.log(methods.formState.errors)
-  //
+function Step2({
+  formUserType,
+  methods,
+  onSubmit,
+  onBusinessLicenseChange,
+  onbrokerageRegistrationChange
+}) {
   return (
     <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
-          {userType === "AGENCY" && <AuthAgencyInfo />}
+          {formUserType === "AGENCY" && <AuthAgencyInfo />}
           <div className="px-5 py-7 border-b">
             {/**/}
-            {userType === "AGENCY" && (
+            {formUserType === "AGENCY" && (
               <>
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                  {EN.managerPhoneNo}
+                  {Lang.managerPhoneNo}
                 </label>
                 <input
                   type="text"
@@ -113,7 +66,7 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
             )}
             {/**/}
             <label className="font-semibold text-sm text-gray-600 pb-1 block">
-              {EN.username}
+              {Lang.username}
             </label>
             <input
               type="text"
@@ -122,7 +75,7 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
             />
             {/**/}
             <label className="font-semibold text-sm text-gray-600 pb-1 block">
-              {EN.email}
+              {Lang.email}
             </label>
             <input
               type="email"
@@ -131,7 +84,7 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
             />
             {/**/}
             <label className="font-semibold text-sm text-gray-600 pb-1 block">
-              {EN.name}
+              {Lang.name}
             </label>
             <input
               type="text"
@@ -140,7 +93,7 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
             />
             {/**/}
             <label className="font-semibold text-sm text-gray-600 pb-1 block">
-              {EN.phoneNo}
+              {Lang.phoneNo}
             </label>
             <input
               type="text"
@@ -149,7 +102,7 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
             />
             {/**/}
             <label className="font-semibold text-sm text-gray-600 pb-1 block">
-              {EN.password}
+              {Lang.password}
             </label>
             <input
               type="password"
@@ -161,7 +114,7 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
             />
             {/**/}
             <label className="font-semibold text-sm text-gray-600 pb-1 block">
-              {EN.confirmPassword}
+              {Lang.confirmPassword}
             </label>
             <input
               type="password"
@@ -174,11 +127,11 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
               })}
             />
           </div>
-          {userType === "AGENCY" && (
+          {formUserType === "AGENCY" && (
             <div className="p-5 py-7 border-b">
               {/**/}
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                {EN.businessRegistrationNo}
+                {Lang.businessRegistrationNo}
               </label>
               <input
                 type="text"
@@ -189,7 +142,7 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
               />
               {/**/}
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                {EN.businessLicense}
+                {Lang.businessLicense}
               </label>
               <input
                 type="hidden"
@@ -204,7 +157,7 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
               />
               {/**/}
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                {EN.brokerageRegistrationCard}
+                {Lang.brokerageRegistrationCard}
               </label>
               <input
                 type="hidden"
@@ -227,12 +180,12 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
                     required: true
                   })}
                 />
-                <span className="ml-2 text-red-700">[{EN.must}]</span>
+                <span className="ml-2 text-red-700">[{Lang.must}]</span>
                 <span className="ml-2 text-gray-700">
-                  {EN.termsAndConditions}
+                  {Lang.termsAndConditions}
                 </span>
                 <div className="flex-grow" />
-                <button>{EN.viewTermsAndConditions}</button>
+                <button>{Lang.viewTermsAndConditions}</button>
               </label>
             </div>
             {/**/}
@@ -245,10 +198,10 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
                     required: true
                   })}
                 />
-                <span className="ml-2 text-red-700">[{EN.must}]</span>
-                <span className="ml-2 text-gray-700">{EN.consent}</span>
+                <span className="ml-2 text-red-700">[{Lang.must}]</span>
+                <span className="ml-2 text-gray-700">{Lang.consent}</span>
                 <div className="flex-grow" />
-                <button>{EN.viewTermsAndConditions}</button>
+                <button>{Lang.viewTermsAndConditions}</button>
               </label>
             </div>
           </div>
@@ -257,7 +210,7 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
               type="submit"
               className="mb-5 transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
             >
-              {EN.signUp}
+              {Lang.signUp}
             </button>
           </div>
         </form>
@@ -266,28 +219,42 @@ export function SignUpStep2({ onUserTypeSelected, userType }) {
   )
 }
 //
-export default function SignUp() {
-  const [userType, setUserType] = React.useState("")
-  const [step, setStep] = React.useState(0)
-  //
-  const updateUserType = (e, type, step) => {
-    setUserType(type)
-    setStep(step)
-  }
+export default function SignUpView({
+  isAuth,
+  userRole,
+  userType,
+  settings,
+  methods,
+  onSubmit,
+  onBusinessLicenseChange,
+  onbrokerageRegistrationChange,
+  onUpdateUserType,
+  step,
+  formUserType
+}) {
   //
   return (
-    <AuthLayout>
-      <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-lg">
-        {/**/}
-        {step === 0 && <SignUpStep1 onUserTypeSelected={updateUserType} />}
-        {step === 1 && (
-          <SignUpStep2
-            onUserTypeSelected={updateUserType}
-            userType={userType}
-          />
-        )}
-        {/**/}
+    <>
+      <HomeAppBar
+        sticky={true}
+        isAuth={isAuth}
+        userRole={userRole}
+        userType={userType}
+      />
+      <div className="flex-grow flex-shrink bg-gray-100 flex flex-col sm:py-12">
+        <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-lg">
+          {step === 1 && <Step1 onUpdateUserType={onUpdateUserType} />}
+          {step === 2 && (
+            <Step2
+              formUserType={formUserType}
+              methods={methods}
+              onSubmit={onSubmit}
+              onBusinessLicenseChange={onBusinessLicenseChange}
+              onbrokerageRegistrationChange={onbrokerageRegistrationChange}
+            />
+          )}
+        </div>
       </div>
-    </AuthLayout>
+    </>
   )
 }
