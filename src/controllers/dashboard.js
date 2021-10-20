@@ -33,7 +33,14 @@ export default function Dashboard() {
       //
       await setLoaded(true)
     })()
-  }, [appDispatch, appState.currentUser, cookies, appState.isAuth, history, appState.appSettings])
+  }, [
+    appDispatch,
+    appState.currentUser,
+    cookies,
+    appState.isAuth,
+    history,
+    appState.appSettings
+  ])
   //
   const onItemClick = (e, item) => console.log(item)
   //

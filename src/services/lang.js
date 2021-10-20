@@ -71,7 +71,10 @@ const EN = {
   odcloudKey: "Odcloud Key",
   pending: "Pending...",
   info: "Info",
-  changePassword: "Change Password"
+  changePassword: "Change Password",
+  currentPassword: "Current Password",
+  newPassword: "New Password",
+  confirmNewPassword: "Confirm New Password"
 }
 //
 const Lang = ((lang) => {

@@ -1,5 +1,13 @@
 import React from "react"
-import { Grid, Paper, Typography, TextField, Box, Button } from "@mui/material"
+import {
+  Grid,
+  Paper,
+  Typography,
+  TextField,
+  Box,
+  Button,
+  CircularProgress
+} from "@mui/material"
 import Lang from "../../services/lang"
 import { useFormContext, FormProvider } from "react-hook-form"
 //
@@ -29,9 +37,9 @@ function ClientContent({ disabled }) {
             required
             fullWidth
             label={Lang.username}
-            autoFocus
-            disabled={disabled}
-            {...methods.register("username", { required: true })}
+            disabled
+            variant="filled"
+            value={methods.getValues("username")}
           />
           <TextField
             margin="normal"
@@ -149,9 +157,22 @@ export default function InfoView({
           <Button
             onClick={onActionClick}
             variant="contained"
-            sx={{ my: 1, mx: 1.5 }}
+            sx={{ my: 1, ml: 1.5 }}
+            disabled={mode.buttonDisabled}
           >
             {mode.buttonLabel}
+            {mode.editing === null && (
+              <CircularProgress
+                size={24}
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  marginTop: "-12px",
+                  marginLeft: "-12px"
+                }}
+              />
+            )}
           </Button>
         </Grid>
         {/**/}

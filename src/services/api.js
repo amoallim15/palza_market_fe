@@ -75,3 +75,15 @@ export const updateUser = async (data, token) => {
     JSON.stringify(data)
   )
 }
+//
+export const changeUserPwd = async (data, token) => {
+  return await call(
+    `/auth/${data._id}`,
+    "PATCH",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}
