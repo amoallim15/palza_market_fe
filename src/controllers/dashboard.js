@@ -2,7 +2,7 @@ import React from "react"
 import AppContext from "../services/context"
 import { useCookies } from "react-cookie"
 import DashboardView from "../views/dashboardView"
-import { checkAuth } from "../services/api"
+import { checkAuth, getSettings } from "../services/api"
 import { useHistory } from "react-router-dom"
 //
 export default function Dashboard() {
@@ -15,33 +15,35 @@ export default function Dashboard() {
   React.useEffect(() => {
     ;(async () => {
       //
+      if (!appState.appSettings) {
+        const result = await getSettings()
+        if (result) appDispatch({ type: "UpdateSettings", payload: result })
+      }
+      //
       if (!appState.currentUser && cookies["token"]) {
         const result = await checkAuth(cookies["token"])
         if (result) {
-          appDispatch({ type: "UpdateCurrentUser", payload: result })
+          await appDispatch({ type: "UpdateCurrentUser", payload: result })
           appDispatch({ type: "UpdateIsAuth", payload: true })
         } else {
-          appDispatch({ type: "UpdateIsAuth", payload: false })
+          await appDispatch({ type: "UpdateIsAuth", payload: false })
+          history.replace("/sign-in")
         }
-      }
-      //
-      if (!appState.isAuth) {
-        history.replace("/sign-in")
-        return
       }
       //
       await setLoaded(true)
     })()
-  }, [appDispatch, appState.currentUser, cookies, appState.isAuth, history])
+  }, [appDispatch, appState.currentUser, cookies, appState.isAuth, history, appState.appSettings])
   //
-  const handleItemClick = (e, item) => console.log(item)
+  const onItemClick = (e, item) => console.log(item)
   //
   if (!loaded) return <div />
   return (
     <DashboardView
       drawerOpen={drawerOpen}
       handleDrawer={() => setDrawerOpen(!drawerOpen)}
-      handleItemClick={handleItemClick}
+      handleItemClick={onItemClick}
+      title={appState.appSettings.title}
     />
   )
 }

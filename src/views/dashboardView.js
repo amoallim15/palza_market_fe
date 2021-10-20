@@ -4,7 +4,6 @@ import { ThemeProvider } from "@mui/material/styles"
 import { Link } from "react-router-dom"
 import DashboardAppBar from "../components/dashboardAppBar"
 import DashboardSideMenu from "../components/dashboardSideMenu"
-import Lang from "../services/lang"
 import theme from "../services/dashboardTheme"
 import { DashboardRoutes } from "../services/routes"
 import RouterContainer from "../components/routerContainer"
@@ -12,7 +11,8 @@ import RouterContainer from "../components/routerContainer"
 export default function DashboardView({
   drawerOpen,
   handleDrawer,
-  handleItemClick
+  handleItemClick,
+  title
 }) {
   return (
     <ThemeProvider theme={theme}>
@@ -48,7 +48,7 @@ export default function DashboardView({
             >
               {"Copyright © "}
               <Link color="inherit" to="/">
-                {Lang.title}
+                {title}
               </Link>{" "}
               {new Date().getFullYear()}
               {"."}
