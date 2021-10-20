@@ -5,7 +5,7 @@
 @layer base {
   body {
     margin: 0;
-    font-family: "Noto Sans KR", apple-system, BlinkMacSystemFont, "Segoe UI",
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', "Noto Sans KR", apple-system, BlinkMacSystemFont, "Segoe UI",
       Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
       "Noto Color Emoji", sans-serif;
@@ -14,7 +14,7 @@
   }
 
   code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
 

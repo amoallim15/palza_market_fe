@@ -4,6 +4,7 @@ import MenuClosedIcon from "../assets/icons/menu-closed.svg"
 import MenuOpenIcon from "../assets/icons/menu-open.svg"
 import logo from "../assets/imgs/logo.png"
 import Lang from "../services/lang"
+
 //
 export const AppBarHome = ({ isLocationMatch, isMobile }) => {
   //
@@ -15,8 +16,8 @@ export const AppBarHome = ({ isLocationMatch, isMobile }) => {
           "px-3 py-2 rounded-md text-sm font-medium" +
           (isMobile ? " block" : "") +
           (isLocationMatch("/about")
-            ? " bg-gray-900 text-white"
-            : " text-gray-300 hover:bg-gray-700 hover:text-white")
+            ? ""
+            : "")
         }
       >
         {Lang.about}
@@ -28,8 +29,8 @@ export const AppBarHome = ({ isLocationMatch, isMobile }) => {
           "px-3 py-2 rounded-md text-sm font-medium" +
           (isMobile ? " block" : "") +
           (isLocationMatch("/search")
-            ? " bg-gray-900 text-white"
-            : " text-gray-300 hover:bg-gray-700 hover:text-white")
+            ? ""
+            : "")
         }
       >
         {Lang.realstateSearch}
@@ -41,8 +42,8 @@ export const AppBarHome = ({ isLocationMatch, isMobile }) => {
           "px-3 py-2 rounded-md text-sm font-medium" +
           (isMobile ? " block" : "") +
           (isLocationMatch("/sales")
-            ? " bg-gray-900 text-white"
-            : " text-gray-300 hover:bg-gray-700 hover:text-white")
+            ? ""
+            : "")
         }
       >
         {Lang.realstateSales}
@@ -54,8 +55,8 @@ export const AppBarHome = ({ isLocationMatch, isMobile }) => {
           "px-3 py-2 rounded-md text-sm font-medium" +
           (isMobile ? " block" : "") +
           (isLocationMatch("/hub")
-            ? " bg-gray-900 text-white"
-            : " text-gray-300 hover:bg-gray-700 hover:text-white")
+            ? ""
+            : "")
         }
       >
         {Lang.realstateHub}
@@ -67,24 +68,11 @@ export const AppBarHome = ({ isLocationMatch, isMobile }) => {
           "px-3 py-2 rounded-md text-sm font-medium" +
           (isMobile ? " block" : "") +
           (isLocationMatch("/community")
-            ? " bg-gray-900 text-white"
-            : " text-gray-300 hover:bg-gray-700 hover:text-white")
+            ? ""
+            : "")
         }
       >
         {Lang.community}
-      </Link>
-      {/**/}
-      <Link
-        to={"/agency"}
-        className={
-          "px-3 py-2 rounded-md text-sm font-medium text-yellow-300" +
-          (isMobile ? " block" : "") +
-          (isLocationMatch("/agency")
-            ? " bg-gray-900 text-white"
-            : " text-gray-300 hover:bg-gray-700 hover:text-white")
-        }
-      >
-        {Lang.agencyLanding}
       </Link>
     </>
   )
@@ -202,14 +190,14 @@ export default function HomeAppBar({ isAuth, userRole, userType }) {
   }
   //
   return (
-    <nav className="bg-gray-800">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <nav className="">
+      <div className="max-w-7xl mx-auto">
         <div className="relative flex items-center justify-between h-16">
           {/**/}
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               onClick={() => setMobileMenuShown(!mobileMenuShown)}
             >
               {!mobileMenuShown && (
@@ -253,8 +241,8 @@ export default function HomeAppBar({ isAuth, userRole, userType }) {
                   className={
                     "px-3 py-2 rounded-md text-sm font-medium" +
                     (isLocationMatch("/sign-in")
-                      ? " bg-gray-900 text-white"
-                      : " text-gray-300 hover:bg-gray-700 hover:text-white")
+                      ? ""
+                      : "")
                   }
                 >
                   {Lang.signIn}
@@ -265,12 +253,25 @@ export default function HomeAppBar({ isAuth, userRole, userType }) {
                   className={
                     "px-3 py-2 rounded-md text-sm font-medium" +
                     (isLocationMatch("/sign-up")
-                      ? " bg-gray-900 text-white"
-                      : " text-gray-300 hover:bg-gray-700 hover:text-white")
+                      ? ""
+                      : "")
                   }
                 >
                   {Lang.signUp}
-                </Link>
+                </Link>    
+                {/**/}
+                <Link
+                to={"/agency"}
+                className={
+                "px-3 py-2 rounded-md text-sm font-medium hidden lg:block" +
+                (isLocationMatch("/agency")
+                ? " text-yellow-500"
+                : " text-yellow-500")
+                  }
+                >
+                {Lang.agencyLanding
+                }
+                </Link>          
               </>
             )}
             {/**/}
