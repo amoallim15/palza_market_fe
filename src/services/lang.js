@@ -1,5 +1,5 @@
 const EN = {
-  title: "title",
+  title: "Title",
   home: "메인화면",
   settings: "설정",
   config: "Configuration",
