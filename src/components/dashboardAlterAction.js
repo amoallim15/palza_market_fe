@@ -2,16 +2,16 @@ import React from "react"
 import { Grid, Button, CircularProgress } from "@mui/material"
 import Lang from "../services/lang"
 
-export default function DashboardEditAction({
+export default function DashboardAlterAction({
   setDisabled,
   actionCallback,
   cancelActionCallback,
   validateCallback,
-  doneCallback,
-  children
+  children,
+  buttonLabel
 }) {
   const [mode, setMode] = React.useState({
-    actionButtonLabel: Lang.create,
+    actionButtonLabel: buttonLabel,
     actionButtonDisabled: false,
     saving: false
   })
@@ -25,10 +25,9 @@ export default function DashboardEditAction({
       saving: true,
       actionButtonDisabled: true
     })
-    await actionCallback()
     //
     window.setTimeout(async () => {
-      await doneCallback()
+      await actionCallback()
     }, 1000)
   }
   //

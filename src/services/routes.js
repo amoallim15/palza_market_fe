@@ -14,7 +14,7 @@ import Dashboard from "../controllers/dashboard/dashboard"
 import Profile from "../controllers/dashboard/profile"
 import Settings from "../controllers/dashboard/settings"
 import Notice from "../controllers/dashboard/notice"
-import NoticeCreate from "../controllers/dashboard/noticeCreate"
+import NoticeAlter from "../controllers/dashboard/noticeAlter"
 //
 export const HomeRoutes = [
   {
@@ -94,8 +94,7 @@ export const DashboardRoutes = [
     exact: true
   },
   {
-    path: ["/dashboard/notice/create"],
-    component: NoticeCreate,
-    exact: true
+    path: ["/dashboard/notice/alter/:notice_id", "/dashboard/notice/alter"],
+    component: NoticeAlter
   }
 ]

@@ -7,27 +7,29 @@ import {
   TextField,
   FormControl,
   InputLabel,
-  Select,
-  MenuItem
+  MenuItem,
+  Select
 } from "@mui/material"
 import Lang from "../../services/lang"
 import { FormProvider } from "react-hook-form"
-import DashboardCreateAction from "../../components/dashboardCreateAction"
+import DashboardAlterAction from "../../components/dashboardAlterAction"
 import ImageUpload from "../../components/dashboardImageUpload"
 //
-export default function NoticeCreateView({
+export default function NoticeAlterView({
   methods,
   noticeCategoryData,
   disabled,
   setDisabled,
+  categoryValue,
   onActionCallback,
   onValidateCallback,
-  onDoneCallback,
   onSelectCategory,
   onCancelActionCallback,
   onImageUpload,
-  onImageChange
+  onImageChange,
+  mode
 }) {
+  console.log(mode)
   //
   return (
     <Box>
@@ -38,17 +40,17 @@ export default function NoticeCreateView({
         noWrap
         sx={{ flexGrow: 1, mb: 3 }}
       >
-        {Lang.createNotice}
+        {mode.title}
       </Typography>
       {/**/}
       <FormProvider {...methods}>
         <Grid container spacing={3}>
-          <DashboardCreateAction
+          <DashboardAlterAction
             setDisabled={setDisabled}
             actionCallback={onActionCallback}
             validateCallback={onValidateCallback}
-            doneCallback={onDoneCallback}
             cancelActionCallback={onCancelActionCallback}
+            buttonLabel={mode.buttonLabel}
           />
           {/**/}
           <Grid item xs={12}>
@@ -59,7 +61,7 @@ export default function NoticeCreateView({
                 color="primary"
                 gutterBottom
               >
-                {Lang.createNotice}
+                {mode.title}
               </Typography>
               {/**/}
               <Box sx={{ mt: 1 }}>
@@ -77,19 +79,20 @@ export default function NoticeCreateView({
                   <InputLabel id="category-label">{Lang.category}</InputLabel>
                   <Select
                     labelId="category-label"
-                    value={Lang.category}
                     label={Lang.category}
                     onChange={onSelectCategory}
+                    value={methods.getValues("category_id")}
                   >
-                    {noticeCategoryData.data?.map((item, index) => (
-                      <MenuItem key={item._id} value={item._id}>
-                        {item.name}
+                    {noticeCategoryData.map((item, index) => (
+                      <MenuItem key={item.id} value={item.id}>
+                        {item.label}
                       </MenuItem>
                     ))}
                   </Select>
                 </FormControl>
                 {/**/}
                 <ImageUpload
+                  url={methods.getValues("thumbnail_url")}
                   onImageUpload={onImageUpload}
                   onImageChange={onImageChange}
                 />

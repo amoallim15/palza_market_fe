@@ -20,13 +20,17 @@ export default function Dashboard() {
         if (result) appDispatch({ type: "UpdateSettings", payload: result })
       }
       //
-      if (!appState.currentUser && cookies["token"]) {
-        const result = await checkAuth(cookies["token"])
-        if (result) {
-          await appDispatch({ type: "UpdateCurrentUser", payload: result })
-          appDispatch({ type: "UpdateIsAuth", payload: true })
+      if (!appState.currentUser) {
+        if (cookies["token"]) {
+          const result = await checkAuth(cookies["token"])
+          if (result) {
+            await appDispatch({ type: "UpdateCurrentUser", payload: result })
+            appDispatch({ type: "UpdateIsAuth", payload: true })
+          } else {
+            await appDispatch({ type: "UpdateIsAuth", payload: false })
+            history.replace("/sign-in")
+          }
         } else {
-          await appDispatch({ type: "UpdateIsAuth", payload: false })
           history.replace("/sign-in")
         }
       }

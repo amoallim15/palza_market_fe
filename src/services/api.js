@@ -110,3 +110,19 @@ export const createNotice = async (data, token) => {
     JSON.stringify(data)
   )
 }
+//
+export const getNotice = async (notice_id) => {
+  return await call(`/notice/${notice_id}`, "GET")
+}
+//
+export const updateNotice = async (notice_id, data, token) => {
+  return await call(
+    `/notice/${notice_id}`,
+    "PUT",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}

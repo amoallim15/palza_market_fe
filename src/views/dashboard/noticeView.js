@@ -3,6 +3,7 @@ import { Box, Tabs, Tab, Typography } from "@mui/material"
 import TabPanel from "../../components/tabPanel"
 import Lang from "../../services/lang"
 import NoticeListView from "./noticeListView"
+import NoticeCategoryView from "./noticeCategoryView"
 //
 export default function NoticeView({
   currentTab,
@@ -10,7 +11,9 @@ export default function NoticeView({
   noticeData,
   noticeCategoryData,
   noticeCategoryMap,
-  onCreateClick
+  onNoticeCreateClick,
+  onNoticeEditClick,
+  onNoticeDeleteClick
 }) {
   //
   return (
@@ -32,10 +35,14 @@ export default function NoticeView({
         <NoticeListView
           noticeData={noticeData}
           noticeCategoryMap={noticeCategoryMap}
-          onCreateClick={onCreateClick}
+          onCreateClick={onNoticeCreateClick}
+          onEditClick={onNoticeEditClick}
+          onDeleteClick={onNoticeDeleteClick}
         />
       </TabPanel>
-      <TabPanel value={currentTab} index={1}></TabPanel>
+      <TabPanel value={currentTab} index={1}>
+        <NoticeCategoryView noticeCategoryData={noticeCategoryData} />
+      </TabPanel>
     </Box>
   )
 }

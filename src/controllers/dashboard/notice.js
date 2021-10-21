@@ -13,11 +13,6 @@ export default function Notice() {
     count: 0,
     data: []
   })
-  const [noticeCategoryData, setNoticeCategoryData] = React.useState({
-    page: 0,
-    count: 0,
-    data: []
-  })
   const [noticeCategoryMap, setNoticeCategoryMap] = React.useState({})
   const [currentTab, setCurrentTab] = React.useState(0)
   //
@@ -27,10 +22,9 @@ export default function Notice() {
   //
   React.useEffect(() => {
     ;(async () => {
-      if (appState.noticeCategories.length < 0) {
+      if (appState.noticeCategories.length === 0) {
         let result_1 = await getNoticeCategories()
         if (result_1) {
-          await setNoticeCategoryData(result_1)
           appDispatch({
             type: "UpdateNoticeCategories",
             payload: result_1.data
@@ -44,7 +38,7 @@ export default function Notice() {
       if (appState.noticeCategories.length > 0) {
         let map = {}
         for (let cat of appState.noticeCategories) {
-          map[cat._id] = cat.name
+          map[cat.id] = cat.name
         }
         await setNoticeCategoryMap(map)
       }
@@ -53,9 +47,14 @@ export default function Notice() {
     })()
   }, [appDispatch, appState.noticeCategories])
   //
-  const onCreateClick = (e) => {
-    history.push("/dashboard/notice/create")
+  const onNoticeCreateClick = (e) => {
+    history.push("/dashboard/notice/alter")
   }
+  //
+  const onNoticeEditClick = (e, item) => {
+    history.push(`/dashboard/notice/alter/${item.id}`)
+  }
+  const onNoticeDeleteClick = (e, item) => {}
   //
   if (!loaded) return <div />
   return (
@@ -63,9 +62,11 @@ export default function Notice() {
       currentTab={currentTab}
       onTabChange={onTabChange}
       noticeData={noticeData}
-      noticeCategoryData={noticeCategoryData}
+      noticeCategoryData={appState.noticeCategories}
       noticeCategoryMap={noticeCategoryMap}
-      onCreateClick={onCreateClick}
+      onNoticeCreateClick={onNoticeCreateClick}
+      onNoticeEditClick={onNoticeEditClick}
+      onNoticeDeleteClick={onNoticeDeleteClick}
     />
   )
 }

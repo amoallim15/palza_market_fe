@@ -83,7 +83,10 @@ const EN = {
   noDataAvailable: "No Data Available.",
   createNotice: "Create Notice",
   content: "Content",
-  thumbnail: "Thumbnail"
+  thumbnail: "Thumbnail",
+  actions: "Actions",
+  label: "Label",
+  update: "update"
 }
 //
 const Lang = ((lang) => {

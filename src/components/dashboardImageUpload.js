@@ -16,21 +16,23 @@ export default function DashboardImageUpload({
   const [thumbnailUrl, setThumbnailUrl] = React.useState(url)
   //
   const onChange = async (e) => {
+    let url = ""
     if (!e.target.files[0]) {
-      await setThumbnailUrl("")
+      url = ""
     } else {
       if (!onImageUpload) return
       const result = await onImageUpload(e.target.files[0])
       if (result) {
-        await setThumbnailUrl(result.url)
+        url = result.url
       }
     }
+    await setThumbnailUrl(url)
     if (!onImageChange) return
-    await onImageChange(thumbnailUrl)
+    await onImageChange(url)
   }
   const onRemoveThumbnailClick = async (e) => {
     await setThumbnailUrl("")
-    await onImageChange(thumbnailUrl)
+    await onImageChange("")
   }
   //
   //
