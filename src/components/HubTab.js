@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-
+import HubPage1 from "./HubPage1__1"
 
 const HubTab = () => {
     const [openTab, setOpenTab] = useState(1);
@@ -43,7 +43,7 @@ const HubTab = () => {
                 <div>
                     <div className="">
                         <div className={openTab === 1?"block" : "hidden"} id="link1">
-                            1번 내용
+                        <HubPage1 />
                         </div>
                         <div className={openTab === 2?"block" : "hidden"} id="link2">
                             2번 내용
