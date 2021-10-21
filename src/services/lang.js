@@ -18,7 +18,7 @@ const EN = {
   reports: "허위 매물 신고",
   homePage: "홈페이지",
   users: "유저",
-  crontab: "Crontab",
+  crontabs: "Crontabs",
   banners: "배너",
   signIn: "로그인",
   signUp: "회원가입",
@@ -92,7 +92,11 @@ const EN = {
   monthlySales: "Monthly Sales",
   startingCost: "Starting Cost",
   createFranchise: "Create Franchise",
-  newsSource: "News Source"
+  newsSource: "News Source",
+  viewCount: "View Count",
+  status: "Status",
+  progress: "Progress",
+  refresh: "Refresh"
 }
 //
 const Lang = ((lang) => {

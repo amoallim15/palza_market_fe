@@ -23,6 +23,8 @@ import FranchiseAlter from "../controllers/dashboard/franchiseAlter"
 import Magazine from "../controllers/dashboard/magazine"
 import MagazineAlter from "../controllers/dashboard/magazineAlter"
 //
+import Crontab from "../controllers/dashboard/crontab"
+//
 export const HomeRoutes = [
   {
     path: ["/dashboard"],
@@ -130,5 +132,12 @@ export const DashboardRoutes = [
       "/dashboard/magazine/alter"
     ],
     component: MagazineAlter
+  },
+  //
+  {
+    path: ["/dashboard/crontab"],
+    component: Crontab,
+    exact: true
   }
+  //
 ]

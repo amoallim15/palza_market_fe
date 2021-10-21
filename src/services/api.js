@@ -213,3 +213,15 @@ export const deleteMagazine = async (magazine_id, token) => {
     Authorization: `Bearer ${token.access_token}`
   })
 }
+//
+//
+export const getCrontabs = async (page) => {
+  return await call(`/crontab?page=${page}`, "GET")
+}
+//
+export const createCrontab = async (token) => {
+  return await call("/crontab", "POST", {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token.access_token}`
+  })
+}

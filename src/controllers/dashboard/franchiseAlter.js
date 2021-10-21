@@ -82,7 +82,7 @@ export default function FranchiseAlter() {
   }
   //
   const onCancelActionCallback = async (e) => {
-    history.replace("/dashboard/notice")
+    history.replace("/dashboard/franchise")
   }
   //
   const onImageUpload = async (file) => {

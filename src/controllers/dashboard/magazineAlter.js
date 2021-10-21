@@ -82,7 +82,7 @@ export default function MagazineAlter() {
   }
   //
   const onCancelActionCallback = async (e) => {
-    history.replace("/dashboard/notice")
+    history.replace("/dashboard/magazine")
   }
   //
   const onImageUpload = async (file) => {

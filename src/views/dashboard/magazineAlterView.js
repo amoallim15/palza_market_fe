@@ -81,7 +81,9 @@ export default function MagazineAlterView({
                 <TextField
                   margin="normal"
                   size="small"
+                  multiline
                   required
+                  maxRows={10}
                   fullWidth
                   label={Lang.content}
                   disabled={disabled}

@@ -12,18 +12,14 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  IconButton,
   TablePagination
 } from "@mui/material"
-import EditIcon from "@mui/icons-material/Edit"
-import DeleteIcon from "@mui/icons-material/Delete"
 //
-export default function MagazineView({
-  magazineData,
+export default function CrontabView({
+  crontabData,
   onCreateClick,
-  onEditClick,
-  onDeleteClick,
-  onPageChange
+  onPageChange,
+  onRefreshClick
 }) {
   //
   return (
@@ -52,6 +48,13 @@ export default function MagazineView({
           >
             {Lang.create}
           </Button>
+          <Button
+            onClick={onRefreshClick}
+            variant="contained"
+            sx={{ my: 1, ml: 1.5 }}
+          >
+            {Lang.refresh}
+          </Button>
         </Grid>
         {/**/}
         <Grid item xs={12}>
@@ -59,40 +62,25 @@ export default function MagazineView({
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>{Lang.title}</TableCell>
-                  <TableCell align="center">{Lang.newsSource}</TableCell>
-                  <TableCell align="center">{Lang.viewCount}</TableCell>
+                  <TableCell align="center">{Lang.status}</TableCell>
+                  <TableCell align="center">{Lang.progress}</TableCell>
                   <TableCell align="center">{Lang.updatedAt}</TableCell>
                   <TableCell align="center">{Lang.createdAt}</TableCell>
-                  <TableCell align="right">{Lang.actions}</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {magazineData.data?.map((item, index) => (
+                {crontabData.data?.map((item, index) => (
                   <TableRow
                     key={item.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell component="th" scope="row">
-                      {item.title}
-                    </TableCell>
-                    <TableCell align="center">{item.news_source}</TableCell>
-                    <TableCell align="center">{item.view_count}</TableCell>
+                    <TableCell align="center">{item.status}</TableCell>
+                    <TableCell align="center">{item.progress}</TableCell>
                     <TableCell align="center">{item.updated_at}</TableCell>
                     <TableCell align="center">{item.created_at}</TableCell>
-                    <TableCell align="right">
-                      {/**/}
-                      <IconButton onClick={(e) => onEditClick(e, item)}>
-                        <EditIcon />
-                      </IconButton>
-                      {/**/}
-                      <IconButton onClick={(e) => onDeleteClick(e, item)}>
-                        <DeleteIcon />
-                      </IconButton>
-                    </TableCell>
                   </TableRow>
                 ))}
-                {magazineData.data?.length < 1 && (
+                {crontabData.data?.length < 1 && (
                   <TableRow
                     sx={{
                       "&:last-child td, &:last-child th": { border: 0, p: 10 }
@@ -100,7 +88,7 @@ export default function MagazineView({
                   >
                     <TableCell
                       align="center"
-                      colSpan={6}
+                      colSpan={7}
                       component="th"
                       scope="row"
                     >
@@ -113,9 +101,9 @@ export default function MagazineView({
           </TableContainer>
           <TablePagination
             component="div"
-            count={magazineData.count}
+            count={crontabData.count}
             rowsPerPage={10}
-            page={magazineData.page}
+            page={crontabData.page}
             onPageChange={onPageChange}
             rowsPerPageOptions={[]}
           />
