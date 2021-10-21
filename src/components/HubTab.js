@@ -21,7 +21,7 @@ const HubTab = () => {
                         data-goggle = "tab"
                         herf = "#link1"
                         role = "tablist">
-                            프렌차이즈 창업
+                            프랜차이즈 창업
                         </a>
                     </li>
                     <li className={
