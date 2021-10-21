@@ -2,8 +2,8 @@ import React from "react"
 import { Box, Tabs, Tab, Typography } from "@mui/material"
 import TabPanel from "../../components/tabPanel"
 import Lang from "../../services/lang"
-import NoticeListView from "./noticeListView"
-import NoticeCategoryView from "./noticeCategoryView"
+import NoticeListView from "../../fragments/dashboard/noticeListView"
+import NoticeCategoryView from "../../fragments/dashboard/noticeCategoryView"
 //
 export default function NoticeView({
   currentTab,

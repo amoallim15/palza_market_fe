@@ -51,8 +51,8 @@ const EN = {
   businessRepresentative: "사업자 대표명",
   brokerageRecordNo: "중개등록번호",
   legalAddress: "지번 주소지",
-  magazine: "팔자 매거진",
-  franchise: "프랜차이즈 창업",
+  magazines: "팔자 매거진",
+  franchises: "프랜차이즈 창업",
   agencyLanding: "중개사무소 \n가입안내",
   smsMessages: "문자메세지 전송",
   agencySettings: "에이전시 설정",
@@ -86,7 +86,13 @@ const EN = {
   thumbnail: "Thumbnail",
   actions: "Actions",
   label: "Label",
-  update: "update"
+  update: "update",
+  externalUrl: "External Url",
+  storeCount: "Store Count",
+  monthlySales: "Monthly Sales",
+  startingCost: "Starting Cost",
+  createFranchise: "Create Franchise",
+  newsSource: "News Source"
 }
 //
 const Lang = ((lang) => {

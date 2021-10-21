@@ -2,8 +2,8 @@ import React from "react"
 import TabPanel from "../../components/tabPanel"
 import { Box, Tabs, Tab, Typography } from "@mui/material"
 import Lang from "../../services/lang"
-import ProfileInfoView from "./profileInfoView"
-import ProfilePwdView from "./profilePwdView"
+import ProfileInfoView from "../../fragments/dashboard/profileInfoView"
+import ProfilePwdView from "../../fragments/dashboard/profilePwdView"
 //
 export default function ProfileView({
   isAgency,

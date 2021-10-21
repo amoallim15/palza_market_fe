@@ -13,8 +13,15 @@ import Community from "../controllers/community"
 import Dashboard from "../controllers/dashboard/dashboard"
 import Profile from "../controllers/dashboard/profile"
 import Settings from "../controllers/dashboard/settings"
+//
 import Notice from "../controllers/dashboard/notice"
 import NoticeAlter from "../controllers/dashboard/noticeAlter"
+//
+import Franchise from "../controllers/dashboard/franchise"
+import FranchiseAlter from "../controllers/dashboard/franchiseAlter"
+//
+import Magazine from "../controllers/dashboard/magazine"
+import MagazineAlter from "../controllers/dashboard/magazineAlter"
 //
 export const HomeRoutes = [
   {
@@ -88,6 +95,7 @@ export const DashboardRoutes = [
     component: Settings,
     exact: true
   },
+  //
   {
     path: ["/dashboard/notice"],
     component: Notice,
@@ -96,5 +104,31 @@ export const DashboardRoutes = [
   {
     path: ["/dashboard/notice/alter/:notice_id", "/dashboard/notice/alter"],
     component: NoticeAlter
+  },
+  //
+  {
+    path: ["/dashboard/franchise"],
+    component: Franchise,
+    exact: true
+  },
+  {
+    path: [
+      "/dashboard/franchise/alter/:franchise_id",
+      "/dashboard/franchise/alter"
+    ],
+    component: FranchiseAlter
+  },
+  //
+  {
+    path: ["/dashboard/magazine"],
+    component: Magazine,
+    exact: true
+  },
+  {
+    path: [
+      "/dashboard/magazine/alter/:magazine_id",
+      "/dashboard/magazine/alter"
+    ],
+    component: MagazineAlter
   }
 ]

@@ -84,11 +84,17 @@ export default function DashboardSideMenu({
       <List>
         {/**/}
         <MenuItem name={Lang.profile} link="/dashboard/profile" />
+        {/**/}
+        {["ADMIN", "EMPLOYEE"].includes(userRole) && (
+          <>
+            <MenuItem name={Lang.notices} link="/dashboard/notice" />
+            <MenuItem name={Lang.franchises} link="/dashboard/franchise" />
+            <MenuItem name={Lang.magazines} link="/dashboard/magazine" />
+          </>
+        )}
+        {/**/}
         {userRole === "ADMIN" && (
           <MenuItem name={Lang.settings} link="/dashboard/settings" />
-        )}
-        {["ADMIN", "EMPLOYEE"].includes(userRole) && (
-          <MenuItem name={Lang.notices} link="/dashboard/notice" />
         )}
         {/**/}
       </List>

@@ -62,8 +62,8 @@ export default function NoticeListView({
                   <TableCell align="center">
                     {noticeCategoryMap[item.category_id]}
                   </TableCell>
-                  <TableCell align="center">{item.created_at}</TableCell>
                   <TableCell align="center">{item.updated_at}</TableCell>
+                  <TableCell align="center">{item.created_at}</TableCell>
                   <TableCell align="right">
                     {/**/}
                     <IconButton onClick={(e) => onEditClick(e, item)}>

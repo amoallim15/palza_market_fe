@@ -99,6 +99,10 @@ export const getNotices = async (page) => {
   return await call(`/notice?page=${page}`, "GET")
 }
 //
+export const getNotice = async (notice_id) => {
+  return await call(`/notice/${notice_id}`, "GET")
+}
+//
 export const createNotice = async (data, token) => {
   return await call(
     "/notice",
@@ -109,10 +113,6 @@ export const createNotice = async (data, token) => {
     },
     JSON.stringify(data)
   )
-}
-//
-export const getNotice = async (notice_id) => {
-  return await call(`/notice/${notice_id}`, "GET")
 }
 //
 export const updateNotice = async (notice_id, data, token) => {
@@ -129,6 +129,86 @@ export const updateNotice = async (notice_id, data, token) => {
 //
 export const deleteNotice = async (notice_id, token) => {
   return await call(`/notice/${notice_id}`, "DELETE", {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token.access_token}`
+  })
+}
+//
+//
+export const getFranchises = async (page) => {
+  return await call(`/franchise?page=${page}`, "GET")
+}
+//
+export const getFranchise = async (franchise_id) => {
+  return await call(`/franchise/${franchise_id}`, "GET")
+}
+//
+export const createFranchise = async (data, token) => {
+  return await call(
+    "/franchise",
+    "POST",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}
+//
+export const updateFranchise = async (franchise_id, data, token) => {
+  return await call(
+    `/franchise/${franchise_id}`,
+    "PUT",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}
+//
+export const deleteFranchise = async (franchise_id, token) => {
+  return await call(`/franchise/${franchise_id}`, "DELETE", {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token.access_token}`
+  })
+}
+//
+//
+export const getMagazines = async (page) => {
+  return await call(`/magazine?page=${page}`, "GET")
+}
+//
+export const getMagazine = async (magazine_id) => {
+  return await call(`/magazine/${magazine_id}`, "GET")
+}
+//
+export const createMagazine = async (data, token) => {
+  return await call(
+    "/magazine",
+    "POST",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}
+//
+export const updateMagazine = async (magazine_id, data, token) => {
+  return await call(
+    `/magazine/${magazine_id}`,
+    "PUT",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}
+//
+export const deleteMagazine = async (magazine_id, token) => {
+  return await call(`/magazine/${magazine_id}`, "DELETE", {
     "content-type": "application/json",
     Authorization: `Bearer ${token.access_token}`
   })
