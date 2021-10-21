@@ -1,18 +1,15 @@
-import React, {useState} from "react";
-import topBannerSlideOne from "../assets/imgs/topban1.png";
-import topBannerSlideTwo from "../assets/imgs/topban2.jpg";
-import mainBanenrOne from "../assets/imgs/main1.jpg";
-
-
-
+import React, { useState } from "react";
+import test1 from "../assets/imgs/test1.jpeg";
+import test2 from "../assets/imgs/test2.jpeg";
+import test3 from "../assets/imgs/test3.jpeg";
 
 const HubPage1 = () => {
   return (
     <>
-       <div className="my-12">
-        <div className="bg-black h-96 w-full">
-           {/*img size h-96 w-full  */}
-          <img /> 
+      <div className="my-12">
+        <div className="bg-black">
+          {/*img size h-96 w-full  */}
+          <img className="h-96 w-full" src={test3} />
         </div>
         <div className="flex gap-4 mt-2 justify-end">
           <button>
@@ -30,19 +27,75 @@ const HubPage1 = () => {
           프랜차이즈 창업 안내
         </h2>
         <ul class="grid grid-cols-2 lg:grid-cols-3 gap-5">
-          <li className="h-80 bg-gray-300">
-            <div className="text-center text-white text-2xl">
-              <p>가맹점 수(number of affiliated stores)</p>
-              <p>월 매출(monthly sales)</p>
-              <p>총 창업비용(Total Startup Cost)</p>
+          <li class="">
+            <div class="relative transform cursor-pointer">
+              <div class="face front">
+                <img src={test1} class="inline-block w-full h-auto" alt="" />
+              </div>
             </div>
           </li>
-          <li className="h-80 bg-gray-300"></li>
-          <li className="h-80 bg-gray-300"></li>
+          <li class="">
+            <div class="relative transform cursor-pointer">
+              <div class="face front">
+                <img src={test1} class="inline-block w-full h-auto" alt="" />
+              </div>
+            </div>
+          </li>
+          <li class="">
+            <div class="relative transform cursor-pointer">
+              <div class="face front">
+                <img src={test1} class="inline-block w-full h-auto" alt="" />
+              </div>
+            </div>
+          </li>
+          <li class="">
+            <div class="relative transform cursor-pointer">
+              <div class="face front">
+                <img src={test1} class="inline-block w-full h-auto" alt="" />
+              </div>
+            </div>
+          </li>
+          <li class="">
+            <div class="relative transform cursor-pointer">
+              <div class="face front">
+                <img src={test1} class="inline-block w-full h-auto" alt="" />
+              </div>
+            </div>
+          </li>
+          <li class="">
+            <div class="relative transform cursor-pointer">
+              <div class="face front">
+                <img src={test1} class="inline-block w-full h-auto" alt="" />
+              </div>
+            </div>
+          </li>
+          <li class="">
+            <div class="relative transform cursor-pointer">
+              <div class="face front">
+                <img src={test1} class="inline-block w-full h-auto" alt="" />
+              </div>
+            </div>
+          </li>
+          <li class="">
+            <div class="relative transform cursor-pointer">
+              <div class="face front">
+                <img src={test1} class="inline-block w-full h-auto" alt="" />
+              </div>
+            </div>
+          </li>
+          <li class="">
+            <div class="relative transform cursor-pointer">
+              <div class="face front">
+                <img src={test1} class="inline-block w-full h-auto" alt="" />
+              </div>
+            </div>
+          </li>
         </ul>
-      </div>   
+      </div>
     </>
   );
 };
 
 export default HubPage1;
+
+//리스트 a태그 누룰 시페이지 이동  그럼 페이지 이동에 Link를 달아서 상세페이지로 이동하게 만들고 상세페이지 components를 만들어서 api로 연동 hub 페이지 모두
