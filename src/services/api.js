@@ -126,15 +126,10 @@ export const updateNotice = async (notice_id, data, token) => {
     JSON.stringify(data)
   )
 }
-// 
+//
 export const deleteNotice = async (notice_id, token) => {
-  return await call(
-    `/notice/${notice_id}`,
-    "DELETE",
-    {
-      "content-type": "application/json",
-      Authorization: `Bearer ${token.access_token}`
-    }
-  )
+  return await call(`/notice/${notice_id}`, "DELETE", {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token.access_token}`
+  })
 }
-

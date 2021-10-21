@@ -13,7 +13,8 @@ export default function NoticeView({
   noticeCategoryMap,
   onNoticeCreateClick,
   onNoticeEditClick,
-  onNoticeDeleteClick
+  onNoticeDeleteClick,
+  onPageChange
 }) {
   //
   return (
@@ -38,6 +39,7 @@ export default function NoticeView({
           onCreateClick={onNoticeCreateClick}
           onEditClick={onNoticeEditClick}
           onDeleteClick={onNoticeDeleteClick}
+          onPageChange={onPageChange}
         />
       </TabPanel>
       <TabPanel value={currentTab} index={1}>

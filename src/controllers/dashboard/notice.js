@@ -1,5 +1,9 @@
 import React from "react"
-import { getNoticeCategories, getNotices, deleteNotice } from "../../services/api"
+import {
+  getNoticeCategories,
+  getNotices,
+  deleteNotice
+} from "../../services/api"
 import NoticeView from "../../views/dashboard/noticeView"
 import { useHistory } from "react-router-dom"
 import AppContext from "../../services/context"
@@ -58,9 +62,14 @@ export default function Notice() {
   }
   const onNoticeDeleteClick = async (e, item) => {
     const result = await deleteNotice(item.id, cookies["token"])
-    if(!result) return
+    if (!result) return
     let result_2 = await getNotices(0)
     if (result_2) await setNoticeData(result_2)
+  }
+  //
+  const onPageChange = async (e, newPage) => {
+    const result = await getNotices(newPage)
+    if (result) await setNoticeData(result)
   }
   //
   if (!loaded) return <div />
@@ -74,6 +83,7 @@ export default function Notice() {
       onNoticeCreateClick={onNoticeCreateClick}
       onNoticeEditClick={onNoticeEditClick}
       onNoticeDeleteClick={onNoticeDeleteClick}
+      onPageChange={onPageChange}
     />
   )
 }

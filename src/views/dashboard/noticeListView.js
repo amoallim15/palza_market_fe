@@ -9,8 +9,8 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  IconButton
-  // TablePagination
+  IconButton,
+  TablePagination
 } from "@mui/material"
 import Lang from "../../services/lang"
 import EditIcon from "@mui/icons-material/Edit"
@@ -21,7 +21,8 @@ export default function NoticeListView({
   noticeCategoryMap,
   onCreateClick,
   onEditClick,
-  onDeleteClick
+  onDeleteClick,
+  onPageChange
 }) {
   //
   return (
@@ -94,15 +95,14 @@ export default function NoticeListView({
             </TableBody>
           </Table>
         </TableContainer>
-        {/*<TablePagination
-          rowsPerPageOptions={[10, 25, 100]}
+        <TablePagination
           component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />*/}
+          count={noticeData.count}
+          rowsPerPage={10}
+          page={noticeData.page}
+          onPageChange={onPageChange}
+          rowsPerPageOptions={[]}
+        />
       </Grid>
       {/**/}
     </Grid>
