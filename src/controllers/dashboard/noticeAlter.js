@@ -101,7 +101,6 @@ export default function NoticeAlter() {
     await methods.setValue("category_id", e.target.value, {
       shouldValidate: true
     })
-    console.log(e.target.value)
   }
   //
   const onImageUpload = async (file) => {
