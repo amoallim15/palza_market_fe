@@ -29,7 +29,6 @@ export default function NoticeAlterView({
   onImageChange,
   mode
 }) {
-  console.log(mode)
   //
   return (
     <Box>

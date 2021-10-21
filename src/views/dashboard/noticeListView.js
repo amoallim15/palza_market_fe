@@ -83,7 +83,7 @@ export default function NoticeListView({
                 >
                   <TableCell
                     align="center"
-                    colSpan={4}
+                    colSpan={5}
                     component="th"
                     scope="row"
                   >
