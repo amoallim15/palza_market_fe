@@ -6,7 +6,7 @@ function SearchBar({ placeholder, data }) {
       <div>
         <ul class="grid grid-cols-2 gap-1">
           <li class="border-r-1">
-            <div class="flex py-5 lg:p-10 text-center justify-around lg:justify-between">
+            <div class="flex py-5 lg:p-10 text-center justify-around lg:justify-between border-r-2 border-gray-200">
               <i class="xi-search point-color-font lg:text-base"></i>
               <input
                 class="text-xs w-9/12 lg:text-base outline-none"

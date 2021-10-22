@@ -4,7 +4,10 @@ import Carousel from "nuka-carousel";
 import topBannerSlideOne from "../assets/imgs/topban1.png";
 import topBannerSlideTwo from "../assets/imgs/topban2.jpg";
 import mainBanenrOne from "../assets/imgs/main1.jpg";
-import SearchBar from "../components/SearchBar"
+import SearchBar from "../components/SearchBar";
+import PropSingle from "../components/PropSingle";
+
+
 
 export default function HomeView({ isAuth, userRole, userType }) {
   //
@@ -51,7 +54,25 @@ export default function HomeView({ isAuth, userRole, userType }) {
             alt="mainbanner1"
           />
         </Carousel>
-      <div className="lg:left-40 lg:w-9/12 lg:-bottom-12"><SearchBar /></div>
+        <div className="lg:left-40 lg:w-9/12 lg:-bottom-12">
+          <SearchBar />
+        </div>
+      </div>
+      {/* section 2 start */}
+      <div className="mx-auto my-0 max-w-screen-xl lg:mt-40">
+        <div className="my-20 lg:grid grid-cols-2">
+          <div className="lg:text-left">
+            <h2 className="text-4xl mb-5">
+              <strong>긴급 매각!</strong> 스페셜 광고
+            </h2>
+            <hr class="hidden lg:block lg:w-8"></hr>
+            <div class="my-5 text-lg">
+              <i class="xi-timer-o mr-2" name="time-five"></i>
+              <span>서두르지 않으면 놓칠지도 몰라요 !</span>
+            </div>
+            <div className=""><PropSingle /></div>
+          </div>
+        </div>
       </div>
     </>
   );
