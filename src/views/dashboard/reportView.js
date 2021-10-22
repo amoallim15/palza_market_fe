@@ -14,14 +14,15 @@ import {
   IconButton,
   TablePagination
 } from "@mui/material"
+import EditIcon from "@mui/icons-material/Edit"
 import DeleteIcon from "@mui/icons-material/Delete"
 //
-export default function NoticeView({
-  currentTab,
-  onTabChange,
+export default function MyReviewView({
   reportData,
+  onEditClick,
   onDeleteClick,
-  onPageChange
+  onPageChange,
+  isMy
 }) {
   //
   return (
@@ -65,6 +66,12 @@ export default function NoticeView({
                     <TableCell align="center">{item.updated_at}</TableCell>
                     <TableCell align="center">{item.created_at}</TableCell>
                     <TableCell align="right">
+                      {/**/}
+                      {isMy && (
+                        <IconButton onClick={(e) => onEditClick(e, item)}>
+                          <EditIcon />
+                        </IconButton>
+                      )}
                       {/**/}
                       <IconButton onClick={(e) => onDeleteClick(e, item)}>
                         <DeleteIcon />

@@ -29,8 +29,9 @@ import SMS from "../controllers/dashboard/SMS"
 import SMSAlter from "../controllers/dashboard/SMSAlter"
 //
 import Report from "../controllers/dashboard/report"
+import ReportAlter from "../controllers/dashboard/reportAlter"
 //
-import MyReview from "../controllers/dashboard/myReview"
+import Review from "../controllers/dashboard/review"
 import ReviewAlter from "../controllers/dashboard/reviewAlter"
 //
 export const HomeRoutes = [
@@ -159,18 +160,28 @@ export const DashboardRoutes = [
   },
   //
   {
-    path: ["/dashboard/report"],
+    path: ["/dashboard/report", "/dashboard/my-report"],
     component: Report,
     exact: true
   },
+  {
+    path: [
+      "/dashboard/report/alter/:report_id",
+      "/dashboard/my-report/alter/:rreport_id"
+    ],
+    component: ReportAlter
+  },
   //
   {
-    path: ["/dashboard/my-review"],
-    component: MyReview,
+    path: ["/dashboard/review", "/dashboard/my-review"],
+    component: Review,
     exact: true
   },
   {
-    path: ["/dashboard/review/alter"],
+    path: [
+      "/dashboard/review/alter/:review_id",
+      "/dashboard/my-review/alter/:review_id"
+    ],
     component: ReviewAlter
   }
 ]

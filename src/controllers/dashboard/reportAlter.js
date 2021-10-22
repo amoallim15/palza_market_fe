@@ -1,12 +1,12 @@
 import React from "react"
-import { createReview, updateReview, getReview } from "../../services/api"
-import ReviewAlterView from "../../views/dashboard/reviewAlterView"
+import { createReport, updateReport, getReport } from "../../services/api"
+import ReportAlterView from "../../views/dashboard/reportAlterView"
 import { useForm } from "react-hook-form"
 import { useCookies } from "react-cookie"
 import { useHistory, useParams, useLocation } from "react-router-dom"
 import Lang from "../../services/lang"
 //
-export default function ReviewAlter() {
+export default function ReportAlter() {
   const [loaded, setLoaded] = React.useState(false)
   const [disabled, setDisabled] = React.useState(false)
   const history = useHistory()
@@ -15,11 +15,11 @@ export default function ReviewAlter() {
   const params = useParams()
   const [mode, setMode] = React.useState({
     method: "UPDATE",
-    title: Lang.updateReview,
+    title: Lang.updateReport,
     buttonLabel: Lang.update
   })
   const [isMy, setIsMy] = React.useState(
-    !!location.pathname.includes("my-review")
+    !!location.pathname.includes("my-report")
   )
   //
   const methods = useForm({
@@ -34,31 +34,31 @@ export default function ReviewAlter() {
     ;(async () => {
       //
       console.log(setMode)
-      const loc = !!location.pathname.includes("my-review")
+      const loc = !!location.pathname.includes("my-report")
       if (loc !== isMy) await setIsMy(loc)
       //
       let result = null
-      if (params.review_id) result = await getReview(params.review_id)
+      if (params.report_id) result = await getReport(params.report_id)
       //
       if (result) {
         await methods.reset(result)
       } else {
-        history.replace("/dashboard/" + (isMy ? "my-review" : "review"))
+        history.replace("/dashboard/" + (isMy ? "my-report" : "report"))
       }
       //
       await setLoaded(true)
     })()
-  }, [history, params.review_id, methods, location.pathname, isMy])
+  }, [history, params.report_id, methods, location.pathname, isMy])
   //
   const onCreateSubmit = async (data) => {
-    const result = await createReview(data, cookies["token"])
+    const result = await createReport(data, cookies["token"])
     if (!result) return
-    history.replace("/dashboard/" + (isMy ? "my-review" : "review"))
+    history.replace("/dashboard/" + (isMy ? "my-report" : "report"))
   }
   const onUpdateSubmit = async (data) => {
-    const result = await updateReview(params.review_id, data, cookies["token"])
+    const result = await updateReport(params.report_id, data, cookies["token"])
     if (!result) return
-    history.replace("/dashboard/" + (isMy ? "my-review" : "review"))
+    history.replace("/dashboard/" + (isMy ? "my-report" : "report"))
   }
   //
   const onActionCallback = async (e) => {
@@ -71,12 +71,12 @@ export default function ReviewAlter() {
   }
   //
   const onCancelActionCallback = async (e) => {
-    history.replace("/dashboard/" + (isMy ? "my-review" : "review"))
+    history.replace("/dashboard/" + (isMy ? "my-report" : "report"))
   }
   //
   if (!loaded) return <div />
   return (
-    <ReviewAlterView
+    <ReportAlterView
       methods={methods}
       disabled={disabled}
       setDisabled={setDisabled}

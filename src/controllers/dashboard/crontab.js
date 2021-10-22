@@ -4,6 +4,7 @@ import CrontabView from "../../views/dashboard/crontabView"
 import { useCookies } from "react-cookie"
 //
 const chipColors = {
+  CREATED: "primary",
   RUNNING: "warning",
   SUCCEEDED: "success",
   FAILED: "error"

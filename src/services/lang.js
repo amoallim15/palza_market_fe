@@ -103,6 +103,7 @@ const EN = {
   realstateId: "Realstate ID",
   userId: "User ID",
   myReviews: "My Reviews",
+  myReports: "My Reports",
   rating: "Rating",
   agencyId: "Agency ID"
 }

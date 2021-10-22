@@ -5,7 +5,6 @@ import {
   Box,
   Grid,
   Paper,
-  Button,
   TableContainer,
   Table,
   TableHead,
@@ -20,10 +19,10 @@ import DeleteIcon from "@mui/icons-material/Delete"
 //
 export default function MyReviewView({
   reviewData,
-  onCreateClick,
   onEditClick,
   onDeleteClick,
-  onPageChange
+  onPageChange,
+  isMy
 }) {
   //
   return (
@@ -40,20 +39,6 @@ export default function MyReviewView({
       {/**/}
       <Grid container spacing={3}>
         {/**/}
-        <Grid
-          item
-          xs={12}
-          sx={{ flexDirection: "row-reverse", display: "flex" }}
-        >
-          <Button
-            onClick={onCreateClick}
-            variant="contained"
-            sx={{ my: 1, ml: 1.5 }}
-          >
-            {Lang.create}
-          </Button>
-        </Grid>
-        {/**/}
         <Grid item xs={12}>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -63,8 +48,14 @@ export default function MyReviewView({
                   <TableCell align="center">{Lang.rating}</TableCell>
                   <TableCell align="center">{Lang.content}</TableCell>
                   <TableCell align="center">{Lang.updatedAt}</TableCell>
-                  <TableCell align="center">{Lang.createdAt}</TableCell>
-                  <TableCell align="right">{Lang.actions}</TableCell>
+                  {isMy ? (
+                    <>
+                      <TableCell align="center">{Lang.createdAt}</TableCell>
+                      <TableCell align="right">{Lang.actions}</TableCell>
+                    </>
+                  ) : (
+                    <TableCell align="right">{Lang.createdAt}</TableCell>
+                  )}
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -79,17 +70,24 @@ export default function MyReviewView({
                     <TableCell align="center">{item.rating}</TableCell>
                     <TableCell align="center">{item.content}</TableCell>
                     <TableCell align="center">{item.updated_at}</TableCell>
-                    <TableCell align="center">{item.created_at}</TableCell>
-                    <TableCell align="right">
-                      {/**/}
-                      <IconButton onClick={(e) => onEditClick(e, item)}>
-                        <EditIcon />
-                      </IconButton>
-                      {/**/}
-                      <IconButton onClick={(e) => onDeleteClick(e, item)}>
-                        <DeleteIcon />
-                      </IconButton>
-                    </TableCell>
+
+                    {isMy ? (
+                      <>
+                        <TableCell align="center">{item.created_at}</TableCell>
+                        <TableCell align="right">
+                          {/**/}
+                          <IconButton onClick={(e) => onEditClick(e, item)}>
+                            <EditIcon />
+                          </IconButton>
+                          {/**/}
+                          <IconButton onClick={(e) => onDeleteClick(e, item)}>
+                            <DeleteIcon />
+                          </IconButton>
+                        </TableCell>
+                      </>
+                    ) : (
+                      <TableCell align="right">{item.created_at}</TableCell>
+                    )}
                   </TableRow>
                 ))}
                 {reviewData.data?.length < 1 && (
@@ -100,7 +98,7 @@ export default function MyReviewView({
                   >
                     <TableCell
                       align="center"
-                      colSpan={6}
+                      colSpan={isMy ? 6 : 5}
                       component="th"
                       scope="row"
                     >

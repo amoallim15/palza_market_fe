@@ -4,7 +4,7 @@ import Lang from "../../services/lang"
 import { FormProvider } from "react-hook-form"
 import DashboardAlterAction from "../../components/dashboardAlterAction"
 //
-export default function ReviewAlterView({
+export default function ReportAlterView({
   methods,
   disabled,
   setDisabled,

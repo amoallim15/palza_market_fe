@@ -88,6 +88,8 @@ export default function DashboardSideMenu({
         {/*{userType === "INDIVIDUAL" && (*/}
         <>
           <MenuItem name={Lang.myReviews} link="/dashboard/my-review" />
+          <MenuItem name={Lang.myReports} link="/dashboard/my-report" />
+          <Divider />
         </>
         {/*)}*/}
         {/**/}
@@ -96,16 +98,22 @@ export default function DashboardSideMenu({
             <MenuItem name={Lang.notices} link="/dashboard/notice" />
             <MenuItem name={Lang.franchises} link="/dashboard/franchise" />
             <MenuItem name={Lang.magazines} link="/dashboard/magazine" />
+            <MenuItem name={Lang.reviews} link="/dashboard/review" />
             <MenuItem name={Lang.reports} link="/dashboard/report" />
             <MenuItem name={Lang.crontabs} link="/dashboard/crontab" />
             <MenuItem name={Lang.smsMessages} link="/dashboard/sms" />
+            <Divider />
           </>
         )}
         {/**/}
         {userRole === "ADMIN" && (
-          <MenuItem name={Lang.settings} link="/dashboard/settings" />
+          <>
+            <MenuItem name={Lang.settings} link="/dashboard/settings" />
+            <Divider />
+          </>
         )}
         {/**/}
+        <MenuItem name={Lang.signOut} link="/sign-out" />
       </List>
     </CustomDrawer>
   )

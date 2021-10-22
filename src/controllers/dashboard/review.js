@@ -1,27 +1,34 @@
 import React from "react"
 import { getReviews, deleteReview } from "../../services/api"
-import MyReviewView from "../../views/dashboard/myReviewView"
-import { useHistory } from "react-router-dom"
+import ReviewView from "../../views/dashboard/reviewView"
+import { useHistory, useLocation } from "react-router-dom"
 import { useCookies } from "react-cookie"
 //
-export default function MyReview() {
+export default function Review() {
   const [loaded, setLoaded] = React.useState(false)
   const history = useHistory()
   const [cookies] = useCookies()
+  const location = useLocation()
   const [reviewData, setReviewData] = React.useState({
     page: 0,
     count: 0,
     data: []
   })
+  const [isMy, setIsMy] = React.useState(
+    !!location.pathname.includes("my-review")
+  )
   //
   React.useEffect(() => {
     ;(async () => {
+      const loc = !!location.pathname.includes("my-review")
+      if (loc !== isMy) await setIsMy(loc)
+      //
       let result = await getReviews(0)
       if (result) await setReviewData(result)
       //
       await setLoaded(true)
     })()
-  }, [])
+  }, [location.pathname, isMy])
   //
   const onCreateClick = (e) => {
     history.push("/dashboard/review/alter")
@@ -45,12 +52,13 @@ export default function MyReview() {
   //
   if (!loaded) return <div />
   return (
-    <MyReviewView
+    <ReviewView
       reviewData={reviewData}
       onCreateClick={onCreateClick}
       onEditClick={onEditClick}
       onDeleteClick={onDeleteClick}
       onPageChange={onPageChange}
+      isMy={isMy}
     />
   )
 }
