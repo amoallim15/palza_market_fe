@@ -8,31 +8,35 @@ import { useHistory } from "react-router-dom"
 export default function Dashboard() {
   const [loaded, setLoaded] = React.useState(false)
   const { appState, appDispatch } = React.useContext(AppContext)
-  const [cookies] = useCookies()
+  const [cookies, , removeCookie] = useCookies()
   const [drawerOpen, setDrawerOpen] = React.useState(true)
   const history = useHistory()
   //
   React.useEffect(() => {
     ;(async () => {
       //
-      if (!appState.appSettings) {
-        const result = await getSettings()
-        if (result) appDispatch({ type: "UpdateSettings", payload: result })
-      }
-      //
-      if (!appState.currentUser) {
-        if (cookies["token"]) {
+      if (cookies["token"]) {
+        if (appState.currentUser === null) {
           const result = await checkAuth(cookies["token"])
           if (result) {
             await appDispatch({ type: "UpdateCurrentUser", payload: result })
             appDispatch({ type: "UpdateIsAuth", payload: true })
           } else {
             await appDispatch({ type: "UpdateIsAuth", payload: false })
+            await removeCookie("token")
             history.replace("/sign-in")
           }
         } else {
-          history.replace("/sign-in")
+          // nothing
         }
+      } else {
+        await removeCookie("token")
+        history.replace("/sign-in")
+      }
+      //
+      if (appState.appSettings === null) {
+        const result = await getSettings()
+        if (result) appDispatch({ type: "UpdateSettings", payload: result })
       }
       //
       await setLoaded(true)
@@ -41,9 +45,9 @@ export default function Dashboard() {
     appDispatch,
     appState.currentUser,
     cookies,
-    appState.isAuth,
     history,
-    appState.appSettings
+    appState.appSettings,
+    removeCookie
   ])
   //
   const onItemClick = (e, item) => console.log(item)

@@ -4,16 +4,18 @@ import ReportAlterView from "../../views/dashboard/reportAlterView"
 import { useForm } from "react-hook-form"
 import { useCookies } from "react-cookie"
 import { useHistory, useParams, useLocation } from "react-router-dom"
+import AppContext from "../../services/context"
 import Lang from "../../services/lang"
 //
 export default function ReportAlter() {
   const [loaded, setLoaded] = React.useState(false)
   const [disabled, setDisabled] = React.useState(false)
+  const { appState } = React.useContext(AppContext)
   const history = useHistory()
   const location = useLocation()
   const [cookies] = useCookies()
   const params = useParams()
-  const [mode, setMode] = React.useState({
+  const [mode] = React.useState({
     method: "UPDATE",
     title: Lang.updateReport,
     buttonLabel: Lang.update
@@ -33,9 +35,15 @@ export default function ReportAlter() {
   React.useEffect(() => {
     ;(async () => {
       //
-      console.log(setMode)
       const loc = !!location.pathname.includes("my-report")
       if (loc !== isMy) await setIsMy(loc)
+      //
+      if (
+        !loc &&
+        !["ADMIN", "EMPLOYEE"].includes(appState.currentUser.user_role)
+      ) {
+        history.replace("/dashboard/profile")
+      }
       //
       let result = null
       if (params.report_id) result = await getReport(params.report_id)
@@ -48,7 +56,14 @@ export default function ReportAlter() {
       //
       await setLoaded(true)
     })()
-  }, [history, params.report_id, methods, location.pathname, isMy])
+  }, [
+    history,
+    params.report_id,
+    methods,
+    location.pathname,
+    isMy,
+    appState.currentUser.user_role
+  ])
   //
   const onCreateSubmit = async (data) => {
     const result = await createReport(data, cookies["token"])

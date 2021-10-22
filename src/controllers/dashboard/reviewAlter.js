@@ -5,10 +5,12 @@ import { useForm } from "react-hook-form"
 import { useCookies } from "react-cookie"
 import { useHistory, useParams, useLocation } from "react-router-dom"
 import Lang from "../../services/lang"
+import AppContext from "../../services/context"
 //
 export default function ReviewAlter() {
   const [loaded, setLoaded] = React.useState(false)
   const [disabled, setDisabled] = React.useState(false)
+  const { appState } = React.useContext(AppContext)
   const history = useHistory()
   const location = useLocation()
   const [cookies] = useCookies()
@@ -37,6 +39,13 @@ export default function ReviewAlter() {
       const loc = !!location.pathname.includes("my-review")
       if (loc !== isMy) await setIsMy(loc)
       //
+      if (
+        !loc &&
+        !["ADMIN", "EMPLOYEE"].includes(appState.currentUser.user_role)
+      ) {
+        history.replace("/dashboard/profile")
+      }
+      //
       let result = null
       if (params.review_id) result = await getReview(params.review_id)
       //
@@ -48,7 +57,14 @@ export default function ReviewAlter() {
       //
       await setLoaded(true)
     })()
-  }, [history, params.review_id, methods, location.pathname, isMy])
+  }, [
+    history,
+    params.review_id,
+    methods,
+    location.pathname,
+    isMy,
+    appState.currentUser.user_role
+  ])
   //
   const onCreateSubmit = async (data) => {
     const result = await createReview(data, cookies["token"])

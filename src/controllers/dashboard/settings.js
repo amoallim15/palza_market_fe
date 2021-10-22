@@ -40,7 +40,6 @@ export default function Settings() {
     ;(async () => {
       if (appState.currentUser.user_role !== "ADMIN") {
         history.replace("/dashboard/profile")
-        return
       }
       await setLoaded(true)
     })()

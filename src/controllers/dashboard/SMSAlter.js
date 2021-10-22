@@ -11,7 +11,7 @@ export default function SMSAlter() {
   const [disabled, setDisabled] = React.useState(false)
   const history = useHistory()
   const [cookies] = useCookies()
-  const [mode, setMode] = React.useState({
+  const [mode] = React.useState({
     title: Lang.sendSMS,
     buttonLabel: Lang.send
   })
@@ -24,7 +24,6 @@ export default function SMSAlter() {
   //
   React.useEffect(() => {
     ;(async () => {
-      console.log(setMode)
       await setLoaded(true)
     })()
   }, [methods])

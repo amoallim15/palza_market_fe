@@ -10,10 +10,12 @@ import { useForm } from "react-hook-form"
 import { useCookies } from "react-cookie"
 import { useHistory, useParams } from "react-router-dom"
 import Lang from "../../services/lang"
+import AppContext from "../../services/context"
 //
 export default function MagazineAlter() {
   const [loaded, setLoaded] = React.useState(false)
   const [disabled, setDisabled] = React.useState(false)
+  const { appState } = React.useContext(AppContext)
   const history = useHistory()
   const [cookies] = useCookies()
   const params = useParams()
@@ -33,6 +35,8 @@ export default function MagazineAlter() {
   //
   React.useEffect(() => {
     ;(async () => {
+      if (!["ADMIN", "EMPLOYEE"].includes(appState.currentUser.user_role))
+        history.replace("/dashboard/profile")
       //
       let result = null
       if (params.magazine_id) result = await getMagazine(params.magazine_id)
@@ -55,7 +59,7 @@ export default function MagazineAlter() {
       //
       await setLoaded(true)
     })()
-  }, [history, params.magazine_id, methods])
+  }, [history, params.magazine_id, methods, appState.currentUser.user_role])
   //
   const onCreateSubmit = async (data) => {
     const result = await createMagazine(data, cookies["token"])

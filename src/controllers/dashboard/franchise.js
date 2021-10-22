@@ -3,9 +3,11 @@ import { getFranchises, deleteFranchise } from "../../services/api"
 import FranchiseView from "../../views/dashboard/franchiseView"
 import { useHistory } from "react-router-dom"
 import { useCookies } from "react-cookie"
+import AppContext from "../../services/context"
 //
 export default function Franchise() {
   const [loaded, setLoaded] = React.useState(false)
+  const { appState } = React.useContext(AppContext)
   const history = useHistory()
   const [cookies] = useCookies()
   const [franchiseData, setFranchiseData] = React.useState({
@@ -16,12 +18,15 @@ export default function Franchise() {
   //
   React.useEffect(() => {
     ;(async () => {
+      if (!["ADMIN", "EMPLOYEE"].includes(appState.currentUser.user_role))
+        history.replace("/dashboard/profile")
+      //
       let result = await getFranchises(0)
       if (result) await setFranchiseData(result)
       //
       await setLoaded(true)
     })()
-  }, [])
+  }, [history, appState.currentUser.user_role])
   //
   const onCreateClick = (e) => {
     history.push("/dashboard/franchise/alter")

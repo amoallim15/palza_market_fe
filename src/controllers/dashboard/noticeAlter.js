@@ -48,6 +48,8 @@ export default function NoticeAlter() {
   //
   React.useEffect(() => {
     ;(async () => {
+      if (!["ADMIN", "EMPLOYEE"].includes(appState.currentUser.user_role))
+        history.replace("/dashboard/profile")
       //
       let result = null
       if (params.notice_id) result = await getNotice(params.notice_id)
@@ -78,10 +80,11 @@ export default function NoticeAlter() {
     })()
   }, [
     appDispatch,
-    appState.noticeCategories,
     history,
     params.notice_id,
-    methods
+    methods,
+    appState.currentUser.user_role,
+    appState.noticeCategories
   ])
   //
   const onActionCallback = async (e) => {

@@ -2,6 +2,8 @@ import React from "react"
 import { getCrontabs, createCrontab } from "../../services/api"
 import CrontabView from "../../views/dashboard/crontabView"
 import { useCookies } from "react-cookie"
+import AppContext from "../../services/context"
+import { useHistory } from "react-router-dom"
 //
 const chipColors = {
   CREATED: "primary",
@@ -13,6 +15,8 @@ const chipColors = {
 export default function Crontab() {
   const [loaded, setLoaded] = React.useState(false)
   const [cookies] = useCookies()
+  const { appState } = React.useContext(AppContext)
+  const history = useHistory()
   const [crontabData, setCrontabData] = React.useState({
     page: 0,
     count: 0,
@@ -21,12 +25,15 @@ export default function Crontab() {
   //
   React.useEffect(() => {
     ;(async () => {
+      if (!["ADMIN", "EMPLOYEE"].includes(appState.currentUser.user_role))
+        history.replace("/dashboard/profile")
+      //
       let result = await getCrontabs(0, cookies["token"])
       if (result) await setCrontabData(result)
       //
       await setLoaded(true)
     })()
-  }, [cookies])
+  }, [cookies, appState.currentUser.user_role, history])
   //
   const onCreateClick = async (e) => {
     const result = await createCrontab(cookies["token"])

@@ -3,10 +3,12 @@ import { getMagazines, deleteMagazine } from "../../services/api"
 import MagazineView from "../../views/dashboard/magazineView"
 import { useHistory } from "react-router-dom"
 import { useCookies } from "react-cookie"
+import AppContext from "../../services/context"
 //
 export default function Magazine() {
   const [loaded, setLoaded] = React.useState(false)
   const history = useHistory()
+  const { appState } = React.useContext(AppContext)
   const [cookies] = useCookies()
   const [magazineData, setMagazineData] = React.useState({
     page: 0,
@@ -16,12 +18,15 @@ export default function Magazine() {
   //
   React.useEffect(() => {
     ;(async () => {
+      if (!["ADMIN", "EMPLOYEE"].includes(appState.currentUser.user_role))
+        history.replace("/dashboard/profile")
+      //
       let result = await getMagazines(0)
       if (result) await setMagazineData(result)
       //
       await setLoaded(true)
     })()
-  }, [])
+  }, [history, appState.currentUser.user_role])
   //
   const onCreateClick = (e) => {
     history.push("/dashboard/magazine/alter")

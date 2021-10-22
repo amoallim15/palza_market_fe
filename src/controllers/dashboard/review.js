@@ -3,9 +3,11 @@ import { getReviews, deleteReview } from "../../services/api"
 import ReviewView from "../../views/dashboard/reviewView"
 import { useHistory, useLocation } from "react-router-dom"
 import { useCookies } from "react-cookie"
+import AppContext from "../../services/context"
 //
 export default function Review() {
   const [loaded, setLoaded] = React.useState(false)
+  const { appState } = React.useContext(AppContext)
   const history = useHistory()
   const [cookies] = useCookies()
   const location = useLocation()
@@ -23,12 +25,19 @@ export default function Review() {
       const loc = !!location.pathname.includes("my-review")
       if (loc !== isMy) await setIsMy(loc)
       //
+      if (
+        !loc &&
+        !["ADMIN", "EMPLOYEE"].includes(appState.currentUser.user_role)
+      ) {
+        history.replace("/dashboard/profile")
+      }
+      //
       let result = await getReviews(0)
       if (result) await setReviewData(result)
       //
       await setLoaded(true)
     })()
-  }, [location.pathname, isMy])
+  }, [location.pathname, isMy, appState.currentUser.user_role, history])
   //
   const onCreateClick = (e) => {
     history.push("/dashboard/review/alter")

@@ -28,30 +28,36 @@ export default function Notice() {
   //
   React.useEffect(() => {
     ;(async () => {
+      if (!["ADMIN", "EMPLOYEE"].includes(appState.currentUser.user_role))
+        history.replace("/dashboard/profile")
+      //
+      let result_1 = await getNotices(0)
+      if (result_1) await setNoticeData(result_1)
+      //
       if (appState.noticeCategories.length === 0) {
-        let result_1 = await getNoticeCategories()
-        if (result_1) {
+        let result_2 = await getNoticeCategories()
+        if (result_2) {
           appDispatch({
             type: "UpdateNoticeCategories",
-            payload: result_1.data
+            payload: result_2.data
           })
         }
       }
       //
-      let result_2 = await getNotices(0)
-      if (result_2) await setNoticeData(result_2)
-      //
-      if (appState.noticeCategories.length > 0) {
-        let map = {}
-        for (let cat of appState.noticeCategories) {
-          map[cat.id] = cat.label
-        }
-        await setNoticeCategoryMap(map)
+      let map = {}
+      for (let cat of appState.noticeCategories) {
+        map[cat.id] = cat.label
       }
+      await setNoticeCategoryMap(map)
       //
       await setLoaded(true)
     })()
-  }, [appDispatch, appState.noticeCategories])
+  }, [
+    appDispatch,
+    appState.currentUser.user_role,
+    history,
+    appState.noticeCategories
+  ])
   //
   const onNoticeCreateClick = (e) => {
     history.push("/dashboard/notice/alter")
