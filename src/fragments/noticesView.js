@@ -2,7 +2,11 @@ import React from "react"
 import Lang from "../services/lang"
 import HomePagination from "../components/homePagination"
 //
-export default function NoticesView({ noticeData, noticeCategoryMap }) {
+export default function NoticesView({
+  noticeData,
+  noticeCategoryMap,
+  onNoticePageChange
+}) {
   //
   return (
     <div>
@@ -93,7 +97,11 @@ export default function NoticesView({ noticeData, noticeCategoryMap }) {
         </div>
       )}
       {/**/}
-      <HomePagination />
+      <HomePagination
+        totalCount={noticeData.count}
+        currentPage={noticeData.page}
+        onPageChange={onNoticePageChange}
+      />
     </div>
   )
 }

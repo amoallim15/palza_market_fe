@@ -2,7 +2,11 @@ import React from "react"
 import Lang from "../services/lang"
 import HomePagination from "../components/homePagination"
 //
-export default function ReviewsView({ reviewData, reviewTypeColors }) {
+export default function ReviewsView({
+  reviewData,
+  reviewTypeColors,
+  onReviewPageChange
+}) {
   //
   return (
     <div>
@@ -32,7 +36,11 @@ export default function ReviewsView({ reviewData, reviewTypeColors }) {
         </div>
       )}
       {/**/}
-      <HomePagination />
+      <HomePagination
+        totalCount={reviewData.count}
+        currentPage={reviewData.page}
+        onPageChange={onReviewPageChange}
+      />
       {/**/}
     </div>
   )

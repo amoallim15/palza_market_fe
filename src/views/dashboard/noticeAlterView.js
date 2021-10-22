@@ -80,6 +80,7 @@ export default function NoticeAlterView({
                     label={Lang.category}
                     onChange={onSelectCategory}
                     value={methods.getValues("category_id")}
+                    disabled={disabled}
                   >
                     {noticeCategoryData.map((item, index) => (
                       <MenuItem key={item.id} value={item.id}>

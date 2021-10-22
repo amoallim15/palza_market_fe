@@ -1,14 +1,69 @@
 import React from "react"
-
-export default function HomePagination() {
+import { usePagination, DOTS } from "../services/pagination"
+import Lang from "../services/lang"
+//
+export default function HomePagination({
+  totalCount,
+  currentPage,
+  pageSize = 10,
+  onPageChange,
+  siblingCount = 1
+}) {
+  //
+  const paginationRange = usePagination({
+    currentPage,
+    totalCount,
+    siblingCount,
+    pageSize
+  })
+  //
+  if (currentPage === -1 || paginationRange.length < 2) {
+    return null
+  }
+  //
+  const onNext = () => {
+    onPageChange(currentPage + 1)
+  }
+  //
+  const onPrevious = () => {
+    onPageChange(currentPage - 1)
+  }
+  //
+  const lastPage = paginationRange[paginationRange.length - 1]
+  //
   return (
     <div className="btn-group my-8 justify-center">
-      <button className="btn">Previous</button>
-      <button className="btn">1</button>
-      <button className="btn btn-active">2</button>
-      <button className="btn">3</button>
-      <button className="btn">4</button>
-      <button className="btn">Next</button>
+      <button className="btn" disabled={currentPage === 0} onClick={onPrevious}>
+        {Lang.previous}
+      </button>
+      {paginationRange.map((pageNumber) => {
+        //
+        if (pageNumber === DOTS) {
+          return (
+            <button className="btn" disabled>
+              ...
+            </button>
+          )
+        }
+        //
+        return (
+          <button
+            className={
+              "btn px-4" + (pageNumber === currentPage ? " btn-active" : "")
+            }
+            onClick={() => onPageChange(pageNumber)}
+          >
+            {pageNumber}
+          </button>
+        )
+      })}
+      <button
+        className="btn"
+        disabled={currentPage === lastPage}
+        onClick={onNext}
+      >
+        {Lang.next}
+      </button>
     </div>
   )
 }

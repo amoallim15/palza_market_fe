@@ -23,12 +23,18 @@ export default function Community() {
     data: []
   })
   const [noticeCategoryMap, setNoticeCategoryMap] = React.useState({})
+  const onNoticePageChange = async (page) => {
+    console.log(page)
+  }
   // Review..
   const [reviewData, setReviewData] = React.useState({
     page: 0,
     count: 0,
     data: []
   })
+  const onReviewPageChange = async (page) => {
+    console.log(page)
+  }
   //
   React.useEffect(() => {
     ;(async () => {
@@ -79,6 +85,7 @@ export default function Community() {
       onTabChange={(e, value) => setCurrentTab(value)}
       noticeData={noticeData}
       noticeCategoryMap={noticeCategoryMap}
+      onNoticePageChange={onNoticePageChange}
       reviewData={reviewData}
       reviewTypeColors={reviewTypeColors}
     />

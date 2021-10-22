@@ -15,9 +15,11 @@ export default function CommunityView({
   //
   noticeData,
   noticeCategoryMap,
+  onNoticePageChange,
   //
   reviewData,
-  reviewTypeColors
+  reviewTypeColors,
+  onReviewPageChange
 }) {
   //
   return (
@@ -67,6 +69,7 @@ export default function CommunityView({
           <NoticesView
             noticeData={noticeData}
             noticeCategoryMap={noticeCategoryMap}
+            onNoticePageChange={onNoticePageChange}
           />
         </TabPanel>
         {/**/}
@@ -76,6 +79,7 @@ export default function CommunityView({
           <ReviewsView
             reviewData={reviewData}
             reviewTypeColors={reviewTypeColors}
+            onReviewPageChange={onReviewPageChange}
           />
         </TabPanel>
         {/**/}

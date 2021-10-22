@@ -5,21 +5,21 @@ export default function Footer({ footerData }) {
   //
   return (
     <footer>
-      <div className="container mx-auto mt-10 py-6">
+      <div className="container mx-auto mt-10 p-4">
         <div className="grid grid-cols-1 md:grid-cols-3">
           {/**/}
-          <div className="p-4 flex flex-col">
+          <div className="py-4 md:pr-4 flex flex-col">
             <h3 className="mb-3 text-xl font-semibold">{Lang.notices}</h3>
             <div className="mb-3">
               {/**/}
-              <p class="flex justify-between mb-4">
-                <span class="text-sm">팔자마켓 사이트 리뉴얼 안내</span>
-                <span class="text-sm text-right">2021. 09. 14</span>
+              <p className="flex justify-between mb-4">
+                <span className="text-sm">팔자마켓 사이트 리뉴얼 안내</span>
+                <span className="text-sm text-right">2021. 09. 14</span>
               </p>
               {/**/}
             </div>
           </div>
-          <div className="md:border-l md:border-r p-4 flex flex-col">
+          <div className="md:border-l md:border-r py-4 md:px-4 flex flex-col">
             <h3 className="mb-3 text-xl font-semibold">
               {Lang.customerRelation}
             </h3>
@@ -31,16 +31,16 @@ export default function Footer({ footerData }) {
               <p>이메일: palazamarket@palza.kr</p>
             </div>
           </div>
-          <div className="p-4 flex flex-col">
+          <div className="py-4 md:pl-4 flex flex-col">
             <h3 className="mb-3 text-xl font-semibold">{Lang.serviceGuide}</h3>
             {/**/}
             <div className="grid grid-cols-3 mb-3 gap-2 md:grid-cols-2">
-              <button className="btn">개인정보취급방침</button>
-              <button className="btn">허위매물 신고</button>
-              <button className="btn">위치기반 이용약관</button>
-              <button className="btn">매수/매도 의뢰</button>
-              <button className="btn">광고 문의</button>
-              <button className="btn">중개사무소 가입안내</button>
+              <button className="btn h-auto">개인정보취급방침</button>
+              <button className="btn h-auto">허위매물 신고</button>
+              <button className="btn h-auto">위치기반 이용약관</button>
+              <button className="btn h-auto">매수/매도 의뢰</button>
+              <button className="btn h-auto">광고 문의</button>
+              <button className="btn h-auto">중개사무소 가입안내</button>
             </div>
           </div>
           {/**/}

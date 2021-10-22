@@ -117,7 +117,9 @@ const EN = {
   close: "Close",
   go: "Go",
   customerRelation: "고객상담",
-  serviceGuide: "이용안내"
+  serviceGuide: "이용안내",
+  previous: "Previous",
+  next: "Next"
 }
 //
 const Lang = ((lang) => {
