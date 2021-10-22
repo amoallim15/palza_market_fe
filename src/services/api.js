@@ -296,3 +296,47 @@ export const deleteReport = async (report_id, token) => {
 }
 //
 //
+export const getAgencyReviews = async (page, agency_id) => {
+  return await call(`/review/agent/${agency_id}?page=${page}`, "GET")
+}
+//
+export const getReviews = async (page) => {
+  return await call(`/review?page=${page}`, "GET")
+}
+//
+export const getReview = async (review_id) => {
+  return await call(`/review/${review_id}`, "GET")
+}
+//
+export const createReview = async (data, token) => {
+  return await call(
+    "/review",
+    "POST",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}
+//
+export const updateReview = async (review_id, data, token) => {
+  return await call(
+    `/review/${review_id}`,
+    "PUT",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}
+//
+export const deleteReview = async (review_id, token) => {
+  return await call(`/review/${review_id}`, "DELETE", {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token.access_token}`
+  })
+}
+//
+//

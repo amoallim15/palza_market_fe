@@ -101,7 +101,10 @@ const EN = {
   send: "Send",
   recieverPhoneNo: "Reciever Phone No.",
   realstateId: "Realstate ID",
-  userId: "User ID"
+  userId: "User ID",
+  myReviews: "My Reviews",
+  rating: "Rating",
+  agencyId: "Agency ID"
 }
 //
 const Lang = ((lang) => {

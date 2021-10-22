@@ -30,6 +30,9 @@ import SMSAlter from "../controllers/dashboard/SMSAlter"
 //
 import Report from "../controllers/dashboard/report"
 //
+import MyReview from "../controllers/dashboard/myReview"
+import ReviewAlter from "../controllers/dashboard/reviewAlter"
+//
 export const HomeRoutes = [
   {
     path: ["/dashboard"],
@@ -159,5 +162,15 @@ export const DashboardRoutes = [
     path: ["/dashboard/report"],
     component: Report,
     exact: true
+  },
+  //
+  {
+    path: ["/dashboard/my-review"],
+    component: MyReview,
+    exact: true
+  },
+  {
+    path: ["/dashboard/review/alter"],
+    component: ReviewAlter
   }
 ]

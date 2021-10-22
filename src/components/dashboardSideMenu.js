@@ -85,6 +85,12 @@ export default function DashboardSideMenu({
         {/**/}
         <MenuItem name={Lang.profile} link="/dashboard/profile" />
         {/**/}
+        {/*{userType === "INDIVIDUAL" && (*/}
+        <>
+          <MenuItem name={Lang.myReviews} link="/dashboard/my-review" />
+        </>
+        {/*)}*/}
+        {/**/}
         {["ADMIN", "EMPLOYEE"].includes(userRole) && (
           <>
             <MenuItem name={Lang.notices} link="/dashboard/notice" />
