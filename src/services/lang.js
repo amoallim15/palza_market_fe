@@ -96,7 +96,10 @@ const EN = {
   viewCount: "View Count",
   status: "Status",
   progress: "Progress",
-  refresh: "Refresh"
+  refresh: "Refresh",
+  sendSMS: "Send SMS Message",
+  send: "Send",
+  recieverPhoneNo: "Reciever Phone No."
 }
 //
 const Lang = ((lang) => {

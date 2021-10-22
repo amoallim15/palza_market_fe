@@ -91,6 +91,7 @@ export default function DashboardSideMenu({
             <MenuItem name={Lang.franchises} link="/dashboard/franchise" />
             <MenuItem name={Lang.magazines} link="/dashboard/magazine" />
             <MenuItem name={Lang.crontabs} link="/dashboard/crontab" />
+            <MenuItem name={Lang.smsMessages} link="/dashboard/sms" />
           </>
         )}
         {/**/}

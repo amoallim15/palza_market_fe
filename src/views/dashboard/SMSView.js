@@ -12,17 +12,10 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  TablePagination,
-  Chip
+  TablePagination
 } from "@mui/material"
 //
-export default function CrontabView({
-  crontabData,
-  onCreateClick,
-  onPageChange,
-  onRefreshClick,
-  chipColors
-}) {
+export default function SMSView({ SMSData, onCreateClick, onPageChange }) {
   //
   return (
     <Box>
@@ -50,13 +43,6 @@ export default function CrontabView({
           >
             {Lang.create}
           </Button>
-          <Button
-            onClick={onRefreshClick}
-            variant="contained"
-            sx={{ my: 1, ml: 1.5 }}
-          >
-            {Lang.refresh}
-          </Button>
         </Grid>
         {/**/}
         <Grid item xs={12}>
@@ -64,30 +50,27 @@ export default function CrontabView({
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell align="center">{Lang.status}</TableCell>
-                  <TableCell align="center">{Lang.progress}</TableCell>
-                  <TableCell align="center">{Lang.updatedAt}</TableCell>
-                  <TableCell align="center">{Lang.createdAt}</TableCell>
+                  <TableCell>{Lang.recieverPhoneNo}</TableCell>
+                  <TableCell align="center">{Lang.title}</TableCell>
+                  <TableCell align="center">{Lang.content}</TableCell>
+                  <TableCell align="right">{Lang.createdAt}</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {crontabData.data?.map((item, index) => (
+                {SMSData.data?.map((item, index) => (
                   <TableRow
                     key={item.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell align="center">
-                      <Chip
-                        label={item.status}
-                        color={chipColors[item.status]}
-                      />
+                    <TableCell component="th" scope="row">
+                      {item.reciever_phone_no}
                     </TableCell>
-                    <TableCell align="center">{`${item.progress}%`}</TableCell>
-                    <TableCell align="center">{item.updated_at}</TableCell>
-                    <TableCell align="center">{item.created_at}</TableCell>
+                    <TableCell align="center">{item.title}</TableCell>
+                    <TableCell align="center">{item.content}</TableCell>
+                    <TableCell align="right">{item.created_at}</TableCell>
                   </TableRow>
                 ))}
-                {crontabData.data?.length < 1 && (
+                {SMSData.data?.length < 1 && (
                   <TableRow
                     sx={{
                       "&:last-child td, &:last-child th": { border: 0, p: 10 }
@@ -95,7 +78,7 @@ export default function CrontabView({
                   >
                     <TableCell
                       align="center"
-                      colSpan={7}
+                      colSpan={4}
                       component="th"
                       scope="row"
                     >
@@ -108,9 +91,9 @@ export default function CrontabView({
           </TableContainer>
           <TablePagination
             component="div"
-            count={crontabData.count}
+            count={SMSData.count}
             rowsPerPage={10}
-            page={crontabData.page}
+            page={SMSData.page}
             onPageChange={onPageChange}
             rowsPerPageOptions={[]}
           />

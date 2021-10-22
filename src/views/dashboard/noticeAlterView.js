@@ -20,7 +20,6 @@ export default function NoticeAlterView({
   noticeCategoryData,
   disabled,
   setDisabled,
-  categoryValue,
   onActionCallback,
   onValidateCallback,
   onSelectCategory,

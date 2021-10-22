@@ -3,17 +3,14 @@ import { Box, Typography, Grid, Paper, TextField } from "@mui/material"
 import Lang from "../../services/lang"
 import { FormProvider } from "react-hook-form"
 import DashboardAlterAction from "../../components/dashboardAlterAction"
-import ImageUpload from "../../components/dashboardImageUpload"
 //
-export default function FranchiseAlterView({
+export default function MagazineAlterView({
   methods,
   disabled,
   setDisabled,
   onActionCallback,
   onValidateCallback,
   onCancelActionCallback,
-  onImageUpload,
-  onImageChange,
   mode
 }) {
   //
@@ -56,51 +53,31 @@ export default function FranchiseAlterView({
                   size="small"
                   required
                   fullWidth
-                  label={Lang.externalUrl}
+                  label={Lang.title}
                   disabled={disabled}
-                  {...methods.register("external_url", { required: true })}
+                  {...methods.register("title", { required: true })}
                 />
                 {/**/}
                 <TextField
-                  type="number"
-                  min="1"
                   margin="normal"
                   size="small"
                   required
                   fullWidth
-                  label={Lang.storeCount}
+                  label={Lang.recieverPhoneNo}
                   disabled={disabled}
-                  {...methods.register("store_count", { required: true })}
+                  {...methods.register("reciever_phone_no", { required: true })}
                 />
                 {/**/}
                 <TextField
-                  type="number"
-                  min="0"
                   margin="normal"
                   size="small"
+                  multiline
                   required
+                  maxRows={10}
                   fullWidth
-                  label={Lang.monthlySales}
+                  label={Lang.content}
                   disabled={disabled}
-                  {...methods.register("monthly_sales", { required: true })}
-                />
-                {/**/}
-                <TextField
-                  type="number"
-                  min="0"
-                  margin="normal"
-                  size="small"
-                  required
-                  fullWidth
-                  label={Lang.startingCost}
-                  disabled={disabled}
-                  {...methods.register("starting_cost", { required: true })}
-                />
-                {/**/}
-                <ImageUpload
-                  url={methods.getValues("thumbnail_url")}
-                  onImageUpload={onImageUpload}
-                  onImageChange={onImageChange}
+                  {...methods.register("content", { required: true })}
                 />
               </Box>
             </Paper>

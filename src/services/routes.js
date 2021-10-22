@@ -25,6 +25,9 @@ import MagazineAlter from "../controllers/dashboard/magazineAlter"
 //
 import Crontab from "../controllers/dashboard/crontab"
 //
+import SMS from "../controllers/dashboard/SMS"
+import SMSAlter from "../controllers/dashboard/SMSAlter"
+//
 export const HomeRoutes = [
   {
     path: ["/dashboard"],
@@ -138,6 +141,16 @@ export const DashboardRoutes = [
     path: ["/dashboard/crontab"],
     component: Crontab,
     exact: true
+  },
+  //
+  {
+    path: ["/dashboard/sms"],
+    component: SMS,
+    exact: true
+  },
+  {
+    path: ["/dashboard/sms/alter"],
+    component: SMSAlter
   }
   //
 ]

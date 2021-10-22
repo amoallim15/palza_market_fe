@@ -225,3 +225,20 @@ export const createCrontab = async (token) => {
     Authorization: `Bearer ${token.access_token}`
   })
 }
+//
+//
+export const getSMSs = async (page) => {
+  return await call(`/sms?page=${page}`, "GET")
+}
+//
+export const createSMS = async (data, token) => {
+  return await call(
+    "/sms",
+    "POST",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}

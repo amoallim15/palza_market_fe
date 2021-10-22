@@ -3,6 +3,12 @@ import { getCrontabs, createCrontab } from "../../services/api"
 import CrontabView from "../../views/dashboard/crontabView"
 import { useCookies } from "react-cookie"
 //
+const chipColors = {
+  RUNNING: "warning",
+  SUCCEEDED: "success",
+  FAILED: "error"
+}
+//
 export default function Crontab() {
   const [loaded, setLoaded] = React.useState(false)
   const [cookies] = useCookies()
@@ -45,6 +51,7 @@ export default function Crontab() {
       onCreateClick={onCreateClick}
       onPageChange={onPageChange}
       onRefreshClick={onRefreshClick}
+      chipColors={chipColors}
     />
   )
 }
