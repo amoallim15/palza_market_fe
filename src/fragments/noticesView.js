@@ -1,10 +1,11 @@
 import React from "react"
 import Lang from "../services/lang"
+import HomePagination from "../components/homePagination"
 //
 export default function NoticesView({ noticeData, noticeCategoryMap }) {
   //
   return (
-    <div className="container mx-auto">
+    <div>
       {/**/}
       <div className="flex flex-row my-4 justify-between">
         <div className="h-12 flex items-center">
@@ -18,7 +19,7 @@ export default function NoticesView({ noticeData, noticeCategoryMap }) {
               className="w-full pr-16 input"
             />
             <button className="absolute top-0 right-0 rounded-l-none btn btn-primary">
-              {Lang.search}
+              {Lang.go}
             </button>
           </div>
         </div>
@@ -85,6 +86,14 @@ export default function NoticesView({ noticeData, noticeCategoryMap }) {
           </div>
         ))}
       </div>
+      {/**/}
+      {noticeData.count === 0 && (
+        <div>
+          <h2 className="text-xl text-center">{Lang.noDataAvailable}</h2>
+        </div>
+      )}
+      {/**/}
+      <HomePagination />
     </div>
   )
 }

@@ -3,7 +3,12 @@ import CommunityView from "../views/communityView"
 import AppContext from "../services/context"
 import { useCookies } from "react-cookie"
 import { checkAuth } from "../services/api"
-import { getNotices, getNoticeCategories } from "../services/api"
+import { getNotices, getNoticeCategories, getReviews } from "../services/api"
+//
+const reviewTypeColors = {
+  BUYING: "badge-primary",
+  SELLING: "badge-secondary"
+}
 //
 export default function Community() {
   const [loaded, setLoaded] = React.useState(false)
@@ -18,6 +23,12 @@ export default function Community() {
     data: []
   })
   const [noticeCategoryMap, setNoticeCategoryMap] = React.useState({})
+  // Review..
+  const [reviewData, setReviewData] = React.useState({
+    page: 0,
+    count: 0,
+    data: []
+  })
   //
   React.useEffect(() => {
     ;(async () => {
@@ -44,6 +55,9 @@ export default function Community() {
           })
         }
       }
+      // Reviews..
+      let result_2 = await getReviews(0)
+      if (result_2) await setReviewData(result_2)
       //
       let map = {}
       for (let cat of appState.noticeCategories) {
@@ -65,6 +79,8 @@ export default function Community() {
       onTabChange={(e, value) => setCurrentTab(value)}
       noticeData={noticeData}
       noticeCategoryMap={noticeCategoryMap}
+      reviewData={reviewData}
+      reviewTypeColors={reviewTypeColors}
     />
   )
 }
