@@ -5,23 +5,23 @@ import {
   Box,
   Grid,
   Paper,
-  Button,
   TableContainer,
   Table,
   TableHead,
   TableRow,
   TableCell,
   TableBody,
-  TablePagination,
-  Chip
+  IconButton,
+  TablePagination
 } from "@mui/material"
+import DeleteIcon from "@mui/icons-material/Delete"
 //
-export default function CrontabView({
-  crontabData,
-  onCreateClick,
-  onPageChange,
-  onRefreshClick,
-  chipColors
+export default function NoticeView({
+  currentTab,
+  onTabChange,
+  reportData,
+  onDeleteClick,
+  onPageChange
 }) {
   //
   return (
@@ -33,61 +33,46 @@ export default function CrontabView({
         noWrap
         sx={{ flexGrow: 1, mb: 3 }}
       >
-        {Lang.crontabs}
+        {Lang.reports}
       </Typography>
       {/**/}
       <Grid container spacing={3}>
-        {/**/}
-        <Grid
-          item
-          xs={12}
-          sx={{ flexDirection: "row-reverse", display: "flex" }}
-        >
-          <Button
-            onClick={onCreateClick}
-            variant="contained"
-            sx={{ my: 1, ml: 1.5 }}
-          >
-            {Lang.create}
-          </Button>
-          <Button
-            onClick={onRefreshClick}
-            variant="contained"
-            sx={{ my: 1, ml: 1.5 }}
-          >
-            {Lang.refresh}
-          </Button>
-        </Grid>
         {/**/}
         <Grid item xs={12}>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell align="center">{Lang.status}</TableCell>
-                  <TableCell align="center">{Lang.progress}</TableCell>
+                  <TableCell>{Lang.realstateId}</TableCell>
+                  <TableCell align="center">{Lang.userId}</TableCell>
+                  <TableCell align="center">{Lang.content}</TableCell>
                   <TableCell align="center">{Lang.updatedAt}</TableCell>
                   <TableCell align="center">{Lang.createdAt}</TableCell>
+                  <TableCell align="right">{Lang.actions}</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {crontabData.data?.map((item, index) => (
+                {reportData.data?.map((item, index) => (
                   <TableRow
                     key={item.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell align="center">
-                      <Chip
-                        label={item.status}
-                        color={chipColors[item.status]}
-                      />
+                    <TableCell component="th" scope="row">
+                      {item.realstate_id}
                     </TableCell>
-                    <TableCell align="center">{`${item.progress}%`}</TableCell>
+                    <TableCell align="center">{item.user_id}</TableCell>
+                    <TableCell align="center">{item.content}</TableCell>
                     <TableCell align="center">{item.updated_at}</TableCell>
                     <TableCell align="center">{item.created_at}</TableCell>
+                    <TableCell align="right">
+                      {/**/}
+                      <IconButton onClick={(e) => onDeleteClick(e, item)}>
+                        <DeleteIcon />
+                      </IconButton>
+                    </TableCell>
                   </TableRow>
                 ))}
-                {crontabData.data?.length < 1 && (
+                {reportData.data?.length < 1 && (
                   <TableRow
                     sx={{
                       "&:last-child td, &:last-child th": { border: 0, p: 10 }
@@ -95,7 +80,7 @@ export default function CrontabView({
                   >
                     <TableCell
                       align="center"
-                      colSpan={7}
+                      colSpan={6}
                       component="th"
                       scope="row"
                     >
@@ -108,9 +93,9 @@ export default function CrontabView({
           </TableContainer>
           <TablePagination
             component="div"
-            count={crontabData.count}
+            count={reportData.count}
             rowsPerPage={10}
-            page={crontabData.page}
+            page={reportData.page}
             onPageChange={onPageChange}
             rowsPerPageOptions={[]}
           />

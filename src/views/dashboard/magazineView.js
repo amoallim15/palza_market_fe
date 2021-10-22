@@ -35,7 +35,7 @@ export default function MagazineView({
         noWrap
         sx={{ flexGrow: 1, mb: 3 }}
       >
-        {Lang.notices}
+        {Lang.magazines}
       </Typography>
       {/**/}
       <Grid container spacing={3}>

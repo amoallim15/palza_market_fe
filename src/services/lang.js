@@ -99,7 +99,9 @@ const EN = {
   refresh: "Refresh",
   sendSMS: "Send SMS Message",
   send: "Send",
-  recieverPhoneNo: "Reciever Phone No."
+  recieverPhoneNo: "Reciever Phone No.",
+  realstateId: "Realstate ID",
+  userId: "User ID"
 }
 //
 const Lang = ((lang) => {

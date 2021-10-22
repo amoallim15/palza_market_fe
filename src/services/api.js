@@ -215,8 +215,11 @@ export const deleteMagazine = async (magazine_id, token) => {
 }
 //
 //
-export const getCrontabs = async (page) => {
-  return await call(`/crontab?page=${page}`, "GET")
+export const getCrontabs = async (page, token) => {
+  return await call(`/crontab?page=${page}`, "GET", {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token.access_token}`
+  })
 }
 //
 export const createCrontab = async (token) => {
@@ -227,8 +230,11 @@ export const createCrontab = async (token) => {
 }
 //
 //
-export const getSMSs = async (page) => {
-  return await call(`/sms?page=${page}`, "GET")
+export const getSMSs = async (page, token) => {
+  return await call(`/sms?page=${page}`, "GET", {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token.access_token}`
+  })
 }
 //
 export const createSMS = async (data, token) => {
@@ -242,3 +248,51 @@ export const createSMS = async (data, token) => {
     JSON.stringify(data)
   )
 }
+//
+//
+export const getReports = async (page, token) => {
+  return await call(`/report?page=${page}`, "GET", {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token.access_token}`
+  })
+}
+//
+export const getReport = async (report_id, token) => {
+  return await call(`/report/${report_id}`, "GET", {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token.access_token}`
+  })
+}
+//
+export const createReport = async (data, token) => {
+  return await call(
+    "/report",
+    "POST",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}
+//
+export const updateReport = async (report_id, data, token) => {
+  return await call(
+    `/report/${report_id}`,
+    "PUT",
+    {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token.access_token}`
+    },
+    JSON.stringify(data)
+  )
+}
+//
+export const deleteReport = async (report_id, token) => {
+  return await call(`/report/${report_id}`, "DELETE", {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token.access_token}`
+  })
+}
+//
+//

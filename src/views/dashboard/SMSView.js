@@ -26,7 +26,7 @@ export default function SMSView({ SMSData, onCreateClick, onPageChange }) {
         noWrap
         sx={{ flexGrow: 1, mb: 3 }}
       >
-        {Lang.notices}
+        {Lang.smsMessages}
       </Typography>
       {/**/}
       <Grid container spacing={3}>

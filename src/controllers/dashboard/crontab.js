@@ -20,12 +20,12 @@ export default function Crontab() {
   //
   React.useEffect(() => {
     ;(async () => {
-      let result = await getCrontabs(0)
+      let result = await getCrontabs(0, cookies["token"])
       if (result) await setCrontabData(result)
       //
       await setLoaded(true)
     })()
-  }, [])
+  }, [cookies])
   //
   const onCreateClick = async (e) => {
     const result = await createCrontab(cookies["token"])
