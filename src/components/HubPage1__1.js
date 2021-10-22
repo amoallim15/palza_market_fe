@@ -3,6 +3,7 @@ import test1 from "../assets/imgs/test1.jpeg";
 import test2 from "../assets/imgs/test2.jpeg";
 import test3 from "../assets/imgs/test3.jpeg";
 
+
 const HubPage1 = () => {
   return (
     <>
@@ -92,6 +93,7 @@ const HubPage1 = () => {
           </li>
         </ul>
       </div>
+      
     </>
   );
 };
