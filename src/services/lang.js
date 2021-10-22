@@ -105,7 +105,17 @@ const EN = {
   myReviews: "My Reviews",
   myReports: "My Reports",
   rating: "Rating",
-  agencyId: "Agency ID"
+  agencyId: "Agency ID",
+  myWishlist: "My Wishlist",
+  myRealstates: "My Realstates",
+  requests: "Requests",
+  purchaseSaleRequest: "Purchase/Sale Request",
+  total: "Total",
+  articles: "Articles",
+  search: "Search",
+  more: "more",
+  close: "Close",
+  go: "Go"
 }
 //
 const Lang = ((lang) => {

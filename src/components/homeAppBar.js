@@ -126,7 +126,7 @@ export const AppBarProfile = ({ isLocationMatch }) => {
           </Link>
           {/**/}
           <Link
-            to={"/dashboard/wishlist"}
+            to={"/dashboard/my-wishlist"}
             className={
               "hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700" +
               (isLocationMatch("/dashboard/wishlist") ? " bg-gray-100" : "")
@@ -136,7 +136,7 @@ export const AppBarProfile = ({ isLocationMatch }) => {
           </Link>
           {/**/}
           <Link
-            to={"/dashboard/realstates"}
+            to={"/dashboard/my-realstates"}
             className={
               "hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700" +
               (isLocationMatch("/dashboard/realstates") ? " bg-gray-100" : "")
@@ -146,7 +146,7 @@ export const AppBarProfile = ({ isLocationMatch }) => {
           </Link>
           {/**/}
           <Link
-            to={"/dashboard/reviews"}
+            to={"/dashboard/my-reviews"}
             className={
               "hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700" +
               (isLocationMatch("/dashboard/reviews") ? " bg-gray-100" : "")
@@ -156,7 +156,7 @@ export const AppBarProfile = ({ isLocationMatch }) => {
           </Link>
           {/**/}
           <Link
-            to={"/dashboard/config"}
+            to={"/dashboard/settings"}
             className={
               "hover:bg-gray-100 block px-4 py-2 text-sm text-gray-700" +
               (isLocationMatch("/dashboard/config") ? " bg-gray-100" : "")

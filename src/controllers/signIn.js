@@ -21,17 +21,21 @@ export default function SignIn() {
   //
   React.useEffect(() => {
     ;(async () => {
-      if ("token" in cookies) {
+      if (cookies["token"]) {
         if (!(await checkAuth(cookies["token"]))) {
-          appDispatch({ type: "UpdateIsAuth", payload: false })
+          await appDispatch({ type: "UpdateCurrentUser", payload: null })
+          await appDispatch({ type: "UpdateIsAuth", payload: false })
           removeCookie("token")
         } else {
           appDispatch({ type: "UpdateIsAuth", payload: true })
           history.replace("/")
         }
+      } else {
+        await appDispatch({ type: "UpdateCurrentUser", payload: null })
+        await appDispatch({ type: "UpdateIsAuth", payload: false })
       }
       //
-      if (!appState.appSettings) {
+      if (appState.appSettings == null) {
         const result = await getSettings()
         if (result) appDispatch({ type: "UpdateSettings", payload: result })
       }

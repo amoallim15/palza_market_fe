@@ -22,6 +22,7 @@ export default function Dashboard() {
             await appDispatch({ type: "UpdateCurrentUser", payload: result })
             appDispatch({ type: "UpdateIsAuth", payload: true })
           } else {
+            await appDispatch({ type: "UpdateCurrentUser", payload: null })
             await appDispatch({ type: "UpdateIsAuth", payload: false })
             await removeCookie("token")
             history.replace("/sign-in")

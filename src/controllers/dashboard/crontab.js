@@ -43,7 +43,7 @@ export default function Crontab() {
   }
   //
   const onRefreshClick = async (e) => {
-    let result = await getCrontabs(0)
+    let result = await getCrontabs(0, cookies["token"])
     if (result) await setCrontabData(result)
   }
   //

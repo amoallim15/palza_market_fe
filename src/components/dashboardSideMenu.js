@@ -85,16 +85,26 @@ export default function DashboardSideMenu({
         {/**/}
         <MenuItem name={Lang.profile} link="/dashboard/profile" />
         {/**/}
-        {/*{userType === "INDIVIDUAL" && (*/}
-        <>
-          <MenuItem name={Lang.myReviews} link="/dashboard/my-review" />
-          <MenuItem name={Lang.myReports} link="/dashboard/my-report" />
-          <Divider />
-        </>
-        {/*)}*/}
+        {userType === "INDIVIDUAL" && (
+          <>
+            <MenuItem name={Lang.myWishlist} link="/dashboard/my-wishlist" />
+            <MenuItem name={Lang.myReviews} link="/dashboard/my-review" />
+            <MenuItem name={Lang.myReports} link="/dashboard/my-report" />
+            <Divider />
+          </>
+        )}
+        {/**/}
+        {userType === "AGENCY" && (
+          <>
+            <MenuItem name={Lang.myRealstates} link="/dashboard/my-realstate" />
+            <MenuItem name={Lang.requests} link="/dashboard/requests" />
+            <Divider />
+          </>
+        )}
         {/**/}
         {["ADMIN", "EMPLOYEE"].includes(userRole) && (
           <>
+            <MenuItem name={Lang.realstates} link="/dashboard/realstate" />
             <MenuItem name={Lang.notices} link="/dashboard/notice" />
             <MenuItem name={Lang.franchises} link="/dashboard/franchise" />
             <MenuItem name={Lang.magazines} link="/dashboard/magazine" />
