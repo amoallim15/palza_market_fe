@@ -36,11 +36,11 @@ export default function HomePagination({
       <button className="btn" disabled={currentPage === 0} onClick={onPrevious}>
         {Lang.previous}
       </button>
-      {paginationRange.map((pageNumber) => {
+      {paginationRange.map((pageNumber, index) => {
         //
         if (pageNumber === DOTS) {
           return (
-            <button className="btn" disabled>
+            <button key={index} className="btn" disabled>
               ...
             </button>
           )
@@ -51,7 +51,9 @@ export default function HomePagination({
             className={
               "btn px-4" + (pageNumber === currentPage ? " btn-active" : "")
             }
+            key={index}
             onClick={() => onPageChange(pageNumber)}
+            disabled={pageNumber === currentPage}
           >
             {pageNumber}
           </button>

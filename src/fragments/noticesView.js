@@ -5,7 +5,9 @@ import HomePagination from "../components/homePagination"
 export default function NoticesView({
   noticeData,
   noticeCategoryMap,
-  onNoticePageChange
+  onNoticePageChange,
+  onNoticeSearchChange,
+  onNoticeSearchClick
 }) {
   //
   return (
@@ -21,8 +23,12 @@ export default function NoticesView({
               type="text"
               placeholder={Lang.search}
               className="w-full pr-16 input"
+              onChange={onNoticeSearchChange}
             />
-            <button className="absolute top-0 right-0 rounded-l-none btn btn-primary">
+            <button
+              className="absolute top-0 right-0 rounded-l-none btn btn-primary"
+              onClick={onNoticeSearchClick}
+            >
               {Lang.go}
             </button>
           </div>

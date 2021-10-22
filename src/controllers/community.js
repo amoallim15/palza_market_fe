@@ -23,8 +23,18 @@ export default function Community() {
     data: []
   })
   const [noticeCategoryMap, setNoticeCategoryMap] = React.useState({})
+  const [noticeSearchField, setNoticeSearchField] = React.useState("")
   const onNoticePageChange = async (page) => {
-    console.log(page)
+    let result = await getNotices(page)
+    if (result) await setNoticeData(result)
+  }
+  const onNoticeSearchChange = async (e) => {
+    await setNoticeSearchField(e.target.value)
+    console.log(noticeSearchField, e.target.value)
+  }
+  const onNoticeSearchClick = async (e) => {
+    console.log("test")
+    // TODO:
   }
   // Review..
   const [reviewData, setReviewData] = React.useState({
@@ -33,7 +43,8 @@ export default function Community() {
     data: []
   })
   const onReviewPageChange = async (page) => {
-    console.log(page)
+    let result = await getReviews(page)
+    if (result) await setReviewData(result)
   }
   //
   React.useEffect(() => {
@@ -86,8 +97,11 @@ export default function Community() {
       noticeData={noticeData}
       noticeCategoryMap={noticeCategoryMap}
       onNoticePageChange={onNoticePageChange}
+      onNoticeSearchChange={onNoticeSearchChange}
+      onNoticeSearchClick={onNoticeSearchClick}
       reviewData={reviewData}
       reviewTypeColors={reviewTypeColors}
+      onReviewPageChange={onReviewPageChange}
     />
   )
 }

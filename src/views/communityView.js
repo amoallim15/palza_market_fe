@@ -5,6 +5,7 @@ import TabPanel from "../components/tabPanel"
 import NoticesView from "../fragments/noticesView"
 import ReviewsView from "../fragments/reviewsView"
 import Footer from "../components/footer"
+import PurchaseRequestView from "../fragments/purchaseRequestView"
 //
 export default function CommunityView({
   isAuth,
@@ -16,6 +17,8 @@ export default function CommunityView({
   noticeData,
   noticeCategoryMap,
   onNoticePageChange,
+  onNoticeSearchChange,
+  onNoticeSearchClick,
   //
   reviewData,
   reviewTypeColors,
@@ -32,7 +35,7 @@ export default function CommunityView({
       />
       <div className="container mx-auto px-4 pt-10 pb-4 flex-grow">
         {/**/}
-        <h1 className="text-center text-3xl font-bold mb-8">
+        <h1 className="text-center text-4xl font-bold mb-8">
           {Lang.community}
         </h1>
         {/**/}
@@ -40,25 +43,33 @@ export default function CommunityView({
           <div className={"tabs tabs-boxed grid grid-cols-4"}>
             <button
               onClick={(e) => onTabChange(e, 0)}
-              className={"tab h-full" + (currentTab === 0 ? " tab-active" : "")}
+              className={
+                "tab tab-lg   h-full" + (currentTab === 0 ? " tab-active" : "")
+              }
             >
               {Lang.notices}
             </button>
             <button
               onClick={(e) => onTabChange(e, 1)}
-              className={"tab h-full" + (currentTab === 1 ? " tab-active" : "")}
+              className={
+                "tab tab-lg   h-full" + (currentTab === 1 ? " tab-active" : "")
+              }
             >
               {Lang.reports}
             </button>
             <button
               onClick={(e) => onTabChange(e, 2)}
-              className={"tab h-full" + (currentTab === 2 ? " tab-active" : "")}
+              className={
+                "tab tab-lg   h-full" + (currentTab === 2 ? " tab-active" : "")
+              }
             >
               {Lang.reviews}
             </button>
             <button
               onClick={(e) => onTabChange(e, 3)}
-              className={"tab h-full" + (currentTab === 3 ? " tab-active" : "")}
+              className={
+                "tab tab-lg   h-full" + (currentTab === 3 ? " tab-active" : "")
+              }
             >
               {Lang.purchaseSaleRequest}
             </button>
@@ -70,6 +81,8 @@ export default function CommunityView({
             noticeData={noticeData}
             noticeCategoryMap={noticeCategoryMap}
             onNoticePageChange={onNoticePageChange}
+            onNoticeSearchChange={onNoticeSearchChange}
+            onNoticeSearchClick={onNoticeSearchClick}
           />
         </TabPanel>
         {/**/}
@@ -83,7 +96,9 @@ export default function CommunityView({
           />
         </TabPanel>
         {/**/}
-        <TabPanel value={currentTab} index={3}></TabPanel>
+        <TabPanel value={currentTab} index={3}>
+          <PurchaseRequestView />
+        </TabPanel>
       </div>
       {/**/}
       <Footer />

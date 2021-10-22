@@ -119,7 +119,10 @@ const EN = {
   customerRelation: "고객상담",
   serviceGuide: "이용안내",
   previous: "Previous",
-  next: "Next"
+  next: "Next",
+  purchaseType: "Purchase Type",
+  sale: "Sale",
+  buy: "Buy"
 }
 //
 const Lang = ((lang) => {
