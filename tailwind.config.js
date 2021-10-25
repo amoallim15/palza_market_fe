@@ -1,12 +1,9 @@
-const colors = require('tailwindcss/colors')
-
-
 module.exports = {
   purge: [],
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-      extend: {},
+    extend: {},
     screens: {
       sm: { min: "640px" },
       // => @media (min-width: 640px) { ... }
@@ -34,7 +31,5 @@ module.exports = {
   variants: {
     extend: {}
   },
-  plugins: [
-    require('daisyui'),
-  ]
-  }
+  plugins: [require("@tailwindcss/typography"), require("daisyui")]
+}

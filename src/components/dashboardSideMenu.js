@@ -59,7 +59,12 @@ const CustomDrawer = styled(Drawer, {
   }
 }))
 //
-export default function DashboardSideMenu({ handleDrawer, drawerOpen }) {
+export default function DashboardSideMenu({
+  handleDrawer,
+  drawerOpen,
+  userRole,
+  userType
+}) {
   //
   return (
     <CustomDrawer variant="permanent" open={drawerOpen}>
@@ -80,6 +85,45 @@ export default function DashboardSideMenu({ handleDrawer, drawerOpen }) {
         {/**/}
         <MenuItem name={Lang.profile} link="/dashboard/profile" />
         {/**/}
+        {userType === "INDIVIDUAL" && (
+          <>
+            <MenuItem name={Lang.myWishlist} link="/dashboard/my-wishlist" />
+            <MenuItem name={Lang.myReviews} link="/dashboard/my-review" />
+            <MenuItem name={Lang.myReports} link="/dashboard/my-report" />
+            <Divider />
+          </>
+        )}
+        {/**/}
+        {userType === "AGENCY" && (
+          <>
+            <MenuItem name={Lang.myRealstates} link="/dashboard/my-realstate" />
+            <MenuItem name={Lang.requests} link="/dashboard/requests" />
+            <Divider />
+          </>
+        )}
+        {/**/}
+        {["ADMIN", "EMPLOYEE"].includes(userRole) && (
+          <>
+            <MenuItem name={Lang.realstates} link="/dashboard/realstate" />
+            <MenuItem name={Lang.notices} link="/dashboard/notice" />
+            <MenuItem name={Lang.franchises} link="/dashboard/franchise" />
+            <MenuItem name={Lang.magazines} link="/dashboard/magazine" />
+            <MenuItem name={Lang.reviews} link="/dashboard/review" />
+            <MenuItem name={Lang.reports} link="/dashboard/report" />
+            <MenuItem name={Lang.crontabs} link="/dashboard/crontab" />
+            <MenuItem name={Lang.smsMessages} link="/dashboard/sms" />
+            <Divider />
+          </>
+        )}
+        {/**/}
+        {userRole === "ADMIN" && (
+          <>
+            <MenuItem name={Lang.settings} link="/dashboard/settings" />
+            <Divider />
+          </>
+        )}
+        {/**/}
+        <MenuItem name={Lang.signOut} link="/sign-out" />
       </List>
     </CustomDrawer>
   )

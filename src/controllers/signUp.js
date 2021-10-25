@@ -27,17 +27,21 @@ export default function SignUp() {
   //
   React.useEffect(() => {
     ;(async () => {
-      if ("token" in cookies) {
+      if (cookies["token"]) {
         if (!(await checkAuth(cookies["token"]))) {
-          appDispatch({ type: "UpdateIsAuth", payload: false })
+          await appDispatch({ type: "UpdateCurrentUser", payload: null })
+          await appDispatch({ type: "UpdateIsAuth", payload: false })
           removeCookie("token")
         } else {
           appDispatch({ type: "UpdateIsAuth", payload: true })
           history.replace("/")
         }
+      } else {
+        await appDispatch({ type: "UpdateCurrentUser", payload: null })
+        await appDispatch({ type: "UpdateIsAuth", payload: false })
       }
       //
-      if (!appState.appSettings) {
+      if (appState.appSettings == null) {
         const result = await getSettings()
         if (result) appDispatch({ type: "UpdateSettings", payload: result })
       }
@@ -56,7 +60,6 @@ export default function SignUp() {
     await setUserType(type)
     await setStep(step)
     await methods.setValue("user_type", type, { shouldValidate: true })
-    console.log(methods.getValues())
   }
   //
   const onBusinessLicenseChange = async (e) => {
@@ -89,7 +92,7 @@ export default function SignUp() {
   if (!loaded) return <div />
   return (
     <SignUpView
-      isAuth={!!appState.currentUser}
+      isAuth={appState.isAuth}
       userRole={appState.currentUser?.user_role}
       userType={appState.currentUser?.user_type}
       settings={appState.appSettings}

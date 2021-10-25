@@ -2,17 +2,19 @@ import React from "react"
 import { Box, Toolbar, Container, Typography } from "@mui/material"
 import { ThemeProvider } from "@mui/material/styles"
 import { Link } from "react-router-dom"
-import DashboardAppBar from "../components/dashboardAppBar"
-import DashboardSideMenu from "../components/dashboardSideMenu"
-import Lang from "../services/lang"
-import theme from "../services/dashboardTheme"
-import { DashboardRoutes } from "../services/routes"
-import RouterContainer from "../components/routerContainer"
+import DashboardAppBar from "../../components/dashboardAppBar"
+import DashboardSideMenu from "../../components/dashboardSideMenu"
+import theme from "../../services/dashboardTheme"
+import { DashboardRoutes } from "../../services/routes"
+import RouterContainer from "../../components/routerContainer"
 
 export default function DashboardView({
   drawerOpen,
   handleDrawer,
-  handleItemClick
+  handleItemClick,
+  title,
+  userRole,
+  userType
 }) {
   return (
     <ThemeProvider theme={theme}>
@@ -22,6 +24,8 @@ export default function DashboardView({
           drawerOpen={drawerOpen}
           handleDrawer={handleDrawer}
           handleItemClick={handleItemClick}
+          userRole={userRole}
+          userType={userType}
         />
         {/**/}
         <Box
@@ -48,7 +52,7 @@ export default function DashboardView({
             >
               {"Copyright © "}
               <Link color="inherit" to="/">
-                {Lang.title}
+                {title}
               </Link>{" "}
               {new Date().getFullYear()}
               {"."}

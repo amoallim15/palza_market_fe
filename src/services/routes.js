@@ -1,6 +1,5 @@
 import Home from "../controllers/home"
 import Page404 from "../controllers/page404"
-import Dashboard from "../controllers/dashboard"
 import SignIn from "../controllers/signIn"
 import SignUp from "../controllers/signUp"
 import SignOut from "../controllers/signOut"
@@ -10,7 +9,30 @@ import Sales from "../controllers/sales"
 import Hub from "../controllers/hub"
 import Agency from "../controllers/agency"
 import Community from "../controllers/community"
-import Profile from "../controllers/profile"
+//
+import Dashboard from "../controllers/dashboard/dashboard"
+import Profile from "../controllers/dashboard/profile"
+import Settings from "../controllers/dashboard/settings"
+//
+import Notice from "../controllers/dashboard/notice"
+import NoticeAlter from "../controllers/dashboard/noticeAlter"
+//
+import Franchise from "../controllers/dashboard/franchise"
+import FranchiseAlter from "../controllers/dashboard/franchiseAlter"
+//
+import Magazine from "../controllers/dashboard/magazine"
+import MagazineAlter from "../controllers/dashboard/magazineAlter"
+//
+import Crontab from "../controllers/dashboard/crontab"
+//
+import SMS from "../controllers/dashboard/SMS"
+import SMSAlter from "../controllers/dashboard/SMSAlter"
+//
+import Report from "../controllers/dashboard/report"
+import ReportAlter from "../controllers/dashboard/reportAlter"
+//
+import Review from "../controllers/dashboard/review"
+import ReviewAlter from "../controllers/dashboard/reviewAlter"
 //
 export const HomeRoutes = [
   {
@@ -78,5 +100,88 @@ export const DashboardRoutes = [
     path: ["/dashboard/profile"],
     component: Profile,
     exact: true
+  },
+  {
+    path: ["/dashboard/settings"],
+    component: Settings,
+    exact: true
+  },
+  //
+  {
+    path: ["/dashboard/notice"],
+    component: Notice,
+    exact: true
+  },
+  {
+    path: ["/dashboard/notice/alter/:notice_id", "/dashboard/notice/alter"],
+    component: NoticeAlter
+  },
+  //
+  {
+    path: ["/dashboard/franchise"],
+    component: Franchise,
+    exact: true
+  },
+  {
+    path: [
+      "/dashboard/franchise/alter/:franchise_id",
+      "/dashboard/franchise/alter"
+    ],
+    component: FranchiseAlter
+  },
+  //
+  {
+    path: ["/dashboard/magazine"],
+    component: Magazine,
+    exact: true
+  },
+  {
+    path: [
+      "/dashboard/magazine/alter/:magazine_id",
+      "/dashboard/magazine/alter"
+    ],
+    component: MagazineAlter
+  },
+  //
+  {
+    path: ["/dashboard/crontab"],
+    component: Crontab,
+    exact: true
+  },
+  //
+  {
+    path: ["/dashboard/sms"],
+    component: SMS,
+    exact: true
+  },
+  {
+    path: ["/dashboard/sms/alter"],
+    component: SMSAlter
+  },
+  //
+  {
+    path: ["/dashboard/report", "/dashboard/my-report"],
+    component: Report,
+    exact: true
+  },
+  {
+    path: [
+      "/dashboard/report/alter/:report_id",
+      "/dashboard/my-report/alter/:rreport_id"
+    ],
+    component: ReportAlter
+  },
+  //
+  {
+    path: ["/dashboard/review", "/dashboard/my-review"],
+    component: Review,
+    exact: true
+  },
+  {
+    path: [
+      "/dashboard/review/alter/:review_id",
+      "/dashboard/my-review/alter/:review_id"
+    ],
+    component: ReviewAlter
   }
 ]
