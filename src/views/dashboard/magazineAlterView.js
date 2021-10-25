@@ -67,6 +67,16 @@ export default function MagazineAlterView({
                   size="small"
                   required
                   fullWidth
+                  label={Lang.category}
+                  disabled={disabled}
+                  {...methods.register("magazine_type", { required: true })}
+                />
+                {/**/}
+                <TextField
+                  margin="normal"
+                  size="small"
+                  required
+                  fullWidth
                   label={Lang.newsSource}
                   disabled={disabled}
                   {...methods.register("news_source", { required: true })}

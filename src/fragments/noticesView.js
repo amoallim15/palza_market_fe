@@ -4,7 +4,6 @@ import HomePagination from "../components/homePagination"
 //
 export default function NoticesView({
   noticeData,
-  noticeCategoryMap,
   onNoticePageChange,
   onNoticeSearchChange,
   onNoticeSearchClick
@@ -49,9 +48,10 @@ export default function NoticesView({
               <h2 className="card-title">
                 {item.title}
                 <div className="badge mx-2 badge-secondary">
-                  {noticeCategoryMap[item.category_id]}
+                  {item.category_id}
                 </div>
               </h2>
+              <p className="text-sm mb-4 ">{item.updated_at}</p>
               <p className="truncate">{item.content}</p>
               <div className="justify-end card-actions">
                 <label
@@ -65,7 +65,7 @@ export default function NoticesView({
                   id={`${item.id}`}
                   className="modal-toggle"
                 />
-                <div className="modal overflow-x-auto flex-col justify-start px-4">
+                <div className="modal overflow-x-auto flex-col justify-start m-0 px-4 w-screen h-screen">
                   <div className="modal-box my-10">
                     <figure>
                       <img
@@ -78,9 +78,10 @@ export default function NoticesView({
                       <h2 className="mb-3 text-xl font-semibold">
                         {item.title}
                         <div className="badge mx-2 badge-secondary">
-                          {noticeCategoryMap[item.category_id]}
+                          {item.category_id}
                         </div>
                       </h2>
+                      <p className="text-sm mb-4 ">{item.updated_at}</p>
                       <p>{item.content}</p>
                     </div>
                     <div className="modal-action">
@@ -104,8 +105,8 @@ export default function NoticesView({
       )}
       {/**/}
       <HomePagination
-        totalCount={noticeData.count}
-        currentPage={noticeData.page}
+        totalCount={noticeData.info?.count}
+        currentPage={noticeData.info?.page}
         onPageChange={onNoticePageChange}
       />
     </div>

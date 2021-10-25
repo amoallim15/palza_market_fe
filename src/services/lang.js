@@ -121,8 +121,9 @@ const EN = {
   previous: "Previous",
   next: "Next",
   purchaseType: "Purchase Type",
-  sale: "Sale",
-  buy: "Buy"
+  sale: "매수후기",
+  buy: "매도후기",
+  franchisesIntro: "프렌차이즈 창업 안내"
 }
 //
 const Lang = ((lang) => {

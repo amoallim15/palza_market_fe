@@ -15,7 +15,6 @@ export default function CommunityView({
   currentTab,
   //
   noticeData,
-  noticeCategoryMap,
   onNoticePageChange,
   onNoticeSearchChange,
   onNoticeSearchClick,
@@ -79,7 +78,6 @@ export default function CommunityView({
         <TabPanel value={currentTab} index={0}>
           <NoticesView
             noticeData={noticeData}
-            noticeCategoryMap={noticeCategoryMap}
             onNoticePageChange={onNoticePageChange}
             onNoticeSearchChange={onNoticeSearchChange}
             onNoticeSearchClick={onNoticeSearchClick}

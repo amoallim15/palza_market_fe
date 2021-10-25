@@ -3,7 +3,7 @@ import CommunityView from "../views/communityView"
 import AppContext from "../services/context"
 import { useCookies } from "react-cookie"
 import { checkAuth } from "../services/api"
-import { getNotices, getNoticeCategories, getReviews } from "../services/api"
+import { getNotices, getReviews } from "../services/api"
 //
 const reviewTypeColors = {
   BUYING: "badge-primary",
@@ -18,11 +18,9 @@ export default function Community() {
   //
   // Notice..
   const [noticeData, setNoticeData] = React.useState({
-    page: 0,
-    count: 0,
+    info: { page: 0, count: 0 },
     data: []
   })
-  const [noticeCategoryMap, setNoticeCategoryMap] = React.useState({})
   const [noticeSearchField, setNoticeSearchField] = React.useState("")
   const onNoticePageChange = async (page) => {
     let result = await getNotices(page)
@@ -38,8 +36,7 @@ export default function Community() {
   }
   // Review..
   const [reviewData, setReviewData] = React.useState({
-    page: 0,
-    count: 0,
+    info: { page: 0, count: 0 },
     data: []
   })
   const onReviewPageChange = async (page) => {
@@ -62,25 +59,9 @@ export default function Community() {
       // Notice..
       let result_1 = await getNotices(0)
       if (result_1) await setNoticeData(result_1)
-      //
-      if (appState.noticeCategories.length === 0) {
-        let result_2 = await getNoticeCategories()
-        if (result_2) {
-          appDispatch({
-            type: "UpdateNoticeCategories",
-            payload: result_2.data
-          })
-        }
-      }
       // Reviews..
       let result_2 = await getReviews(0)
       if (result_2) await setReviewData(result_2)
-      //
-      let map = {}
-      for (let cat of appState.noticeCategories) {
-        map[cat.id] = cat.label
-      }
-      await setNoticeCategoryMap(map)
       //
       await setLoaded(true)
     })()
@@ -95,7 +76,6 @@ export default function Community() {
       currentTab={currentTab}
       onTabChange={(e, value) => setCurrentTab(value)}
       noticeData={noticeData}
-      noticeCategoryMap={noticeCategoryMap}
       onNoticePageChange={onNoticePageChange}
       onNoticeSearchChange={onNoticeSearchChange}
       onNoticeSearchClick={onNoticeSearchClick}

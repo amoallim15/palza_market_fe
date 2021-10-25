@@ -19,31 +19,36 @@ export default function SignInView({
         userRole={userRole}
         userType={userType}
       />
-      <div className="flex-grow flex-shrink bg-gray-100 flex flex-col sm:py-12">
+      <div className="container mx-auto px-4 pt-9 pb-4 flex-grow">
+        <h1 className="text-center text-4xl font-bold mb-8">{Lang.signIn}</h1>
         <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-lg">
-          <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
+          <div className="my-4 p-10 card bg-base-200">
             <FormProvider {...methods}>
               <form onSubmit={methods.handleSubmit(onSubmit)}>
-                <div className="px-5 py-7">
-                  <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                    {Lang.username}
+                <div className="form-control flex-grow">
+                  <label className="label">
+                    <span className="label-text">{Lang.username}</span>
                   </label>
                   <input
                     type="text"
-                    className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+                    className="input input-ghost w-full"
                     {...methods.register("username", { required: true })}
                   />
-                  <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                    {Lang.password}
+                </div>
+                <div className="form-control flex-grow">
+                  <label className="label">
+                    <span className="label-text">{Lang.password}</span>
                   </label>
                   <input
                     type="password"
-                    className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+                    className="input input-ghost w-full"
                     {...methods.register("password", { required: true })}
                   />
+                </div>
+                <div className="mt-8 flex flex-row-reverse">
                   <button
                     type="submit"
-                    className="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                    className="btn btn-primary w-full text-center"
                   >
                     <span className="inline-block mr-2">{Lang.signIn}</span>
                   </button>

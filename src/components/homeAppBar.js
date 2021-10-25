@@ -73,19 +73,6 @@ export const AppBarHome = ({ isLocationMatch, isMobile }) => {
       >
         {Lang.community}
       </Link>
-      {/**/}
-      <Link
-        to={"/agency"}
-        className={
-          "px-3 py-2 rounded-md text-sm font-medium text-yellow-300" +
-          (isMobile ? " block" : "") +
-          (isLocationMatch("/agency")
-            ? " bg-gray-900 text-white"
-            : " text-gray-300 hover:bg-gray-700 hover:text-white")
-        }
-      >
-        {Lang.agencyLanding}
-      </Link>
     </>
   )
 }
@@ -246,6 +233,19 @@ export default function HomeAppBar({ isAuth, userRole, userType }) {
           </div>
           {/**/}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            {/**/}
+            <Link
+              to={"/agency"}
+              className={
+                "px-3 py-2 rounded-md text-sm font-medium text-yellow-300" +
+                (isLocationMatch("/agency")
+                  ? " bg-gray-900 text-white"
+                  : " text-gray-300 hover:bg-gray-700 hover:text-white")
+              }
+            >
+              {Lang.agencyLanding}
+            </Link>
+            {/**/}
             {!isAuth && (
               <>
                 <Link

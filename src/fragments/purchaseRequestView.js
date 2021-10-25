@@ -36,7 +36,7 @@ export default function PurchaseRequestView() {
           </label>
         </div>
         {/**/}
-        <div className="form-control flex-grow pr-8">
+        <div className="form-control flex-grow">
           <label className="label">
             <span className="label-text">{Lang.title}</span>
           </label>
