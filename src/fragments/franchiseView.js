@@ -1,7 +1,9 @@
 import React from "react"
 import Lang from "../services/lang"
 import HomePagination from "../components/homePagination"
+import test1 from "../assets/imgs/test1.jpeg"
 //
+
 export default function FranchiseView({
   franchiseData,
   onFranchisePageChange
@@ -10,13 +12,13 @@ export default function FranchiseView({
     <div>
       {/* banner */}
       {/**/}
-      <h1 className="text-center text-6xl font-bold my-20">
+      <h1 className="text-center text-4xl font-bold my-20">
         {Lang.franchisesIntro}
       </h1>
       {/**/}
       <div className="flex flex-row my-4">
         <div className="h-12 flex items-center">
-          <span className="text-sm leading-8">{`${Lang.total} ${franchiseData.count} ${Lang.articles}`}</span>
+          <span className="text-sm leading-8">{`${Lang.total} ${franchiseData.info?.count} ${Lang.articles}`}</span>
         </div>
       </div>
       {/**/}
@@ -46,7 +48,7 @@ export default function FranchiseView({
           </div>
         ))}
       </div>
-      {franchiseData.count === 0 && (
+      {franchiseData.info?.count === 0 && (
         <div>
           <h2 className="text-xl text-center">{Lang.noDataAvailable}</h2>
         </div>

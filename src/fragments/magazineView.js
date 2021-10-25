@@ -12,7 +12,7 @@ export default function MagazineView({
       {/**/}
       <div className="flex flex-row my-4">
         <div className="h-12 flex items-center">
-          <span className="text-sm leading-8">{`${Lang.total} ${magazineData.count} ${Lang.articles}`}</span>
+          <span className="text-sm leading-8">{`${Lang.total} ${magazineData.info?.count} ${Lang.articles}`}</span>
         </div>
       </div>
       {/**/}

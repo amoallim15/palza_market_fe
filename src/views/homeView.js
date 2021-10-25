@@ -1,11 +1,5 @@
 import React from "react"
-import HomeAppBar from "../components/homeAppBar"
-// import Carousel from "nuka-carousel";
-import topBannerSlideOne from "../assets/imgs/topban1.png"
-import topBannerSlideTwo from "../assets/imgs/topban2.jpg"
-import mainBanenrOne from "../assets/imgs/main1.jpg"
-import SearchBar from "../components/SearchBar"
-import PropSingle from "../components/PropSingle"
+
 
 export default function HomeView({ isAuth, userRole, userType }) {
   return <div />

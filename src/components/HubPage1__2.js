@@ -1,7 +1,5 @@
 import React, { useState } from "react"
-import topBannerSlideOne from "../assets/imgs/topban1.png"
-import topBannerSlideTwo from "../assets/imgs/topban2.jpg"
-import mainBanenrOne from "../assets/imgs/main1.jpg"
+
 
 const HubPage2 = () => {
   return (

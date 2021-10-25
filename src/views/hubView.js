@@ -36,11 +36,11 @@ export default function HubView({
         </h1>
         {/**/}
         <div>
-          <div className={"tabs tabs-boxed grid grid-cols-2"}>
+          <div className={"grid grid-cols-2"}>
             <button
               onClick={(e) => onTabChange(e, 0)}
               className={
-                "tab tab-lg   h-full" + (currentTab === 0 ? " tab-active" : "")
+                "leading-loose " + (currentTab === 0 ? " border-b-2 border-black font-bold " : "text-gray-800 border-b-2 border-gray-300 ")
               }
             >
               {Lang.franchises}
@@ -48,7 +48,7 @@ export default function HubView({
             <button
               onClick={(e) => onTabChange(e, 1)}
               className={
-                "tab tab-lg   h-full" + (currentTab === 1 ? " tab-active" : "")
+                "leading-loose " + (currentTab === 1 ? " border-b-2 border-black font-bold " : "text-gray-800 border-b-2 border-gray-300 ")
               }
             >
               {Lang.magazines}

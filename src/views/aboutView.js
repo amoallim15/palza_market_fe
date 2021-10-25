@@ -1,8 +1,5 @@
 import React from "react"
-import HomeAppBar from "../components/homeAppBar"
-// import Carousel from 'nuka-carousel';
-import topBannerSlideOne from "../assets/imgs/topban1.png"
-import topBannerSlideTwo from "../assets/imgs/topban2.jpg"
+
 
 export default function AboutView({ isAuth, userRole, userType }) {
   //
