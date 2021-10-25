@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import test1 from "../assets/imgs/test1.jpeg";
-import test2 from "../assets/imgs/test2.jpeg";
-import test3 from "../assets/imgs/test3.jpeg";
-
+import React, { useState } from "react"
+import test1 from "../assets/imgs/test1.jpeg"
+import test2 from "../assets/imgs/test2.jpeg"
+import test3 from "../assets/imgs/test3.jpeg"
 
 const HubPage1 = () => {
   return (
@@ -93,11 +92,10 @@ const HubPage1 = () => {
           </li>
         </ul>
       </div>
-      
     </>
-  );
-};
+  )
+}
 
-export default HubPage1;
+export default HubPage1
 
 //리스트 a태그 누룰 시페이지 이동  그럼 페이지 이동에 Link를 달아서 상세페이지로 이동하게 만들고 상세페이지 components를 만들어서 api로 연동 hub 페이지 모두
