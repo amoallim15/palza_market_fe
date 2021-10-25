@@ -36,7 +36,7 @@ export default function HubView({
         </h1>
         {/**/}
         <div>
-          <div className={"grid grid-cols-2"}>
+          <div className={"grid grid-cols-2 gap-6 lg:gap-0"}>
             <button
               onClick={(e) => onTabChange(e, 0)}
               className={

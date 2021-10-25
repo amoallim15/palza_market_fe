@@ -18,7 +18,7 @@ export default function FranchiseView({
       {/**/}
       <div className="flex flex-row my-4">
         <div className="h-12 flex items-center">
-          <span className="text-sm leading-8">{`${Lang.total} ${franchiseData.info?.count} ${Lang.articles}`}</span>
+          <span className="text-sm leading-8">{Lang.total}</span> <span className="font-bold mx-1 text-sm leading-8">{franchiseData.info?.count}</span><span className="text-sm leading-8">{Lang.articles}</span>
         </div>
       </div>
       {/**/}

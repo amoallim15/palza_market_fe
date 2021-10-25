@@ -1,5 +1,5 @@
 const EN = {
-  title: "Title",
+  title: "제목",
   home: "메인화면",
   settings: "설정",
   config: "Configuration",
@@ -76,13 +76,13 @@ const EN = {
   newPassword: "New Password",
   confirmNewPassword: "Confirm New Password",
   cancel: "Cancel",
-  create: "Create",
+  create: "후기 작성하기",
   category: "Category",
   createdAt: "Created At",
   updatedAt: "Updated At",
   noDataAvailable: "No Data Available.",
   createNotice: "Create Notice",
-  content: "Content",
+  content: "내용",
   thumbnail: "Thumbnail",
   actions: "Actions",
   label: "Label",
@@ -98,7 +98,7 @@ const EN = {
   progress: "Progress",
   refresh: "Refresh",
   sendSMS: "Send SMS Message",
-  send: "Send",
+  send: "등록하기",
   recieverPhoneNo: "Reciever Phone No.",
   realstateId: "Realstate ID",
   userId: "User ID",
@@ -109,9 +109,9 @@ const EN = {
   myWishlist: "My Wishlist",
   myRealstates: "My Realstates",
   requests: "Requests",
-  purchaseSaleRequest: "Purchase/Sale Request",
-  total: "Total",
-  articles: "Articles",
+  purchaseSaleRequest: "매수/매도 의뢰",
+  total: "전체",
+  articles: "건",
   search: "Search",
   more: "more",
   close: "Close",
@@ -120,10 +120,10 @@ const EN = {
   serviceGuide: "이용안내",
   previous: "Previous",
   next: "Next",
-  purchaseType: "Purchase Type",
+  purchaseType: "계약 종류",
   sale: "매수후기",
   buy: "매도후기",
-  franchisesIntro: "프렌차이즈 창업 안내"
+  franchisesIntro: "프랜차이즈 창업 안내"
 }
 //
 const Lang = ((lang) => {

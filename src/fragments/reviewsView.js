@@ -13,15 +13,15 @@ export default function ReviewsView({
       {/**/}
       <div className="flex flex-row my-4 justify-between">
         <div className="h-12 flex items-center">
-          <span className="text-sm leading-8">{`${Lang.total} ${reviewData.count} ${Lang.articles}`}</span>
+          <span className="text-sm leading-8">{Lang.total}</span> <span className="font-bold mx-1 text-sm leading-8">{reviewData.info?.count}</span><span className="text-sm leading-8">{Lang.articles}</span>
         </div>
-        <label htmlFor="create-review" className="btn btn-primary modal-button">
+        <label htmlFor="create-review" className="text-center border my-auto p-2 rounded-md modal-button hover:bg-blue-400 hover:text-white">
           {Lang.create}
         </label>
         <input type="checkbox" id="create-review" className="modal-toggle" />
         {/**/}
         <div className="modal overflow-x-auto flex-col justify-start m-0 px-4 w-screen h-screen ">
-          <div className="modal-box my-10 bg-base-200">
+          <div className="modal-box my-10 bg-base-200 max-w-4xl">
             {/**/}
             <div className="form-control flex-row">
               <span className="label label-text mr-4">{Lang.purchaseType}</span>
@@ -70,14 +70,32 @@ export default function ReviewsView({
                 <span className="label-text">{Lang.content}</span>
               </label>
               <textarea
-                placeholder={Lang.content}
+                placeholder="최소 100자 이상으로 입력해주세요!"
                 className="textarea input-ghost h-24"
               />
             </div>
             {/**/}
-            <div className="mt-8 flex flex-row-reverse">
-              <label htmlFor="create-review" className="btn btn-primary">
-                {Lang.send}
+            <div className="mt-8 grid grid-cols-4">
+              <div>
+                <label className="label">
+                  <span className="label-text">계약일</span>
+                </label>
+                <input type="date" className="outline-none"></input>
+              </div>
+              <div>
+                <label className="label">
+                  <span className="label-text">담당 에이전트</span>
+                </label>
+                <input type="text" className="outline-none"></input>
+              </div>
+              <div>
+                <label className="label">
+                  <span className="label-text">고객명</span>
+                </label>
+                <input type="text" className="outline-none"></input>
+              </div>
+              <label htmlFor="create-review" className="text-center border my-auto py-4 rounded-md hover:bg-blue-400 hover:text-white">
+              {Lang.send}
               </label>
             </div>
             {/**/}

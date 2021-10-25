@@ -14,21 +14,22 @@ export default function NoticesView({
       {/**/}
       <div className="flex flex-row my-4 justify-between">
         <div className="h-12 flex items-center">
-          <span className="text-sm leading-8">{`${Lang.total} ${noticeData.count} ${Lang.articles}`}</span>
+          <span className="text-sm leading-8">{Lang.total}</span> <span className="font-bold mx-1 text-sm leading-8">{noticeData.info?.count}</span><span className="text-sm leading-8">{Lang.articles}</span>
         </div>
-        <div className="form-control">
+        <div className="">
           <div className="relative">
             <input
               type="text"
-              placeholder={Lang.search}
-              className="w-full pr-16 input"
+              placeholder={"검색어를입력하세요"}
+              className="w-full pr-6 border-b-2 focus:outline-none"
               onChange={onNoticeSearchChange}
             />
             <button
-              className="absolute top-0 right-0 rounded-l-none btn btn-primary"
+              className="absolute top-0 right-0 rounded-l-none"
               onClick={onNoticeSearchClick}
             >
-              {Lang.go}
+              
+              <i className="xi-search"></i>
             </button>
           </div>
         </div>

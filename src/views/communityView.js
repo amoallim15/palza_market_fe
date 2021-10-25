@@ -39,7 +39,7 @@ export default function CommunityView({
         </h1>
         {/**/}
         <div>
-          <div className={"grid grid-cols-4"}>
+          <div className={"grid grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-0"}>
             <button
               onClick={(e) => onTabChange(e, 0)}
               className={
