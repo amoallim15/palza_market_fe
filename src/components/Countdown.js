@@ -11,12 +11,6 @@ function Countdown() {
           &nbsp;:
         </div>
         <div>
-          <span className="font-mono countdown">
-            {/*         <span style="--value:30;"></span> */}
-          </span>
-          시간
-        </div>
-        <div>
           <span className="font-mono text-4xl countdown">
             <span style={{ "--value": 24 }}></span>
           </span>

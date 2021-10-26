@@ -5,16 +5,16 @@ import Countdown from "../components/Countdown"
 function PropSingleTwo() {
   return (
     <a href="#">
-      <div className="mainCard">
-        <div class="card bordered filter drop-shadow-xl">
+      <div className="mainCard filter drop-shadow-md">
+        <div class="card bordered">
           <figure>
             <img src={PropImg} alt="" />
           </figure>
           <div class="">
-            <ul>
+            <ul className="bg-white">
               <li className="p-5 list-none">
                 <p>
-                  <span class="badge mx-2 badge-secondary">제과점</span>
+                  <span class="badge badge-secondary mr-2">제과점</span>
                   <span className="propertyType">근린상가</span>
                   <span>ㆍ</span>
                   <span className="floor">1층</span>
@@ -36,9 +36,6 @@ function PropSingleTwo() {
                 </p>
               </li>
             </ul>
-            <div className="bg-black text-white text-4xl text-center leading-relaxed">
-              <Countdown />
-            </div>
           </div>
         </div>
       </div>

@@ -1,8 +1,7 @@
 import React from "react"
 import PropImg from "../assets/imgs/PropSingle.jpg"
-import Countdown from "../components/Countdown"
 
-function PropSingle() {
+function PropSingleThree() {
   return (
     <a href="#">
       <div className="mainCard">
@@ -37,7 +36,7 @@ function PropSingle() {
               </li>
             </ul>
             <div className="bg-black text-white text-4xl text-center leading-relaxed">
-              <Countdown />
+              <p className="font-mono text-3xl py-2"><span>2021</span>-<span>09</span>-<span>30</span><span className="text-2xl font-light">&nbsp;폐업완료</span></p>
             </div>
           </div>
         </div>
@@ -45,4 +44,4 @@ function PropSingle() {
     </a>
   )
 }
-export default PropSingle
+export default PropSingleThree
