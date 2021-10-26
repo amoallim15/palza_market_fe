@@ -2,6 +2,8 @@ import React from "react"
 import HomeAppBar from "../components/homeAppBar"
 import Lang from "../services/lang"
 import { FormProvider } from "react-hook-form"
+import Footer from "../components/footer"
+import { Link } from "react-router-dom"
 
 export default function SignInView({
   isAuth,
@@ -21,7 +23,7 @@ export default function SignInView({
       />
       <div className="container mx-auto px-4 pt-9 pb-4 flex-grow">
         <h1 className="text-center text-4xl font-bold">{Lang.signIn}</h1>
-        <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-lg">
+        <div className="px-10 pt-10 xs:p-0 mx-auto md:w-full md:max-w-lg">
           <div className="mb-4 px-10 pb-10 pt-5 card bg-base-200">
             {/* hw-add need check */}
             <ul className="text-center text-center">
@@ -92,12 +94,14 @@ export default function SignInView({
                     <span className="inline-block mr-2">{Lang.signIn}</span>
                   </button>
                   {/* hw-add need check , do click change singUpPage*/}
-                  <button
-                    type="submit"
-                    className="btn btn-primary w-full text-center"
+                  <Link
+                    to={"/sign-up"}
+                    className={
+                      "btn btn-primary w-full text-center"
+                    }
                   >
-                    <span className="inline-block mr-2">{Lang.signUp}</span>
-                  </button>
+                    {Lang.signUp}
+                  </Link>
                   {/*  */}
                 </div>
               </form>
@@ -105,6 +109,7 @@ export default function SignInView({
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

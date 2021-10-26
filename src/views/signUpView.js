@@ -1,5 +1,6 @@
 import React from "react"
 import HomeAppBar from "../components/homeAppBar"
+import Footer from "../components/footer"
 import Lang from "../services/lang"
 import IndividualIMG from "../assets/imgs/individual.png"
 import AgencyIMG from "../assets/imgs/agency.png"
@@ -9,8 +10,8 @@ import AuthAgencyInfo from "../components/authAgencyInfo"
 function Step1({ onUpdateUserType }) {
   return (
     <div className="grid grid-cols-2 gap-14">
-      <button onClick={(e) => onUpdateUserType(e, "INDIVIDUAL", 2)}>
-        <div className="my-4 p-10 card bg-base-200 h-full justify-center">
+      <button onClick={(e) => onUpdateUserType(e, "INDIVIDUAL", 2)} className="">
+        <div className="my-4 py-10 card bg-base-200 h-full justify-center shadow-lg border border-transparent hover:border-green-600">
           <div>
             <img
               src={IndividualIMG}
@@ -23,14 +24,14 @@ function Step1({ onUpdateUserType }) {
       </button>
       {/**/}
       <button onClick={(e) => onUpdateUserType(e, "AGENCY", 2)}>
-        <div className="my-4 p-10 card bg-base-200 h-full justify-center">
+        <div className="my-4 py-10 card bg-base-200 h-full justify-center shadow-lg border border-transparent hover:border-green-600">
           <div>
             <img
               src={AgencyIMG}
               alt="agency"
-              className="mb-6 block ml-auto mr-auto"
+              className="mb-9 block ml-auto mr-auto"
             />
-            <h4>{Lang.signUpAgency}</h4>
+            <h4 className="">{Lang.signUpAgency}</h4>
           </div>
         </div>
       </button>
@@ -278,7 +279,7 @@ export default function SignUpView({
       />
       <div className="container mx-auto px-4 pt-10 pb-4 flex-grow">
         <h1 className="text-center text-4xl font-bold mb-8">{Lang.signUp}</h1>
-        <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-lg">
+        <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-xl">
           {step === 1 && <Step1 onUpdateUserType={onUpdateUserType} />}
           {step === 2 && (
             <Step2
@@ -291,6 +292,7 @@ export default function SignUpView({
           )}
         </div>
       </div>
+      <Footer />
     </>
   )
 }
