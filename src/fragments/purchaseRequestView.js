@@ -74,6 +74,7 @@ export default function PurchaseRequestView() {
           <div>
             <label className="label">
               <span className="text-lg font-semibold">고객명</span>
+              
             </label>
             <input type="text" placeholder="ex) 홍길동" className="w-full outline-none bg-transparent border-b-2"></input>
           </div>
