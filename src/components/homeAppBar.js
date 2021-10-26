@@ -15,9 +15,7 @@ export const AppBarHome = ({ isLocationMatch, isMobile }) => {
         className={
           "px-3 py-2 rounded-md text-sm font-medium" +
           (isMobile ? " block" : "") +
-          (isLocationMatch("/about")
-            ? ""
-            : "")
+          (isLocationMatch("/about") ? "" : "")
         }
       >
         {Lang.about}
@@ -28,9 +26,7 @@ export const AppBarHome = ({ isLocationMatch, isMobile }) => {
         className={
           "px-3 py-2 rounded-md text-sm font-medium" +
           (isMobile ? " block" : "") +
-          (isLocationMatch("/search")
-            ? ""
-            : "")
+          (isLocationMatch("/search") ? "" : "")
         }
       >
         {Lang.realstateSearch}
@@ -41,9 +37,7 @@ export const AppBarHome = ({ isLocationMatch, isMobile }) => {
         className={
           "px-3 py-2 rounded-md text-sm font-medium" +
           (isMobile ? " block" : "") +
-          (isLocationMatch("/sales")
-            ? ""
-            : "")
+          (isLocationMatch("/sales") ? "" : "")
         }
       >
         {Lang.realstateSales}
@@ -54,9 +48,7 @@ export const AppBarHome = ({ isLocationMatch, isMobile }) => {
         className={
           "px-3 py-2 rounded-md text-sm font-medium" +
           (isMobile ? " block" : "") +
-          (isLocationMatch("/hub")
-            ? ""
-            : "")
+          (isLocationMatch("/hub") ? "" : "")
         }
       >
         {Lang.realstateHub}
@@ -67,9 +59,7 @@ export const AppBarHome = ({ isLocationMatch, isMobile }) => {
         className={
           "px-3 py-2 rounded-md text-sm font-medium" +
           (isMobile ? " block" : "") +
-          (isLocationMatch("/community")
-            ? ""
-            : "")
+          (isLocationMatch("/community") ? "" : "")
         }
       >
         {Lang.community}
@@ -240,9 +230,7 @@ export default function HomeAppBar({ isAuth, userRole, userType }) {
                   to={"/sign-in"}
                   className={
                     "px-3 py-2 rounded-md text-sm font-medium" +
-                    (isLocationMatch("/sign-in")
-                      ? ""
-                      : "")
+                    (isLocationMatch("/sign-in") ? "" : "")
                   }
                 >
                   {Lang.signIn}
@@ -252,26 +240,23 @@ export default function HomeAppBar({ isAuth, userRole, userType }) {
                   to={"/sign-up"}
                   className={
                     "px-3 py-2 rounded-md text-sm font-medium" +
-                    (isLocationMatch("/sign-up")
-                      ? ""
-                      : "")
+                    (isLocationMatch("/sign-up") ? "" : "")
                   }
                 >
                   {Lang.signUp}
-                </Link>    
+                </Link>
                 {/**/}
                 <Link
-                to={"/agency"}
-                className={
-                "px-3 py-2 rounded-md text-sm font-medium hidden lg:block" +
-                (isLocationMatch("/agency")
-                ? " text-yellow-500"
-                : " text-yellow-500")
+                  to={"/agency"}
+                  className={
+                    "px-3 py-2 rounded-md text-sm font-medium hidden lg:block" +
+                    (isLocationMatch("/agency")
+                      ? " text-yellow-500"
+                      : " text-yellow-500")
                   }
                 >
-                {Lang.agencyLanding
-                }
-                </Link>          
+                  {Lang.agencyLanding}
+                </Link>
               </>
             )}
             {/**/}

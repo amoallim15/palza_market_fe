@@ -1,6 +1,6 @@
-import React from "react";
-import PropImg from "../assets/imgs/PropSingle.jpg";
-import Countdown from "../components/Countdown";
+import React from "react"
+import PropImg from "../assets/imgs/PropSingle.jpg"
+import Countdown from "../components/Countdown"
 
 function PropSingle() {
   return (
@@ -50,12 +50,12 @@ function PropSingle() {
           </ul>
           {/* countdown */}
           <div className="bg-black text-white rounded-b-md text-4xl text-center leading-relaxed">
-          <Countdown />
+            <Countdown />
           </div>
         </a>
       </div>
     </div>
-  );
+  )
 }
 
-export default PropSingle;
+export default PropSingle

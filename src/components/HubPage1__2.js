@@ -1,10 +1,7 @@
-import React, {useState} from "react";
-import topBannerSlideOne from "../assets/imgs/topban1.png";
-import topBannerSlideTwo from "../assets/imgs/topban2.jpg";
-import mainBanenrOne from "../assets/imgs/main1.jpg";
-
-
-
+import React, { useState } from "react"
+import topBannerSlideOne from "../assets/imgs/topban1.png"
+import topBannerSlideTwo from "../assets/imgs/topban2.jpg"
+import mainBanenrOne from "../assets/imgs/main1.jpg"
 
 const HubPage2 = () => {
   return (
@@ -18,15 +15,15 @@ const HubPage2 = () => {
               <p className="text-md font-bold">제목</p>
               <p className="text-sm text-gray-500">
                 <span>출처</span> &#8226; <span>날짜</span>
-                </p>
+              </p>
             </div>
           </li>
           <li className="h-60 bg-gray-300"></li>
           <li className="h-60 bg-gray-300"></li>
         </ul>
-      </div>   
+      </div>
     </>
-  );
-};
+  )
+}
 
-export default HubPage2;
+export default HubPage2

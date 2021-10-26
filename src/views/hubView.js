@@ -2,8 +2,6 @@ import React from "react"
 import HomeAppBar from "../components/homeAppBar"
 import HubTab from "../components/HubTab"
 
-
-
 export default function HubView({ isAuth, userRole, userType }) {
   //
   return (

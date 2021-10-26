@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 function SearchBar({ placeholder, data }) {
   return (
@@ -46,7 +46,7 @@ function SearchBar({ placeholder, data }) {
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-export default SearchBar;
+export default SearchBar

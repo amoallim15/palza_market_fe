@@ -1,12 +1,12 @@
-import React from "react";
-import HomeAppBar from "../components/homeAppBar";
-import Carousel from "nuka-carousel";
-import topBannerSlideOne from "../assets/imgs/topban1.png";
-import topBannerSlideTwo from "../assets/imgs/topban2.jpg";
-import mainBanenrOne from "../assets/imgs/main1.jpg";
-import SearchBar from "../components/SearchBar";
-import PropSingle from "../components/PropSingle";
-import PropSingleTwo from "../components/PropSingleTwo";
+import React from "react"
+import HomeAppBar from "../components/homeAppBar"
+import Carousel from "nuka-carousel"
+import topBannerSlideOne from "../assets/imgs/topban1.png"
+import topBannerSlideTwo from "../assets/imgs/topban2.jpg"
+import mainBanenrOne from "../assets/imgs/main1.jpg"
+import SearchBar from "../components/SearchBar"
+import PropSingle from "../components/PropSingle"
+import PropSingleTwo from "../components/PropSingleTwo"
 
 export default function HomeView({ isAuth, userRole, userType }) {
   return (
@@ -74,7 +74,7 @@ export default function HomeView({ isAuth, userRole, userType }) {
               <PropSingle />
             </div>
             <div className="">
-              <PropSingle />             
+              <PropSingle />
             </div>
           </div>
         </div>
@@ -107,6 +107,6 @@ export default function HomeView({ isAuth, userRole, userType }) {
       {/* section 4 start */}
       <div className=" mx-auto my-0 max-w-screen-xl lg:pb-32"></div>
     </>
-  );
+  )
 }
 //
