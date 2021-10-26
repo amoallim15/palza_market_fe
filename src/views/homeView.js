@@ -6,11 +6,9 @@ import topBannerSlideTwo from "../assets/imgs/topban2.jpg";
 import mainBanenrOne from "../assets/imgs/main1.jpg";
 import SearchBar from "../components/SearchBar";
 import PropSingle from "../components/PropSingle";
-
-
+import PropSingleTwo from "../components/PropSingleTwo";
 
 export default function HomeView({ isAuth, userRole, userType }) {
-  //
   return (
     <>
       <div className="lg:block hidden">
@@ -70,10 +68,44 @@ export default function HomeView({ isAuth, userRole, userType }) {
               <i class="xi-timer-o mr-2" name="time-five"></i>
               <span>서두르지 않으면 놓칠지도 몰라요 !</span>
             </div>
-            <div className=""><PropSingle /></div>
+          </div>
+          <div className="grid grid-cols-2 gap-5">
+            <div className="">
+              <PropSingle />
+            </div>
+            <div className="">
+              <PropSingle />             
+            </div>
           </div>
         </div>
       </div>
+      {/* section 3 start */}
+      <div className="bg-gray-50">
+        <div className=" mx-auto my-0 max-w-screen-xl lg:pb-32">
+          <h2 className="text-4xl text-center pt-6 lg:pt-0 lg:pt-20">
+            <strong>HOT!</strong> 인기 매물
+          </h2>
+          <a href="#" class="text-sm text-right block mr-4 lg:mr-0">
+            더보기 <i class="xi-angle-right-min"></i>
+          </a>
+        </div>
+        <div className="grid grid-cols-4 gap-5">
+          <div className="">
+            <PropSingleTwo />
+          </div>
+          <div className="">
+            <PropSingleTwo />
+          </div>
+          <div className="">
+            <PropSingleTwo />
+          </div>
+          <div className="">
+            <PropSingleTwo />
+          </div>
+        </div>
+      </div>
+      {/* section 4 start */}
+      <div className=" mx-auto my-0 max-w-screen-xl lg:pb-32"></div>
     </>
   );
 }

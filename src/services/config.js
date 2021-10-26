@@ -1,5 +1,5 @@
 export const CONFIG = {
-  API_ENDPOINT: "http://localhost:8000",
+  API_ENDPOINT: "http://13.125.147.119:8080",
   CLIENT_ENDPOINT: `http://${window.location.host}`,
   PASS_ENDPOINT: "https://nice.checkplus.co.kr",
   KAKAO_ENDPOINT: "https://kauth.kakao.com",

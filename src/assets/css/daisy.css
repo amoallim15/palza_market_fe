@@ -1,0 +1,3 @@
+.mainCard .card {
+  @apply md:grid;
+}
