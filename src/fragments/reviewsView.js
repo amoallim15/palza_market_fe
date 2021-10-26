@@ -15,7 +15,7 @@ export default function ReviewsView({
         <div className="h-12 flex items-center">
           <span className="text-sm leading-8">{Lang.total}</span> <span className="font-bold mx-1 text-sm leading-8">{reviewData.info?.count}</span><span className="text-sm leading-8">{Lang.articles}</span>
         </div>
-        <label htmlFor="create-review" className="text-center border my-auto p-2 rounded-md modal-button hover:bg-blue-400 hover:text-white">
+        <label htmlFor="create-review" className="btn btn-primary">
           {Lang.create}
         </label>
         <input type="checkbox" id="create-review" className="modal-toggle" />
@@ -94,7 +94,7 @@ export default function ReviewsView({
                 </label>
                 <input type="text" className="w-full outline-none bg-transparent border-b-2"></input>
               </div>
-              <label htmlFor="create-review" className="text-center border my-auto py-4 rounded-md hover:bg-blue-400 hover:text-white">
+              <label htmlFor="create-review" className="btn mt-3">
               {Lang.send}
               </label>
             </div>

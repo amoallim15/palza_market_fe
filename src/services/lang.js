@@ -115,7 +115,7 @@ const EN = {
   articles: "건",
   search: "Search",
   more: "more",
-  close: "Close",
+  close: "닫기",
   go: "Go",
   customerRelation: "고객상담",
   serviceGuide: "이용안내",

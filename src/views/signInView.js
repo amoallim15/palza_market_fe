@@ -70,18 +70,53 @@ export default function SignInView({
                 {/* hw-add need check*/}
                 <div className="my-4 flex justify-between">
                   <div>
-                    <input id="save-id" type="checkbox" />
-                    <label for="save-id" className="ml-2">{Lang.userIdSave}</label>
+                    <input id="save-id" type="checkbox" className="checkbox align-middle"/>
+                    <label for="save-id" className="ml-2 text-sm labal-text">{Lang.userIdSave}</label>
                   </div>
-                  <ul className="flex">
+                  <ul className="flex text-xs mt-1 gap-2">
                     <li>
-                      <a classNAme="block ">아이디 찾기</a>
+                    <div>
+                      <label htmlFor="findID" className="block hover:font-bold">아이디 찾기</label> 
+                      <input type="checkbox" id="findID" className="modal-toggle" /> 
+                      <div className="modal">
+                        <div className="modal-box">
+                          <h2 className="font-bold text-3xl text-center mb-8">아이디 찾기</h2>
+                          <div className="flex justify-around gap-2">
+                            <input id="findName" type="text" className="text-lg outline-none border-b-2" placeholder={Lang.username}></input>
+                            <input id="findEmail" type="text" className="text-lg outline-none border-b-2" placeholder={Lang.email}></input>
+                          </div>
+                          <div className="modal-action">
+                            <label htmlFor="findID" className="btn btn-primary modal-button">이메일 보내기</label> 
+                            <label htmlFor="findID" className="btn modal-button">{Lang.close}</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     </li>
                     <li>
-                      <a classNAme="block "></a>
+                      |
                     </li>
                     <li>
-                      <a classNAme="block ">비밀번호 찾기</a>
+                    <div>
+                      <label htmlFor="findPassword" className="block hover:font-bold">비밀번호 찾기</label> 
+                      <input type="checkbox" id="findPassword" className="modal-toggle" /> 
+                      <div className="modal">
+                        <div className="modal-box">
+                        <h2 className="font-bold text-3xl text-center mb-8">비밀번호 찾기</h2>
+                          <div className="flex justify-around gap-2">
+                            <input id="findName" type="text" className="text-lg outline-none border-b-2" placeholder={Lang.userId}></input>
+                            <input id="findEmail" type="text" className="text-lg outline-none border-b-2" placeholder={Lang.email}></input>
+                          </div>
+                          <div className="modal-action">
+                            <label htmlFor="findPassword" className="btn btn-primary modal-button">이메일 보내기</label> 
+                            <label htmlFor="findPassword" className="btn modal-button">{Lang.close}</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </li>
+                    <li>
+                      
                     </li>
                   </ul>
                 </div>

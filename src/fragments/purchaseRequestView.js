@@ -74,12 +74,12 @@ export default function PurchaseRequestView() {
           <div>
             <label className="label">
               <span className="text-lg font-semibold">고객명</span>
-              
+
             </label>
             <input type="text" placeholder="ex) 홍길동" className="w-full outline-none bg-transparent border-b-2"></input>
           </div>
           <div className="lg:text-right my-auto">
-            <button className="w-full mt-4 lg:mt-0 border p-4 rounded-md hover:bg-blue-400 hover:text-white">{Lang.send}</button>
+            <button className="btn w-full">{Lang.send}</button>
           </div>
         </div>
       </div>
