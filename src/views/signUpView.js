@@ -18,20 +18,20 @@ function Step1({ onUpdateUserType }) {
               alt="individual"
               className="mb-6 block ml-auto mr-auto"
             />
-            <h4>{Lang.signUpIndividual}</h4>
+            <h4 className="font-bold">일반<br />회원가입</h4>
           </div>
         </div>
       </button>
       {/**/}
       <button onClick={(e) => onUpdateUserType(e, "AGENCY", 2)}>
         <div className="my-4 py-10 card bg-base-200 h-full justify-center shadow-lg border border-transparent hover:border-green-600">
-          <div>
+          <div className="mt-2">
             <img
               src={AgencyIMG}
               alt="agency"
-              className="mb-9 block ml-auto mr-auto"
+              className="mb-6 block ml-auto mr-auto"
             />
-            <h4 className="">{Lang.signUpAgency}</h4>
+            <h4 className="font-bold">중개사무소<br />회원가입</h4>
           </div>
         </div>
       </button>
