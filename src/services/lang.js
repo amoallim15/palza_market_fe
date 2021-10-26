@@ -101,7 +101,8 @@ const EN = {
   send: "등록하기",
   recieverPhoneNo: "Reciever Phone No.",
   realstateId: "Realstate ID",
-  userId: "User ID",
+  userId: "아이디",
+  userIdSave: "아이디 저장",
   myReviews: "My Reviews",
   myReports: "My Reports",
   rating: "Rating",
@@ -133,3 +134,4 @@ const Lang = ((lang) => {
 })(EN)
 //
 export default Lang
+
