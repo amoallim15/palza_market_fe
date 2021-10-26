@@ -20,11 +20,11 @@ export default function ReviewsView({
         </label>
         <input type="checkbox" id="create-review" className="modal-toggle" />
         {/**/}
-        <div className="modal overflow-x-auto flex-col justify-start m-0 px-4 w-screen h-screen">
-          <div className="modal-box my-10 bg-gray-100 max-w-4xl">
+        <div className="modal overflow-x-auto flex-col justify-start m-0 px-8 w-screen h-screen">
+          <div className="modal-box my-10 bg-gray-100 lg:max-w-3xl rounded-b-2xl">
             {/**/}
-            <div className="form-control flex-row">
-              <span className="label label-text mr-4">{Lang.purchaseType}</span>
+            <span className="label label-text mr-4">{Lang.purchaseType}</span>
+            <div className="form-control flex-row justify-around lg:justify-start">
               <label
                 htmlFor="sale"
                 className="cursor-pointer label justify-start mr-4"
@@ -36,7 +36,7 @@ export default function ReviewsView({
                   className="radio"
                   value="a"
                 />
-                <span className="label-text ml-2">{Lang.sale}</span>
+                <span className="label-text ml-2">{Lang.saleReview}</span>
               </label>
               {/**/}
               <label
@@ -50,7 +50,7 @@ export default function ReviewsView({
                   className="radio"
                   value="b"
                 />
-                <span className="label-text ml-2">{Lang.buy}</span>
+                <span className="label-text ml-2">{Lang.buyReview}</span>
               </label>
             </div>
             {/**/}
@@ -75,24 +75,24 @@ export default function ReviewsView({
               />
             </div>
             {/**/}
-            <div className="mt-8 grid grid-cols-4">
+            <div className="mt-8 grid lg:grid-cols-4 gap-8">
               <div>
                 <label className="label">
                   <span className="label-text">계약일</span>
                 </label>
-                <input type="date" className="outline-none bg-transparent border-b-2"></input>
+                <input type="date" className="w-full outline-none bg-transparent border-b-2"></input>
               </div>
               <div>
                 <label className="label">
                   <span className="label-text">담당 에이전트</span>
                 </label>
-                <input type="text" className="outline-none bg-transparent border-b-2"></input>
+                <input type="text" className="w-full outline-none bg-transparent border-b-2"></input>
               </div>
               <div>
                 <label className="label">
                   <span className="label-text">고객명</span>
                 </label>
-                <input type="text" className="outline-none bg-transparent border-b-2"></input>
+                <input type="text" className="w-full outline-none bg-transparent border-b-2"></input>
               </div>
               <label htmlFor="create-review" className="text-center border my-auto py-4 rounded-md hover:bg-blue-400 hover:text-white">
               {Lang.send}

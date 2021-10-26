@@ -121,8 +121,10 @@ const EN = {
   previous: "Previous",
   next: "Next",
   purchaseType: "의뢰 종류",
-  sale: "매수후기",
-  buy: "매도후기",
+  sale: "매수 의뢰",
+  buy: "매도 의뢰",
+  saleReview: "매수 후기",
+  buyReview: "매도 후기",
   franchisesIntro: "프랜차이즈 창업 안내"
 }
 //

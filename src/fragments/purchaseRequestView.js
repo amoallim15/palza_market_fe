@@ -32,53 +32,53 @@ export default function PurchaseRequestView() {
           />
         </div>
         {/**/}
-        <div className="mt-8 grid grid-cols-4">
+        <div className="mt-8 grid lg:grid-cols-4 lg:gap-10">
           <div>
             <span className="text-lg font-semibold">{Lang.purchaseType}</span>
-            <div className="flex">
-            <label
-              htmlFor="sale"
-              className="cursor-pointer label justify-start mr-4"
-            >
-              <input
-                id="sale"
-                type="radio"
-                name="opt"
-                className="radio"
-                value="a"
-              />
-              <span className="label-text ml-2">{Lang.sale}</span>
-            </label>
-            {/**/}
-            <label
-              htmlFor="buy"
-              className="cursor-pointer label justify-start mr-4"
-            >
-              <input
-                id="buy"
-                type="radio"
-                name="opt"
-                className="radio"
-                value="b"
-              />
-              <span className="label-text ml-2">{Lang.buy}</span>
-            </label>
+            <div className="flex my-2 justify-start">
+              <label
+                htmlFor="sale"
+                className="cursor-pointer label justify-start mr-4"
+              >
+                <input
+                  id="sale"
+                  type="radio"
+                  name="opt"
+                  className="radio"
+                  value="a"
+                />
+                <span className="label-text ml-2">{Lang.sale}</span>
+              </label>
+              {/**/}
+              <label
+                htmlFor="buy"
+                className="cursor-pointer label justify-start mr-4"
+              >
+                <input
+                  id="buy"
+                  type="radio"
+                  name="opt"
+                  className="radio"
+                  value="b"
+                />
+                <span className="label-text ml-2">{Lang.buy}</span>
+              </label>
             </div>
           </div>
           <div>
             <label className="label">
               <span className="text-lg font-semibold">본인 연락처</span>
             </label>
-            <input type="tel" max='10' placeholder="000-0000-0000" className="w-5/6 outline-none bg-transparent border-b-2"></input>
+            <input type="tel" max='10' placeholder="000-0000-0000" className="w-full outline-none bg-transparent border-b-2"></input>
           </div>
           <div>
             <label className="label">
               <span className="text-lg font-semibold">고객명</span>
             </label>
-            <input type="text" placeholder="ex) 홍길동" className="w-5/6 outline-none bg-transparent border-b-2"></input>
+            <input type="text" placeholder="ex) 홍길동" className="w-full outline-none bg-transparent border-b-2"></input>
           </div>
-          <div className="text-right my-auto">
-            <button className=" border p-4 rounded-md hover:bg-blue-400 hover:text-white">{Lang.send}</button>
+          <div className="lg:text-right my-auto">
+            <button className="w-full mt-4 lg:mt-0 border p-4 rounded-md hover:bg-blue-400 hover:text-white">{Lang.send}</button>
           </div>
         </div>
       </div>
