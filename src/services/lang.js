@@ -120,7 +120,7 @@ const EN = {
   serviceGuide: "이용안내",
   previous: "Previous",
   next: "Next",
-  purchaseType: "계약 종류",
+  purchaseType: "의뢰 종류",
   sale: "매수후기",
   buy: "매도후기",
   franchisesIntro: "프랜차이즈 창업 안내"

@@ -4,61 +4,82 @@ import Lang from "../services/lang"
 export default function PurchaseRequestView() {
   return (
     <div>
-      <div className="my-4 p-10 card bg-base-200">
-        <div className="form-control flex-row">
-          <span className="label label-text mr-4">{Lang.purchaseType}</span>
-          <label
-            htmlFor="sale"
-            className="cursor-pointer label justify-start mr-4"
-          >
-            <input
-              id="sale"
-              type="radio"
-              name="opt"
-              className="radio"
-              value="a"
-            />
-            <span className="label-text ml-2">{Lang.sale}</span>
-          </label>
-          {/**/}
-          <label
-            htmlFor="buy"
-            className="cursor-pointer label justify-start mr-4"
-          >
-            <input
-              id="buy"
-              type="radio"
-              name="opt"
-              className="radio"
-              value="b"
-            />
-            <span className="label-text ml-2">{Lang.buy}</span>
-          </label>
+      <div className="my-4 p-10 card bg-gray-100">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold mb-4 mt-6">매수/매도 의뢰</h2>
+          <h4>의뢰하고 싶은 내용을 적어보세요!</h4>
+          <p className="mb-6">담당자가 확인 후 고객님의 연락처로 연락드립니다.</p>
         </div>
         {/**/}
         <div className="form-control flex-grow">
           <label className="label">
-            <span className="label-text">{Lang.title}</span>
+            {/* <span className="label-text">{Lang.title}</span> */}
           </label>
           <input
             type="text"
             placeholder={Lang.title}
-            className="input input-ghost w-full"
+            className="input input-bordered w-full"
           />
         </div>
         {/**/}
         <div className="form-control">
           <label className="label">
-            <span className="label-text">{Lang.content}</span>
+            {/* <span className="label-text">{Lang.content}</span> */}
           </label>
           <textarea
             placeholder={Lang.content}
-            className="textarea input-ghost h-24"
+            className="textarea input-bordered h-40"
           />
         </div>
         {/**/}
-        <div className="mt-8 flex flex-row-reverse">
-          <button className="btn btn-primary">{Lang.send}</button>
+        <div className="mt-8 grid grid-cols-4">
+          <div>
+            <span className="text-lg font-semibold">{Lang.purchaseType}</span>
+            <div className="flex">
+            <label
+              htmlFor="sale"
+              className="cursor-pointer label justify-start mr-4"
+            >
+              <input
+                id="sale"
+                type="radio"
+                name="opt"
+                className="radio"
+                value="a"
+              />
+              <span className="label-text ml-2">{Lang.sale}</span>
+            </label>
+            {/**/}
+            <label
+              htmlFor="buy"
+              className="cursor-pointer label justify-start mr-4"
+            >
+              <input
+                id="buy"
+                type="radio"
+                name="opt"
+                className="radio"
+                value="b"
+              />
+              <span className="label-text ml-2">{Lang.buy}</span>
+            </label>
+            </div>
+          </div>
+          <div>
+            <label className="label">
+              <span className="text-lg font-semibold">본인 연락처</span>
+            </label>
+            <input type="tel" max='10' placeholder="000-0000-0000" className="w-5/6 outline-none bg-transparent border-b-2"></input>
+          </div>
+          <div>
+            <label className="label">
+              <span className="text-lg font-semibold">고객명</span>
+            </label>
+            <input type="text" placeholder="ex) 홍길동" className="w-5/6 outline-none bg-transparent border-b-2"></input>
+          </div>
+          <div className="text-right my-auto">
+            <button className=" border p-4 rounded-md hover:bg-blue-400 hover:text-white">{Lang.send}</button>
+          </div>
         </div>
       </div>
     </div>
