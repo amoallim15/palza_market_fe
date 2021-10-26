@@ -24,7 +24,7 @@ export default function SignInView({
       <div className="container mx-auto px-4 pt-9 pb-4 flex-grow">
         <h1 className="text-center text-4xl font-bold">{Lang.signIn}</h1>
         <div className="px-10 pt-10 xs:p-0 mx-auto md:w-full md:max-w-lg">
-          <div className="mb-4 px-10 pb-10 pt-5 card bg-base-200">
+          <div className="mb-4 px-10 pb-10 pt-5 card bg-gray-100">
             {/* hw-add need check */}
             <ul className="text-center text-center">
               <li className="text-lg rounded-sm">  

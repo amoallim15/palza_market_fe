@@ -69,7 +69,8 @@ export default function PurchaseRequestView() {
             <label className="label">
               <span className="text-lg font-semibold">본인 연락처</span>
             </label>
-            <input type="tel" max='10' placeholder="000-0000-0000" className="w-full outline-none bg-transparent border-b-2"></input>
+            <input type="tel" max='10' placeholder="000-0000-0000" className="w-full outline-none bg-transparent border-b-2"
+            ></input>
           </div>
           <div>
             <label className="label">

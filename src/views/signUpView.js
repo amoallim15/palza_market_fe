@@ -11,7 +11,7 @@ function Step1({ onUpdateUserType }) {
   return (
     <div className="grid grid-cols-2 gap-14">
       <button onClick={(e) => onUpdateUserType(e, "INDIVIDUAL", 2)} className="">
-        <div className="my-4 py-10 card bg-base-200 h-full justify-center shadow-lg border border-transparent hover:border-green-600">
+        <div className="my-4 py-10 card bg-gray-100 h-full justify-center shadow-lg border border-transparent hover:border-green-600">
           <div>
             <img
               src={IndividualIMG}
@@ -24,7 +24,7 @@ function Step1({ onUpdateUserType }) {
       </button>
       {/**/}
       <button onClick={(e) => onUpdateUserType(e, "AGENCY", 2)}>
-        <div className="my-4 py-10 card bg-base-200 h-full justify-center shadow-lg border border-transparent hover:border-green-600">
+        <div className="my-4 py-10 card bg-gray-100 h-full justify-center shadow-lg border border-transparent hover:border-green-600">
           <div className="mt-2">
             <img
               src={AgencyIMG}
@@ -47,20 +47,21 @@ function Step2({
   onbrokerageRegistrationChange
 }) {
   return (
-    <div className="my-4 p-4 card bg-base-200">
+    <div className="p-4 card bg-gray-100">
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           {formUserType === "AGENCY" && <AuthAgencyInfo />}
-          <div className="px-5 py-7">
+          <h2 className="px-5 text-xl font-bold pb-4">개인정보 입력</h2>
+          <div className="px-5">
             {/**/}
             {formUserType === "AGENCY" && (
               <>
-                <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                <label className=" text-sm text-gray-600 pb-1 block">
                   <span className="label-text">{Lang.managerPhoneNo}</span>
                 </label>
                 <input
                   type="text"
-                  className="input input-ghost w-full"
+                  className="input input-bordered w-full"
                   {...methods.register("manager_phone_no")}
                 />
               </>
@@ -72,7 +73,7 @@ function Step2({
               </label>
               <input
                 type="text"
-                className="input input-ghost w-full"
+                className="input input-bordered w-full"
                 {...methods.register("username", { required: true })}
               />
             </div>
@@ -83,7 +84,7 @@ function Step2({
               </label>
               <input
                 type="email"
-                className="input input-ghost w-full"
+                className="input input-bordered w-full"
                 {...methods.register("email", { required: true })}
               />
             </div>
@@ -94,7 +95,7 @@ function Step2({
               </label>
               <input
                 type="text"
-                className="input input-ghost w-full"
+                className="input input-bordered w-full"
                 {...methods.register("name", { required: true })}
               />
             </div>
@@ -105,7 +106,7 @@ function Step2({
               </label>
               <input
                 type="text"
-                className="input input-ghost w-full"
+                className="input input-bordered w-full"
                 {...methods.register("phone_no", { required: true })}
               />
             </div>
@@ -116,7 +117,7 @@ function Step2({
               </label>
               <input
                 type="password"
-                className="input input-ghost w-full"
+                className="input input-bordered w-full"
                 {...methods.register("password", {
                   required: true,
                   pattern: /^((?=.*\d)(?=.*[a-z])(?=.*[\W]).{8,16})$/
@@ -130,7 +131,7 @@ function Step2({
               </label>
               <input
                 type="password"
-                className="input input-ghost w-full"
+                className="input input-bordered w-full"
                 {...methods.register("confirm_password", {
                   required: true,
                   validate: {
@@ -151,7 +152,7 @@ function Step2({
                 </label>
                 <input
                   type="text"
-                  className="input input-ghost w-full"
+                  className="input input-bordered w-full"
                   {...methods.register("business_registeration_no", {
                     required: true
                   })}

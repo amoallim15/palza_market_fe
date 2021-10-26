@@ -41,9 +41,9 @@ export default function AuthAgencyInfo() {
   }
   //
   return (
-    <div className="px-5 py-7">
+    <div className="px-5 pt-3 pb-5">
       <label className="label">
-        <span className="label-text">{Lang.findAgency}</span>
+        <span className="label-text text-xl font-bold">{Lang.findAgency}</span>
       </label>
       <div className="mb-8">
         <button
@@ -101,29 +101,40 @@ export default function AuthAgencyInfo() {
           {...methods.register("legal_address", { required: true })}
         />
       </div>
+      <hr className="mt-10 mb-6 border-gray-400" />
       {/**/}
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className="-translate-x-1/2 -translate-y-1/2 p-10 xs:p-0 mx-auto md:w-full md:max-w-lg">
           <div className="card bg-base-200">
             <div className="px-5 py-7 boroder-b">
               {/**/}
+              <h2 className="text-2xl font-bold">중개사무소 조회</h2>
               <div className="form-control flex-grow">
                 <label className="label">
-                  <span className="label-text">{Lang.searchBusinessName}</span>
+                  <span className="label-text text-red-500 font-semibold">{Lang.searchBusinessName}</span>
                 </label>
                 <input
                   type="text"
-                  className="input input-ghost w-full"
+                  className="input input-bordered w-full"
+                  placeholder="ex)팔자마케 부동산 중개 사무소"
                   onChange={onChange}
                 />
               </div>
+                <ul className="text-xs list-outside bg-rose-200 my-5">
+                  <li>
+                    &#8226; 중개사무소 사업자 상호명을 통해 구각 정보포털의 부동산 중개업 정보에 등록된 정보를 검색할 수 있습니다.
+                  </li>
+                  <li>
+                    &#8226; 중개사무소가 검색되지 않을 경우 1588-9816으로 문의주세요
+                  </li>
+                </ul>
               {/**/}
-              <div className="border rounded-lg py-2 mt-8 mb-5 text-sm w-full overflow-y-scroll h-72  ">
+              <div className="border rounded-lg py-2 mb-5 text-sm w-full overflow-y-scroll h-72  ">
                 {options.map((item, index) => (
                   <button
                     key={index}
                     className={
-                      "px-3 py-2 w-full" +
+                      "px-3 py-2 w-full hover:bg-gray-400 hover:text-white hover:font-bold" +
                       (selected?.bsnmCmpnm === item.bsnmCmpnm
                         ? " text-white bg-gray-500"
                         : "")
