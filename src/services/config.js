@@ -1,25 +1,11 @@
 export const CONFIG = {
-  API_ENDPOINT: "http://localhost:8000",
+  API_ENDPOINT: "http://locsalhost:8000",
   CLIENT_ENDPOINT: `http://${window.location.host}`,
   PASS_ENDPOINT: "https://nice.checkplus.co.kr",
   KAKAO_ENDPOINT: "https://kauth.kakao.com",
   NAVER_ENDPOINT: "https://nid.naver.com",
   GOOGLE_ENDPOINT: "https://accounts.google.com",
   NSDI_ENDPOINT: "http://openapi.nsdi.go.kr"
-}
-//
-export function NSDI_URL(app_key) {
-  const url = new URL(
-    "/nsdi/EstateBrkpgService/attr/getEBOfficeInfo",
-    CONFIG.NSDI_ENDPOINT
-  )
-  url.search = new URLSearchParams({
-    authkey: app_key,
-    numOfRows: 10,
-    pageNo: 1,
-    format: "json"
-  })
-  return url
 }
 //
 export function KAKAO_AUTH_URL(app_key) {
