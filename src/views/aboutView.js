@@ -19,9 +19,7 @@ export default function AboutView({
   onNoticeSearchChange,
   onNoticeSearchClick,
   //
-  reviewData,
-  reviewTypeColors,
-  onReviewPageChange
+  
  }) {
   
   return (
@@ -36,7 +34,7 @@ export default function AboutView({
       <div className="container mx-auto px-4 pt-10 pb-4 flex-grow">
         {/**/}
         <h1 className="text-center text-4xl font-bold mb-8">
-          {Lang.community}
+          {Lang.about}
         </h1>
         {/**/}
         <div>
@@ -80,11 +78,7 @@ export default function AboutView({
         <TabPanel value={currentTab} index={1}></TabPanel>
         {/**/}
         <TabPanel value={currentTab} index={2}>
-          <SinUpInfo
-            reviewData={reviewData}
-            reviewTypeColors={reviewTypeColors}
-            onReviewPageChange={onReviewPageChange}
-          />
+          <SinUpInfo />
         </TabPanel>
         {/**/}
         <TabPanel value={currentTab} index={3}>
