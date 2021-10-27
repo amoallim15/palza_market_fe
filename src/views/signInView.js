@@ -27,13 +27,13 @@ export default function SignInView({
           <div className="mb-4 px-10 pb-10 pt-5 card bg-gray-100">
             {/* hw-add need check */}
             <ul className="text-center text-center">
-              <li className="text-lg rounded-sm">  
-                <button className="leading-loose w-full"><i className="xi-kakaotalk mr-2"></i>카카오톡 로그인</button>
+              <li className="text-lg  rounded-sm">  
+                <button className="leading-loose w-full "><i className="xi-kakaotalk mr-2 text-2xl"></i>카카오톡 로그인</button>
               </li>
-              <li className="text-lg rounded-sm">  
+              <li className="text-lg  rounded-sm">  
                 <button className="leading-loose w-full"><i className="xi-naver mr-2 text-white"></i>네이버 로그인</button>
               </li>
-              <li className="text-lg rounded-sm">  
+              <li className="text-lg  rounded-sm">  
                 <button className="leading-loose w-full"><i className="xi-google-plus mr-2"></i>구글 로그인</button>
               </li>
             </ul>

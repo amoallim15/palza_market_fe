@@ -1,7 +1,7 @@
 import React from "react"
 import Lang from "../services/lang"
 import HomePagination from "../components/homePagination"
-import test1 from "../assets/imgs/test1.jpeg"
+
 //
 
 export default function FranchiseView({

@@ -1,6 +1,6 @@
 import React from "react"
 import Lang from "../services/lang"
-import HomePagination from "../components/homePagination"
+
 
 //
 
