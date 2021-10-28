@@ -1,10 +1,10 @@
 import React from "react"
 import HomeAppBar from "../components/homeAppBar"
+import Footer from "../components/footer"
 import Lang from "../services/lang"
 import TabPanel from "../components/tabPanel"
 import NoticesView from "../fragments/noticesView"
 import ReviewsView from "../fragments/reviewsView"
-import Footer from "../components/footer"
 import PurchaseRequestView from "../fragments/purchaseRequestView"
 //
 export default function CommunityView({

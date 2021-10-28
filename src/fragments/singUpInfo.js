@@ -5,8 +5,7 @@ import Lang from "../services/lang"
 //
 
 export default function SingUpInfo({
-  singUpInfo,
-  onSingUpInfoPageChange
+  
 }) {
   return (
     <div>

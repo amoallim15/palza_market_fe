@@ -14,14 +14,11 @@ export default function AboutView({
   onTabChange,
   currentTab,
   //
-  noticeData,
-  onNoticePageChange,
-  onNoticeSearchChange,
-  onNoticeSearchClick,
+
   //
   
  }) {
-  
+  //
   return (
     <>
       <HomeAppBar
@@ -67,23 +64,17 @@ export default function AboutView({
         </div>
         {/**/}
         <TabPanel value={currentTab} index={0}>
-          <AboutCompany
-            noticeData={noticeData}
-            onNoticePageChange={onNoticePageChange}
-            onNoticeSearchChange={onNoticeSearchChange}
-            onNoticeSearchClick={onNoticeSearchClick}
-          />
+          <AboutCompany />
         </TabPanel>
         {/**/}
-        <TabPanel value={currentTab} index={1}></TabPanel>
-        {/**/}
-        <TabPanel value={currentTab} index={2}>
+        <TabPanel value={currentTab} index={1}>
           <SinUpInfo />
         </TabPanel>
         {/**/}
-        <TabPanel value={currentTab} index={3}>
+        <TabPanel value={currentTab} index={2}>
           <AdvertisingInquiry />
         </TabPanel>
+        {/**/}
       </div>
       <Footer />
     </>

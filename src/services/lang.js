@@ -84,7 +84,7 @@ const EN = {
   createNotice: "공지사항 작성하기",
   content: "내용",
   thumbnail: "메인 이미지",
-  actions: "처리상태",
+  actions: "비고",
   label: "업종",
   update: "업데이트",
   externalUrl: "외부 링크",

@@ -5,8 +5,7 @@ import Lang from "../services/lang"
 //
 
 export default function AboutCompany({
-  aboutCompanyData,
-  onAboutCompanyPageChange
+  
 }) {
   return (
     <div>
