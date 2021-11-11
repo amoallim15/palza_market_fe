@@ -39,8 +39,8 @@ export default function Community() {
     info: { page: 0, count: 0 },
     data: []
   })
-  const onReviewPageChange = async (page) => {
-    let result = await getReviews(page)
+  const onReviewPageChange = async (keywords, page) => {
+    let result = await getReviews(keywords, page)
     if (result) await setReviewData(result)
   }
   //

@@ -34,7 +34,7 @@ import ReportAlter from "../controllers/dashboard/reportAlter"
 import Review from "../controllers/dashboard/review"
 import ReviewAlter from "../controllers/dashboard/reviewAlter"
 //
-export const HomeRoutes = [
+export const MainRoutes = [
   {
     path: ["/dashboard"],
     component: Dashboard

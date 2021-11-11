@@ -1,0 +1,20 @@
+Front End:::
+
+3. show request in admin and navbar.
+4. report list and create report. 
+--- 6. show article.
+--- 7. list realstates table.
+9. banners.
+-- 10. home.
+-- 11. search.
+12. about page and agency landing.
+13. banners.
+14. banner dashboard.
+15. review create add agency based on display name.
+16. report create add realstate.
+
+Back End:::
+
+3. crontab.
+4. social login
+6. search based on agency name and realstate.

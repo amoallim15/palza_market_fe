@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <AppContextProvider>
       <BrowserRouter>
-        <RouterContainer routes={HomeRoutes} />
+        <Main />
       </BrowserRouter>
     </AppContextProvider>
   </React.StrictMode>,

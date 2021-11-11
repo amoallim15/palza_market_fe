@@ -2,9 +2,8 @@ import React from "react"
 import Lang from "../services/lang"
 import { Modal } from "@mui/material"
 import { useFormContext } from "react-hook-form"
-import { NSDI_URL } from "../services/config"
 import AppContext from "../services/context"
-import { getBusinessInfo } from "../services/api"
+import { getAgencyInfo } from "../services/api"
 
 export default function AuthAgencyInfo() {
   const [open, setOpen] = React.useState(false)
@@ -12,7 +11,6 @@ export default function AuthAgencyInfo() {
   const [options, setOptions] = React.useState([])
   const [selected, setSelected] = React.useState(null)
   const { appState } = React.useContext(AppContext)
-  const nsdi_url = NSDI_URL(appState.appSettings.nsdi_key)
   //
   const onSelect = async (e) => {
     if (!selected) return
@@ -34,10 +32,9 @@ export default function AuthAgencyInfo() {
   }
   //
   const onChange = async (e) => {
-    nsdi_url.searchParams.set("bsnmCmpnm", e.target.value)
-    let result = await getBusinessInfo(nsdi_url)
-    if (result.length === 0) return
-    setOptions(result)
+    let result = await getAgencyInfo(e.target.value)
+    if (!result) return
+    setOptions(result.data)
   }
   //
   return (

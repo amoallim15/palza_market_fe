@@ -30,8 +30,10 @@ export const checkAuth = async (token) => {
 export const getSettings = async () => {
   return await call("/settings", "GET")
 }
-export const getAgencyInfo = async () => {
-  return await call("/agency_info", "GET")
+export const getAgencyInfo = async (name) => {
+  return await call("/agency_info", "GET", null, {
+    name: name
+  })
 }
 export const getNoticeCategories = async () => {
   return await call("/notice-category", "GET")
@@ -40,11 +42,14 @@ export const getNoticeCategory = async (notice_category_id) => {
   return await call(`/notice-category/${notice_category_id}`, "GET")
 }
 export const getNotices = async (keywords, page, page_size) => {
-  return await call("/notice", "GET", null, {
-    keywords: keywords,
+  let params = {
     page: page,
     page_size: page_size,
-  })
+  }
+  if (keywords !== null || keywords !== "")
+    params["keywords"] = keywords
+  // 
+  return await call("/notice", "GET", null, params)
 }
 export const getNotice = async (notice_id) => {
   return await call(`/notice/${notice_id}`, "GET")
@@ -112,7 +117,7 @@ export const getReviews = async (page, page_size) => {
     page_size: page_size,
   })
 }
-export const getAgencyReviews = async (page, agency_id) => {
+export const getAgencyReviews = async (agency_id, page, page_size) => {
   return await call(`/review/agent/${agency_id}`, "GET", null, {
     page: page,
     page_size: page_size,
@@ -291,7 +296,7 @@ export const changeUserPwd = async (token, data) => {
       "content-type": "application/json",
       Authorization: `Bearer ${token.access_token}`
     },
-    null
+    null,
     JSON.stringify(data)
   )
 }

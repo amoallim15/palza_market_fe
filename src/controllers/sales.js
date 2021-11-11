@@ -2,13 +2,18 @@ import React from "react"
 import SalesView from "../views/salesView"
 import AppContext from "../services/context"
 import { useCookies } from "react-cookie"
-import { checkAuth } from "../services/api"
+import { checkAuth, getRealstates } from "../services/api"
 //
 export default function Sales() {
   const [loaded, setLoaded] = React.useState(false)
   const { appState, appDispatch } = React.useContext(AppContext)
   const [cookies] = useCookies()
   //
+  const [realstateData, setRealstateData] = React.useState({
+    info: { page: 0, count: 0 },
+    data: []
+  })
+  // 
   React.useEffect(() => {
     ;(async () => {
       //
@@ -22,6 +27,10 @@ export default function Sales() {
         }
       }
       //
+      // Franchise..
+      let result_1 = await getRealstates(0)
+      if (result_1) await setRealstateData(result_1)
+      // 
       await setLoaded(true)
     })()
   }, [appDispatch, appState.currentUser, cookies])
